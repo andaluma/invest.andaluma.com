@@ -38,7 +38,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 /* ---- Hero ---- */
 .hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; padding-top:4.5rem; }
 .hero-left { background:var(--teal); padding:7rem 4.5rem 5rem; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center; }
-.hero-left::before { content:'$'; position:absolute; font-family:'Playfair Display',serif; font-size:60vw; font-weight:900; color:rgba(255,255,255,0.05); top:-12%; left:-6%; line-height:1; pointer-events:none; }
+.hero-left::before { content:'A'; position:absolute; font-family:'Playfair Display',serif; font-size:65vw; font-weight:900; color:rgba(255,255,255,0.05); top:-15%; left:-8%; line-height:1; pointer-events:none; }
 .hero-eyebrow { font-size:0.7rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:2rem; display:flex; align-items:center; gap:0.75rem; position:relative; z-index:1; }
 .hero-eyebrow::before { content:''; width:2rem; height:1px; background:rgba(255,255,255,0.4); }
 .hero-title { font-family:'Playfair Display',serif; font-size:clamp(3rem,4.6vw,5.4rem); font-weight:900; line-height:1.0; color:#fff; margin-bottom:2rem; position:relative; z-index:1; letter-spacing:-0.02em; }
@@ -103,7 +103,7 @@ a.card:hover .card-arrow { transform:translate(3px,-3px); }
 .frame-body h4 { font-family:'Playfair Display',serif; font-size:1.12rem; font-weight:700; margin-bottom:0.35rem; }
 .frame-body p { font-size:0.86rem; color:var(--muted); line-height:1.7; }
 
-/* ---- AI advisor teaser ---- */
+/* ---- AI guide teaser ---- */
 .advisor { background:var(--dark); color:#fff; padding:5.5rem 4rem; position:relative; overflow:hidden; }
 .advisor::before { content:''; position:absolute; top:-30%; right:-8%; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(10,122,136,0.35) 0%, rgba(10,122,136,0) 70%); pointer-events:none; }
 .advisor-inner { position:relative; z-index:1; max-width:760px; }
@@ -158,7 +158,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   <ul class="nav-links">
     <li><a href="#guidance">By Country</a></li>
     <li><a href="#frameworks">Frameworks</a></li>
-    <li><a href="#advisor">AI Advisor</a></li>
+    <li><a href="#guide">AI Guide</a></li>
     <li><a href="https://andaluma.com">Andaluma ↗</a></li>
     <li><a href="mailto:invest@andaluma.com" class="nav-contact">Get in touch</a></li>
   </ul>
@@ -180,7 +180,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
       <div class="category-pills">
         <span class="category-pill pill-country">By country</span>
         <span class="category-pill pill-frame">Frameworks</span>
-        <span class="category-pill pill-ai">AI advisor</span>
+        <span class="category-pill pill-ai">AI guide</span>
       </div>
     </div>
     <div class="status-block">
@@ -203,38 +203,45 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   <div class="grid">
     <div class="card c-teal">
       <div class="card-top"><div class="card-icon">🇮🇩</div><span class="badge">In progress</span></div>
-      <span class="card-sub">Southeast Asia</span>
+      <span class="card-sub">Southeast Asia · Lombok</span>
       <h3 class="card-name">Indonesia</h3>
-      <p class="card-desc">Residency, KITAS pathways, local brokerage access and the tax picture for foreign investors.</p>
+      <p class="card-desc">Foreign-ownership structures (freehold vs. leasehold), residency pathways and the real tax picture for property buyers.</p>
       <span class="card-foot">Playbook <span class="card-arrow">→</span></span>
-    </div>
-    <div class="card c-amber">
-      <div class="card-top"><div class="card-icon">🇵🇪</div><span class="badge">Planned</span></div>
-      <span class="card-sub">South America</span>
-      <h3 class="card-name">Peru</h3>
-      <p class="card-desc">Tax residency rules, foreign-income treatment and banking for the Lima-based investor.</p>
-      <span class="card-foot">Coming soon</span>
-    </div>
-    <div class="card c-berry">
-      <div class="card-top"><div class="card-icon">🇵🇹</div><span class="badge">Planned</span></div>
-      <span class="card-sub">Europe</span>
-      <h3 class="card-name">Portugal</h3>
-      <p class="card-desc">Post-NHR landscape, EU brokerage access and structuring for a European base.</p>
-      <span class="card-foot">Coming soon</span>
     </div>
     <div class="card c-forest">
       <div class="card-top"><div class="card-icon">🇦🇪</div><span class="badge">Planned</span></div>
       <span class="card-sub">Middle East</span>
       <h3 class="card-name">United Arab Emirates</h3>
-      <p class="card-desc">Zero personal income tax, residency via company or property, and global custody.</p>
+      <p class="card-desc">Personal-tax treatment, residency via company or property, and global custody access.</p>
+      <span class="card-foot">Coming soon</span>
+    </div>
+    <div class="card c-berry">
+      <div class="card-top"><div class="card-icon">🇬🇪</div><span class="badge">Planned</span></div>
+      <span class="card-sub">Caucasus</span>
+      <h3 class="card-name">Georgia</h3>
+      <p class="card-desc">Foreign-buyer property rights, residency options and how the territorial tax system treats investors.</p>
       <span class="card-foot">Coming soon</span>
     </div>
     <div class="card c-navy">
-      <div class="card-top"><div class="card-icon">🇲🇽</div><span class="badge">Planned</span></div>
-      <span class="card-sub">North America</span>
-      <h3 class="card-name">Mexico</h3>
-      <p class="card-desc">Temporary vs. permanent residency, RFC, and cross-border US brokerage realities.</p>
+      <div class="card-top"><div class="card-icon">🇮🇹</div><span class="badge">Planned</span></div>
+      <span class="card-sub">Europe</span>
+      <h3 class="card-name">Italy</h3>
+      <p class="card-desc">Buying process for foreigners, residency routes and the tax regimes available to new residents.</p>
       <span class="card-foot">Coming soon</span>
+    </div>
+    <div class="card c-amber">
+      <div class="card-top"><div class="card-icon">🇵🇪</div><span class="badge">Planned</span></div>
+      <span class="card-sub">South America</span>
+      <h3 class="card-name">Peru</h3>
+      <p class="card-desc">Tax residency rules, foreign-income treatment and banking for a Lima base.</p>
+      <span class="card-foot">Coming soon</span>
+    </div>
+    <div class="card c-coral">
+      <div class="card-top"><div class="card-icon">🇵🇾</div><span class="badge">Exploring</span></div>
+      <span class="card-sub">South America</span>
+      <h3 class="card-name">Paraguay</h3>
+      <p class="card-desc">Residency options and a territorial tax system — being scoped as a possible base for investors.</p>
+      <span class="card-foot">Under review</span>
     </div>
     <div class="card c-soft">
       <div class="card-top"><div class="card-icon">➕</div><span class="badge">Suggest</span></div>
@@ -300,12 +307,12 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 </section>
 
 <!-- ============ AI ADVISOR (PHASE 2) ============ -->
-<section class="advisor" id="advisor">
+<section class="advisor" id="guide">
   <div class="advisor-inner">
     <p class="advisor-eyebrow">Phase 2 <span class="soon">Coming soon</span></p>
     <h2>Ask the <em>guidance</em>, in plain language.</h2>
-    <p>An AI advisor is coming — trained on these country playbooks and frameworks, connected to a live knowledge base. Ask it "what changes for my brokerage if I move from Peru to Portugal?" and get a grounded, jurisdiction-aware answer instead of a generic one. It won't replace professional advice; it'll help you arrive prepared.</p>
-    <a class="advisor-cta" href="mailto:invest@andaluma.com?subject=AI%20Advisor%20early%20access">Request early access →</a>
+    <p>An AI guide is coming — trained on these country playbooks and frameworks, connected to a live knowledge base. Ask it "what changes for my setup if I'm looking at Georgia versus Italy?" and get a grounded, jurisdiction-aware answer instead of a generic one. It won't replace professional advice; it'll help you arrive prepared.</p>
+    <a class="advisor-cta" href="mailto:invest@andaluma.com?subject=AI%20Guide%20early%20access">Request early access →</a>
   </div>
 </section>
 
@@ -323,7 +330,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   <ul class="footer-links">
     <li><a href="#guidance">By Country</a></li>
     <li><a href="#frameworks">Frameworks</a></li>
-    <li><a href="#advisor">AI Advisor</a></li>
+    <li><a href="#guide">AI Guide</a></li>
     <li><a href="https://andaluma.com">Andaluma family ↗</a></li>
   </ul>
   <div class="footer-contact">
@@ -334,7 +341,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
 <!--
   ============================================================
-  PHASE 2 — AI Advisor + Firebase (not yet wired up)
+  PHASE 2 — AI Guide + Firebase (not yet wired up)
   ============================================================
   Backend plan:
     • Frontend   : GitHub Pages (this repo)
