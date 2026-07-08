@@ -143,6 +143,45 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   .advisor{padding:4rem 1.5rem;} .disclaimer{padding:1.4rem 1.5rem;}
   footer{flex-direction:column;text-align:center;padding:2.5rem 1.5rem;} .footer-links{justify-content:center;} .footer-contact{text-align:center;}
 }
+
+/* ---- Contact + newsletter ---- */
+.contact { padding:6rem 4rem; background:var(--sand); }
+.contact-grid { display:grid; grid-template-columns:1.15fr 0.85fr; gap:2.5rem; align-items:stretch; margin-top:2.5rem; }
+.panel { background:#fff; border:1.5px solid var(--border); border-radius:8px; padding:2.25rem; }
+.panel h3 { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--dark); margin-bottom:0.4rem; }
+.panel .sub { font-size:0.9rem; color:var(--muted); line-height:1.7; margin-bottom:1.5rem; }
+.field { display:flex; flex-direction:column; gap:0.35rem; margin-bottom:1rem; }
+.field label { font-size:0.68rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.field input, .field textarea { width:100%; padding:0.75rem 0.9rem; border:1.5px solid var(--border); border-radius:4px; background:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.95rem; color:var(--dark); }
+.field textarea { resize:vertical; min-height:120px; line-height:1.6; }
+.field input:focus, .field textarea:focus { outline:2px solid var(--teal); outline-offset:1px; border-color:var(--teal); }
+.btn-teal { background:var(--teal); color:#fff; border:none; border-radius:3px; padding:0.8rem 1.9rem; font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer; transition:background 0.2s; }
+.btn-teal:hover { background:var(--dark); }
+.btn-teal:disabled { opacity:0.6; cursor:wait; }
+.form-status { font-size:0.85rem; margin-top:0.9rem; line-height:1.6; }
+.form-status.ok { color:var(--forest); }
+.form-status.err { color:var(--coral); }
+.fineprint { font-size:0.72rem; color:var(--muted); line-height:1.6; margin-top:0.9rem; }
+.fineprint a { color:var(--teal); }
+.hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.nl-panel { background:var(--teal); color:#fff; border:none; }
+.nl-panel h3 { color:#fff; }
+.nl-panel .sub { color:rgba(255,255,255,0.78); }
+.nl-panel .field input { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.3); color:#fff; }
+.nl-panel .field input::placeholder { color:rgba(255,255,255,0.6); }
+.nl-panel .field input:focus { outline-color:#fff; border-color:#fff; }
+.nl-panel .btn-teal { background:#fff; color:var(--teal); }
+.nl-panel .btn-teal:hover { background:var(--dark); color:#fff; }
+.nl-panel .fineprint { color:rgba(255,255,255,0.62); }
+.nl-panel .fineprint a { color:#fff; }
+.nl-panel .form-status.ok { color:var(--sand); }
+.nl-panel .form-status.err { color:#FBD9CE; }
+.aside-note { margin-top:1.25rem; font-size:0.85rem; color:rgba(255,255,255,0.82); line-height:1.7; }
+.aside-note a { color:#fff; font-weight:500; }
+@media(max-width:960px){
+  .contact { padding:3.5rem 1.5rem; } .contact-grid { grid-template-columns:1fr; } .form-row { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
@@ -160,7 +199,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     <li><a href="#frameworks">Frameworks</a></li>
     <li><a href="#guide">AI Guide</a></li>
     <li><a href="https://andaluma.com">Andaluma ↗</a></li>
-    <li><a href="mailto:invest@andaluma.com" class="nav-contact">Get in touch</a></li>
+    <li><a href="#contact" class="nav-contact">Get in touch</a></li>
   </ul>
 </nav>
 
@@ -316,6 +355,45 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   </div>
 </section>
 
+<!-- ============ CONTACT + NEWSLETTER ============ -->
+<section class="contact" id="contact">
+  <div class="section-header">
+    <h2 class="section-title">Get in touch</h2>
+    <span class="section-note">A question · a country request · the monthly update</span>
+  </div>
+  <div class="contact-grid">
+    <!-- Contact form -->
+    <div class="panel">
+      <h3>Send a message</h3>
+      <p class="sub">Considering a jurisdiction, want a country added, or just have a question? Tell us — you'll get a real reply from André, not a template.</p>
+      <form id="contact-form" novalidate>
+        <div class="hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="form-row">
+          <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" required autocomplete="name" /></div>
+          <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" /></div>
+        </div>
+        <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" required placeholder="What would you like to know?"></textarea></div>
+        <button class="btn-teal" type="submit">Send message</button>
+        <p class="form-status" role="status" aria-live="polite" hidden></p>
+        <p class="fineprint">We use your details only to reply to you. Prefer email? <a href="mailto:invest@andaluma.com">invest@andaluma.com</a>.</p>
+      </form>
+    </div>
+    <!-- Newsletter -->
+    <div class="panel nl-panel">
+      <h3>The monthly update</h3>
+      <p class="sub">One email a month: what André found on the ground — taxes, ownership rules, real costs. No sales talk, unsubscribe any time.</p>
+      <form id="newsletter-form" novalidate>
+        <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="field"><label for="nl-email">Email address</label><input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" /></div>
+        <button class="btn-teal" type="submit">Subscribe</button>
+        <p class="form-status" role="status" aria-live="polite" hidden></p>
+        <p class="fineprint">We'll send a confirmation email — click the link to complete your subscription (double opt-in).</p>
+      </form>
+      <p class="aside-note">Goes deep on a curated few — Indonesia, UAE, Georgia, Italy, Peru — not everywhere at once.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ DISCLAIMER ============ -->
 <section class="disclaimer">
   <p><strong>Educational content — not financial, tax or legal advice.</strong> André's Investment Guidance shares general frameworks and jurisdiction research for information only. Rules change and your situation is specific. Always confirm with a licensed professional in the relevant jurisdiction before acting.</p>
@@ -331,6 +409,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     <li><a href="#guidance">By Country</a></li>
     <li><a href="#frameworks">Frameworks</a></li>
     <li><a href="#guide">AI Guide</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="https://andaluma.com">Andaluma family ↗</a></li>
   </ul>
   <div class="footer-contact">
@@ -338,6 +417,62 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     <a href="mailto:invest@andaluma.com">invest@andaluma.com</a>
   </div>
 </footer>
+
+<script>
+(function () {
+  // Forms POST to a Cloudflare Worker (mirrors vaetestament-worker) that holds
+  // the Brevo API key as a secret — the site never sees the key. The Worker must
+  // be deployed and reachable at API_BASE before these forms work end-to-end.
+  var API_BASE = 'https://api.andaluma.com';
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function bindForm(formId, endpoint, buildBody, okMsg) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    var status = form.querySelector('.form-status');
+    var button = form.querySelector('button[type="submit"]');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var fd = new FormData(form);
+      if (fd.get('website') || fd.get('company')) return; // honeypot tripped — silently drop
+      var email = (fd.get('email') || '').toString().trim();
+      if (!EMAIL_RE.test(email)) {
+        status.textContent = 'Please enter a valid email address.';
+        status.className = 'form-status err'; status.hidden = false; return;
+      }
+      button.disabled = true;
+      status.textContent = 'One moment…'; status.className = 'form-status'; status.hidden = false;
+      try {
+        var res = await fetch(API_BASE + endpoint, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(buildBody(fd, email))
+        });
+        if (!res.ok) throw new Error(endpoint + ' ' + res.status);
+        status.textContent = okMsg; status.className = 'form-status ok';
+        form.reset();
+      } catch (err) {
+        status.textContent = 'Something went wrong reaching us. Please email invest@andaluma.com directly.';
+        status.className = 'form-status err';
+      } finally { button.disabled = false; }
+    });
+  }
+
+  bindForm('contact-form', '/v1/contact',
+    function (fd, email) {
+      return {
+        name: (fd.get('name') || '').toString().trim(),
+        email: email,
+        message: (fd.get('message') || '').toString().trim(),
+        source: 'invest-site'
+      };
+    },
+    'Thanks — your message is on its way. André will reply personally.');
+
+  bindForm('newsletter-form', '/v1/newsletter/subscribe',
+    function (fd, email) { return { email: email, source: 'invest-site' }; },
+    'Almost there — check your inbox and click the confirmation link to finish subscribing.');
+})();
+</script>
 
 <!--
   ============================================================
