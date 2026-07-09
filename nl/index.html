@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>André's Investment Guidance · Andaluma</title>
-<meta name="description" content="Investment guidance for location-independent investors: jurisdiction-by-jurisdiction frameworks for legal, tax and technical setup. Part of the Andaluma family of ventures." />
-<link rel="canonical" href="https://invest.andaluma.com/" />
+<title>André's Beleggingsgids · Andaluma</title>
+<meta name="description" content="Beleggingsgids voor locatie-onafhankelijke beleggers: land-voor-land kaders voor de juridische, fiscale en technische opzet. Onderdeel van de Andaluma-familie." />
+<link rel="canonical" href="https://invest.andaluma.com/nl/" />
 <link rel="alternate" hreflang="en" href="https://invest.andaluma.com/" />
 <link rel="alternate" hreflang="es" href="https://invest.andaluma.com/es/" />
 <link rel="alternate" hreflang="nl" href="https://invest.andaluma.com/nl/" />
 <link rel="alternate" hreflang="x-default" href="https://invest.andaluma.com/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,8 +25,6 @@
 }
 html { scroll-behavior: smooth; }
 body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--dark); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
-
-/* ---- Nav ---- */
 nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; display:flex; align-items:center; justify-content:space-between; background:rgba(247,242,232,0.93); backdrop-filter:blur(14px); border-bottom:1.5px solid var(--border); }
 .nav-wordmark { display:flex; align-items:center; gap:0.7rem; text-decoration:none; }
 .nav-wordmark .mark { width:30px; height:30px; border-radius:7px; flex-shrink:0; display:block; }
@@ -39,8 +37,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .nav-links a:hover { color:var(--teal); }
 .nav-contact { background:var(--dark); color:#fff!important; padding:0.45rem 1.1rem; border-radius:2px; font-size:0.72rem!important; font-weight:500!important; letter-spacing:0.1em!important; transition:background 0.2s!important; }
 .nav-contact:hover { background:var(--teal)!important; }
-
-/* ---- Hero ---- */
+.lang-switch { display:flex; gap:0.35rem; align-items:center; }
+.lang-switch a { font-size:0.72rem; letter-spacing:0.08em; }
+.lang-switch a.active { color:var(--teal); font-weight:500; }
+.lang-switch span { color:var(--border); }
 .hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; padding-top:4.5rem; }
 .hero-left { background:var(--teal); padding:7rem 4.5rem 5rem; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center; }
 .hero-left::before { content:'A'; position:absolute; font-family:'Playfair Display',serif; font-size:65vw; font-weight:900; color:rgba(255,255,255,0.05); top:-15%; left:-8%; line-height:1; pointer-events:none; }
@@ -50,7 +50,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .hero-title .accent { display:inline-block; font-style:italic; font-weight:400; color:rgba(255,255,255,0.85); }
 .hero-tagline { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:400; font-style:italic; color:rgba(255,255,255,0.72); margin-bottom:2.5rem; position:relative; z-index:1; line-height:1.5; }
 .hero-tagline strong { font-style:normal; font-weight:700; color:#fff; }
-.hero-desc { font-size:0.92rem; color:rgba(255,255,255,0.66); max-width:44ch; line-height:1.85; margin-bottom:3rem; position:relative; z-index:1; }
+.hero-desc { font-size:0.92rem; color:rgba(255,255,255,0.66); max-width:46ch; line-height:1.85; margin-bottom:3rem; position:relative; z-index:1; }
 .hero-cta { display:inline-flex; align-items:center; gap:0.75rem; background:rgba(255,255,255,0.12); border:1.5px solid rgba(255,255,255,0.4); color:#fff; font-size:0.78rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none; padding:0.85rem 2rem; border-radius:2px; width:fit-content; transition:background 0.2s,gap 0.2s; position:relative; z-index:1; }
 .hero-cta:hover { background:rgba(255,255,255,0.22); gap:1.25rem; }
 .hero-right { display:flex; flex-direction:column; }
@@ -69,17 +69,12 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .status-text { display:flex; flex-direction:column; }
 .status-label { font-size:0.62rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); }
 .status-place { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--dark); line-height:1.2; }
-
-/* ---- Generic section ---- */
 section.block { padding:6rem 4rem; }
 .section-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1rem; border-bottom:1.5px solid var(--border); padding-bottom:1.25rem; gap:2rem; }
 .section-title { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--dark); }
 .section-note { font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
 .section-lead { font-size:0.98rem; color:var(--muted); max-width:64ch; line-height:1.85; margin-bottom:3rem; }
-
-/* ---- Country / card grids ---- */
 .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-.grid.two { grid-template-columns:repeat(2,1fr); }
 .card { border-radius:6px; padding:2rem; text-decoration:none; color:#fff; display:flex; flex-direction:column; gap:0.85rem; position:relative; overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; min-height:230px; }
 a.card:hover { transform:translateY(-3px); box-shadow:0 14px 44px rgba(26,18,8,0.16); }
 .c-berry{background:var(--berry);} .c-teal{background:var(--teal);} .c-amber{background:var(--amber);} .c-forest{background:var(--forest);} .c-coral{background:var(--coral);} .c-navy{background:var(--navy);}
@@ -99,16 +94,12 @@ a.card:hover { transform:translateY(-3px); box-shadow:0 14px 44px rgba(26,18,8,0
 .c-soft .card-foot { border-top-color:var(--border); color:var(--muted); }
 .card-arrow { transition:transform 0.2s; }
 a.card:hover .card-arrow { transform:translate(3px,-3px); }
-
-/* ---- Framework list ---- */
 .frame-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
 .frame { display:flex; gap:1.15rem; align-items:flex-start; background:#fff; border:1.5px solid var(--border); border-radius:6px; padding:1.6rem 1.75rem; }
 .frame-num { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900; line-height:1; flex-shrink:0; width:2.4rem; }
 .fn-1{color:var(--berry);} .fn-2{color:var(--teal);} .fn-3{color:var(--amber);} .fn-4{color:var(--coral);} .fn-5{color:var(--forest);} .fn-6{color:var(--navy);}
 .frame-body h4 { font-family:'Playfair Display',serif; font-size:1.12rem; font-weight:700; margin-bottom:0.35rem; }
 .frame-body p { font-size:0.86rem; color:var(--muted); line-height:1.7; }
-
-/* ---- AI guide teaser ---- */
 .advisor { background:var(--dark); color:#fff; padding:5.5rem 4rem; position:relative; overflow:hidden; }
 .advisor::before { content:''; position:absolute; top:-30%; right:-8%; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(10,122,136,0.35) 0%, rgba(10,122,136,0) 70%); pointer-events:none; }
 .advisor-inner { position:relative; z-index:1; max-width:760px; }
@@ -119,12 +110,10 @@ a.card:hover .card-arrow { transform:translate(3px,-3px); }
 .advisor p { font-size:0.98rem; color:rgba(255,255,255,0.66); line-height:1.9; max-width:60ch; margin-bottom:2rem; }
 .advisor-cta { display:inline-flex; align-items:center; gap:0.7rem; background:rgba(255,255,255,0.1); border:1.5px solid rgba(255,255,255,0.28); color:#fff; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; padding:0.85rem 1.9rem; border-radius:2px; transition:background 0.2s; }
 .advisor-cta:hover { background:rgba(255,255,255,0.2); }
-
-/* ---- Disclaimer strip ---- */
+.i18n-note { background:var(--cream); border-top:1.5px solid var(--border); padding:1rem 1.5rem; }
+.i18n-note p { max-width:72ch; margin:0 auto; text-align:center; font-size:0.78rem; color:var(--muted); line-height:1.6; }
 .disclaimer { background:var(--sand); border-top:1.5px solid var(--border); padding:1.6rem 4rem; }
 .disclaimer p { font-size:0.74rem; color:var(--muted); line-height:1.7; max-width:100ch; margin:0 auto; text-align:center; }
-
-/* ---- Footer ---- */
 footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
 .footer-brand { display:flex; align-items:center; gap:0.7rem; text-decoration:none; }
 .footer-brand .mark { width:34px; height:34px; border-radius:8px; }
@@ -136,20 +125,16 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .footer-contact { font-size:0.8rem; color:rgba(255,255,255,0.6); text-align:right; }
 .footer-contact a { color:var(--teal); text-decoration:none; }
 .footer-contact a:hover { text-decoration:underline; }
-
 @keyframes fadeUp { from{opacity:0;transform:translateY(22px);} to{opacity:1;transform:translateY(0);} }
 .hero-eyebrow{animation:fadeUp 0.6s ease both;} .hero-title{animation:fadeUp 0.7s 0.1s ease both;} .hero-tagline{animation:fadeUp 0.7s 0.2s ease both;} .hero-desc{animation:fadeUp 0.7s 0.3s ease both;} .hero-cta{animation:fadeUp 0.7s 0.4s ease both;}
-
 @media(max-width:960px){
   nav{padding:1rem 1.5rem;} .nav-links{display:none;}
   .hero{grid-template-columns:1fr;} .hero-left{padding:8rem 1.5rem 4rem; min-height:66vh;}
-  section.block{padding:3.5rem 1.5rem;} .grid,.grid.two,.frame-grid{grid-template-columns:1fr;}
+  section.block{padding:3.5rem 1.5rem;} .grid,.frame-grid{grid-template-columns:1fr;}
   .section-header{flex-direction:column;align-items:flex-start;gap:0.5rem;}
   .advisor{padding:4rem 1.5rem;} .disclaimer{padding:1.4rem 1.5rem;}
   footer{flex-direction:column;text-align:center;padding:2.5rem 1.5rem;} .footer-links{justify-content:center;} .footer-contact{text-align:center;}
 }
-
-/* ---- Contact + newsletter ---- */
 .contact { padding:6rem 4rem; background:var(--sand); }
 .contact-grid { display:grid; grid-template-columns:1.15fr 0.85fr; gap:2.5rem; align-items:stretch; margin-top:2.5rem; }
 .panel { background:#fff; border:1.5px solid var(--border); border-radius:8px; padding:2.25rem; }
@@ -183,12 +168,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .nl-panel .form-status.ok { color:var(--sand); }
 .nl-panel .form-status.err { color:#FBD9CE; }
 .aside-note { margin-top:1.25rem; font-size:0.85rem; color:rgba(255,255,255,0.82); line-height:1.7; }
-.aside-note a { color:#fff; font-weight:500; }
-@media(max-width:960px){
-  .contact { padding:3.5rem 1.5rem; } .contact-grid { grid-template-columns:1fr; } .form-row { grid-template-columns:1fr; }
-}
-
-/* ---- Newsletter popup ---- */
+@media(max-width:960px){ .contact { padding:3.5rem 1.5rem; } .contact-grid { grid-template-columns:1fr; } .form-row { grid-template-columns:1fr; } }
 .nl-popup { position:fixed; right:1.5rem; bottom:1.5rem; z-index:200; width:360px; max-width:calc(100vw - 2rem); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 18px 50px rgba(26,18,8,0.22); overflow:hidden; transform:translateY(140%); opacity:0; transition:transform 0.45s cubic-bezier(0.2,0.7,0.2,1), opacity 0.45s; }
 .nl-popup.show { transform:translateY(0); opacity:1; }
 .nl-popup-bar { height:4px; background:var(--teal); }
@@ -202,11 +182,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .nl-popup input[type="email"]:focus { outline:2px solid var(--teal); outline-offset:1px; border-color:var(--teal); }
 .nl-popup .btn-teal { width:100%; }
 .nl-popup .fineprint { margin-top:0.15rem; }
-@media(max-width:600px){
-  .nl-popup { right:0.75rem; left:0.75rem; bottom:0.75rem; width:auto; }
-}
-
-/* ---- Cookie consent banner ---- */
+@media(max-width:600px){ .nl-popup { right:0.75rem; left:0.75rem; bottom:0.75rem; width:auto; } }
 .cookie-banner { position:fixed; left:0; right:0; bottom:0; z-index:300; background:var(--cream); border-top:2px solid var(--teal); box-shadow:0 -2px 16px rgba(26,18,8,0.12); display:none; }
 .cookie-banner.show { display:block; }
 .cookie-inner { max-width:1100px; margin:0 auto; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
@@ -217,242 +193,199 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .cookie-accept:hover { background:var(--dark); }
 .cookie-necessary { background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.82rem; text-decoration:underline; cursor:pointer; }
 .cookie-necessary:hover { color:var(--dark); }
-@media(max-width:640px){
-  .cookie-inner { flex-direction:column; align-items:stretch; gap:0.75rem; }
-  .cookie-actions { flex-direction:column; } .cookie-accept, .cookie-necessary { width:100%; padding:0.85rem; }
-}
+@media(max-width:640px){ .cookie-inner { flex-direction:column; align-items:stretch; gap:0.75rem; } .cookie-actions { flex-direction:column; } .cookie-accept, .cookie-necessary { width:100%; padding:0.85rem; } }
 </style>
 </head>
 <body>
 
 <nav>
   <a href="#top" class="nav-wordmark">
-    <img class="mark" src="logo.svg" alt="" />
+    <img class="mark" src="../logo.svg" alt="" />
     <span class="wm-text">
-      <span class="wm-name">André's <em>Investment</em> Guidance</span>
-      <span class="wm-sub">An Andaluma Venture</span>
+      <span class="wm-name">André's <em>Beleggings</em>gids</span>
+      <span class="wm-sub">Een Andaluma-project</span>
     </span>
   </a>
   <ul class="nav-links">
-    <li><a href="#guidance">By Country</a></li>
-    <li><a href="#frameworks">Frameworks</a></li>
-    <li><a href="#guide">AI Guide</a></li>
-    <li style="display:flex;gap:0.35rem;align-items:center;"><a href="index.html" style="color:var(--teal);font-weight:500;">EN</a><span style="color:var(--border);">·</span><a href="es/">ES</a><span style="color:var(--border);">·</span><a href="nl/">NL</a></li>
-    <li><a href="https://andaluma.com">Andaluma ↗</a></li>
-    <li><a href="#contact" class="nav-contact">Get in touch</a></li>
+    <li><a href="#guidance">Per land</a></li>
+    <li><a href="#frameworks">Kaders</a></li>
+    <li><a href="#guide">AI-gids</a></li>
+    <li class="lang-switch"><a href="../">EN</a><span>·</span><a href="../es/">ES</a><span>·</span><a href="index.html" class="active">NL</a></li>
+    <li><a href="#contact" class="nav-contact">Contact</a></li>
   </ul>
 </nav>
 
 <section class="hero" id="top">
   <div class="hero-left">
-    <p class="hero-eyebrow">Andaluma family · Investment guidance</p>
-    <h1 class="hero-title">Investing<br>without<br><span class="accent">borders.</span></h1>
-    <p class="hero-tagline">Country-by-country guidance for the<br><strong>location-independent investor.</strong></p>
-    <p class="hero-desc">André's Investment Guidance maps the legal, tax and technical setup jurisdiction by jurisdiction, so wherever you build your life, your capital has a home and a plan. Frameworks, not hot tips.</p>
-    <a href="#guidance" class="hero-cta">Explore the guidance →</a>
+    <p class="hero-eyebrow">Andaluma-familie · Beleggingsgids</p>
+    <h1 class="hero-title">Beleggen<br>zonder<br><span class="accent">grenzen.</span></h1>
+    <p class="hero-tagline">Land-voor-land gids voor de<br><strong>locatie-onafhankelijke belegger.</strong></p>
+    <p class="hero-desc">André's Beleggingsgids brengt de juridische, fiscale en technische opzet per rechtsgebied in kaart, zodat waar je je leven ook opbouwt, je kapitaal een thuis en een plan heeft. Kaders, geen snelle tips.</p>
+    <a href="#guidance" class="hero-cta">Bekijk de gids →</a>
   </div>
   <div class="hero-right">
     <div class="hero-mark-block">
-      <img class="hero-mark" src="logo.svg" alt="André's Investment Guidance logo" />
-      <p class="mark-name">André's <em>Investment</em> Guidance</p>
+      <img class="hero-mark" src="../logo.svg" alt="Logo van André's Beleggingsgids" />
+      <p class="mark-name">André's <em>Beleggings</em>gids</p>
       <p class="mark-wordmark">Andaluma</p>
       <div class="category-pills">
-        <span class="category-pill pill-country">By country</span>
-        <span class="category-pill pill-frame">Frameworks</span>
-        <span class="category-pill pill-ai">AI guide</span>
+        <span class="category-pill pill-country">Per land</span>
+        <span class="category-pill pill-frame">Kaders</span>
+        <span class="category-pill pill-ai">AI-gids</span>
       </div>
     </div>
     <div class="status-block">
       <div class="status-ping"></div>
       <div class="status-text">
         <span class="status-label">Status</span>
-        <span class="status-place">Foundation live · content in progress</span>
+        <span class="status-place">Basis live · content in voorbereiding</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ GUIDANCE BY COUNTRY ============ -->
 <section class="block" id="guidance" style="background:var(--cream);">
   <div class="section-header">
-    <h2 class="section-title">Guidance by country</h2>
-    <span class="section-note">Jurisdiction playbooks</span>
+    <h2 class="section-title">Gids per land</h2>
+    <span class="section-note">Handleidingen per rechtsgebied</span>
   </div>
-  <p class="section-lead">Every country handles a foreign or non-resident investor differently: residency thresholds, capital gains treatment, brokerage access, banking, reporting. Each playbook below distills one jurisdiction into a practical setup guide. More countries are added as they're researched.</p>
+  <p class="section-lead">Elk land behandelt een buitenlandse of niet-ingezeten belegger anders: verblijfsdrempels, behandeling van vermogenswinst, toegang tot brokers, bankieren, rapportage. Elke handleiding hieronder vat één rechtsgebied samen in een praktische opzetgids. Er komen meer landen bij naarmate ze onderzocht worden.</p>
   <div class="grid">
     <div class="card c-teal">
-      <div class="card-top"><div class="card-icon">🇮🇩</div><span class="badge">In progress</span></div>
-      <span class="card-sub">Southeast Asia · Lombok</span>
-      <h3 class="card-name">Indonesia</h3>
-      <p class="card-desc">Foreign-ownership structures (freehold vs. leasehold), residency pathways and the real tax picture for property buyers.</p>
-      <span class="card-foot">Playbook <span class="card-arrow">→</span></span>
+      <div class="card-top"><div class="card-icon">🇮🇩</div><span class="badge">Loopt</span></div>
+      <span class="card-sub">Zuidoost-Azië · Lombok</span>
+      <h3 class="card-name">Indonesië</h3>
+      <p class="card-desc">Eigendomsstructuren voor buitenlanders (eigendom vs. erfpacht), verblijfsroutes en het echte fiscale plaatje voor vastgoedkopers.</p>
+      <span class="card-foot">Handleiding <span class="card-arrow">→</span></span>
     </div>
     <div class="card c-forest">
-      <div class="card-top"><div class="card-icon">🇦🇪</div><span class="badge">Planned</span></div>
-      <span class="card-sub">Middle East</span>
-      <h3 class="card-name">United Arab Emirates</h3>
-      <p class="card-desc">Personal-tax treatment, residency via company or property, and global custody access.</p>
-      <span class="card-foot">Coming soon</span>
+      <div class="card-top"><div class="card-icon">🇦🇪</div><span class="badge">Gepland</span></div>
+      <span class="card-sub">Midden-Oosten</span>
+      <h3 class="card-name">Verenigde Arabische Emiraten</h3>
+      <p class="card-desc">Persoonlijke fiscale behandeling, verblijf via bedrijf of vastgoed, en toegang tot wereldwijde bewaring.</p>
+      <span class="card-foot">Binnenkort</span>
     </div>
     <div class="card c-berry">
-      <div class="card-top"><div class="card-icon">🇬🇪</div><span class="badge">Planned</span></div>
-      <span class="card-sub">Caucasus</span>
-      <h3 class="card-name">Georgia</h3>
-      <p class="card-desc">Foreign-buyer property rights, residency options and how the territorial tax system treats investors.</p>
-      <span class="card-foot">Coming soon</span>
+      <div class="card-top"><div class="card-icon">🇬🇪</div><span class="badge">Gepland</span></div>
+      <span class="card-sub">Kaukasus</span>
+      <h3 class="card-name">Georgië</h3>
+      <p class="card-desc">Eigendomsrechten voor buitenlandse kopers, verblijfsopties en hoe het territoriale belastingstelsel beleggers behandelt.</p>
+      <span class="card-foot">Binnenkort</span>
     </div>
     <div class="card c-navy">
-      <div class="card-top"><div class="card-icon">🇮🇹</div><span class="badge">Planned</span></div>
-      <span class="card-sub">Europe</span>
-      <h3 class="card-name">Italy</h3>
-      <p class="card-desc">Buying process for foreigners, residency routes and the tax regimes available to new residents.</p>
-      <span class="card-foot">Coming soon</span>
+      <div class="card-top"><div class="card-icon">🇮🇹</div><span class="badge">Gepland</span></div>
+      <span class="card-sub">Europa</span>
+      <h3 class="card-name">Italië</h3>
+      <p class="card-desc">Aankoopproces voor buitenlanders, verblijfsroutes en de belastingregimes voor nieuwe ingezetenen.</p>
+      <span class="card-foot">Binnenkort</span>
     </div>
     <div class="card c-amber">
-      <div class="card-top"><div class="card-icon">🇵🇪</div><span class="badge">Planned</span></div>
-      <span class="card-sub">South America</span>
+      <div class="card-top"><div class="card-icon">🇵🇪</div><span class="badge">Gepland</span></div>
+      <span class="card-sub">Zuid-Amerika</span>
       <h3 class="card-name">Peru</h3>
-      <p class="card-desc">Tax residency rules, foreign-income treatment and banking for a Lima base.</p>
-      <span class="card-foot">Coming soon</span>
+      <p class="card-desc">Regels voor fiscaal inwonerschap, behandeling van buitenlands inkomen en bankieren voor een basis in Lima.</p>
+      <span class="card-foot">Binnenkort</span>
     </div>
     <div class="card c-coral">
-      <div class="card-top"><div class="card-icon">🇵🇾</div><span class="badge">Exploring</span></div>
-      <span class="card-sub">South America</span>
+      <div class="card-top"><div class="card-icon">🇵🇾</div><span class="badge">Verkennen</span></div>
+      <span class="card-sub">Zuid-Amerika</span>
       <h3 class="card-name">Paraguay</h3>
-      <p class="card-desc">Residency options and a territorial tax system, being scoped as a possible base for investors.</p>
-      <span class="card-foot">Under review</span>
+      <p class="card-desc">Verblijfsopties en een territoriaal belastingstelsel, wordt onderzocht als mogelijke basis voor beleggers.</p>
+      <span class="card-foot">In onderzoek</span>
     </div>
     <div class="card c-soft">
-      <div class="card-top"><div class="card-icon">➕</div><span class="badge">Suggest</span></div>
-      <span class="card-sub">Your jurisdiction</span>
-      <h3 class="card-name">Request a country</h3>
-      <p class="card-desc">Living somewhere not listed yet? Tell us where. Jurisdictions are prioritised by demand.</p>
-      <a class="card-foot" href="mailto:invest@andaluma.com?subject=Country%20request" style="text-decoration:none;">Get in touch <span class="card-arrow">→</span></a>
+      <div class="card-top"><div class="card-icon">➕</div><span class="badge">Suggestie</span></div>
+      <span class="card-sub">Jouw rechtsgebied</span>
+      <h3 class="card-name">Vraag een land aan</h3>
+      <p class="card-desc">Woon je ergens dat er nog niet bij staat? Laat het ons weten. Rechtsgebieden worden geprioriteerd op vraag.</p>
+      <a class="card-foot" href="mailto:invest@andaluma.com?subject=Landverzoek" style="text-decoration:none;">Neem contact op <span class="card-arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============ FRAMEWORKS ============ -->
 <section class="block" id="frameworks" style="background:var(--sand);">
   <div class="section-header">
-    <h2 class="section-title">Frameworks for the borderless investor</h2>
-    <span class="section-note">The moving parts</span>
+    <h2 class="section-title">Kaders voor de grenzeloze belegger</h2>
+    <span class="section-note">De bewegende delen</span>
   </div>
-  <p class="section-lead">Underneath every country playbook are the same recurring questions. These frameworks give you a repeatable way to think through each one, so a new jurisdiction becomes a checklist, not a research project from zero.</p>
+  <p class="section-lead">Onder elke landhandleiding liggen dezelfde terugkerende vragen. Deze kaders geven je een herhaalbare manier om elk ervan te doordenken, zodat een nieuw rechtsgebied een checklist wordt, geen onderzoek vanaf nul.</p>
   <div class="frame-grid">
-    <div class="frame">
-      <div class="frame-num fn-1">01</div>
-      <div class="frame-body">
-        <h4>Residency &amp; tax exposure</h4>
-        <p>Where you're tax-resident, day-count thresholds, and how foreign income is treated where you live.</p>
-      </div>
-    </div>
-    <div class="frame">
-      <div class="frame-num fn-2">02</div>
-      <div class="frame-body">
-        <h4>Brokerage &amp; market access</h4>
-        <p>Which brokers accept your residency, what markets you can reach, and where custody actually sits.</p>
-      </div>
-    </div>
-    <div class="frame">
-      <div class="frame-num fn-3">03</div>
-      <div class="frame-body">
-        <h4>Structuring &amp; entities</h4>
-        <p>When holding personally is fine and when a company, trust or foundation earns its keep.</p>
-      </div>
-    </div>
-    <div class="frame">
-      <div class="frame-num fn-4">04</div>
-      <div class="frame-body">
-        <h4>Banking &amp; currency</h4>
-        <p>Multi-currency accounts, moving money across borders, and managing FX without bleeding on spreads.</p>
-      </div>
-    </div>
-    <div class="frame">
-      <div class="frame-num fn-5">05</div>
-      <div class="frame-body">
-        <h4>Reporting &amp; compliance</h4>
-        <p>CRS, FATCA, local filings: what has to be declared, to whom, and by when.</p>
-      </div>
-    </div>
-    <div class="frame">
-      <div class="frame-num fn-6">06</div>
-      <div class="frame-body">
-        <h4>The technical stack</h4>
-        <p>Tools, apps and workflows that make a location-independent portfolio actually manageable.</p>
-      </div>
-    </div>
+    <div class="frame"><div class="frame-num fn-1">01</div><div class="frame-body"><h4>Inwonerschap en fiscale blootstelling</h4><p>Waar je fiscaal inwoner bent, dagdrempels, en hoe buitenlands inkomen wordt behandeld waar je woont.</p></div></div>
+    <div class="frame"><div class="frame-num fn-2">02</div><div class="frame-body"><h4>Brokers en markttoegang</h4><p>Welke brokers je verblijf accepteren, welke markten je bereikt, en waar de bewaring echt zit.</p></div></div>
+    <div class="frame"><div class="frame-num fn-3">03</div><div class="frame-body"><h4>Structuur en entiteiten</h4><p>Wanneer privé aanhouden prima is en wanneer een bedrijf, trust of stichting de moeite waard is.</p></div></div>
+    <div class="frame"><div class="frame-num fn-4">04</div><div class="frame-body"><h4>Bankieren en valuta</h4><p>Multi-valutarekeningen, geld over grenzen verplaatsen, en wisselkoersen beheren zonder te bloeden op de spreads.</p></div></div>
+    <div class="frame"><div class="frame-num fn-5">05</div><div class="frame-body"><h4>Rapportage en compliance</h4><p>CRS, FATCA, lokale aangiften: wat moet worden aangegeven, aan wie en wanneer.</p></div></div>
+    <div class="frame"><div class="frame-num fn-6">06</div><div class="frame-body"><h4>De technische stack</h4><p>Tools, apps en workflows die een locatie-onafhankelijke portefeuille echt beheersbaar maken.</p></div></div>
   </div>
 </section>
 
-<!-- ============ AI ADVISOR (PHASE 2) ============ -->
 <section class="advisor" id="guide">
   <div class="advisor-inner">
-    <p class="advisor-eyebrow">Phase 2 <span class="soon">Coming soon</span></p>
-    <h2>Ask the <em>guidance</em>, in plain language.</h2>
-    <p>An AI guide is coming, trained on these country playbooks and frameworks, connected to a live knowledge base. Ask it "what changes for my setup if I'm looking at Georgia versus Italy?" and get a grounded, jurisdiction-aware answer instead of a generic one. It won't replace professional advice; it'll help you arrive prepared.</p>
-    <a class="advisor-cta" href="mailto:invest@andaluma.com?subject=AI%20Guide%20early%20access">Request early access →</a>
+    <p class="advisor-eyebrow">Fase 2 <span class="soon">Binnenkort</span></p>
+    <h2>Vraag het de <em>gids</em>, in gewone taal.</h2>
+    <p>Er komt een AI-gids, getraind op deze landhandleidingen en kaders, verbonden met een levende kennisbank. Vraag hem "wat verandert er in mijn situatie bij Georgië versus Italië?" en krijg een onderbouwd, rechtsgebied-bewust antwoord in plaats van een algemeen. Het vervangt geen professioneel advies; het helpt je voorbereid aan te komen.</p>
+    <a class="advisor-cta" href="mailto:invest@andaluma.com?subject=Vroege%20toegang%20AI-gids">Vraag vroege toegang aan →</a>
   </div>
 </section>
 
-<!-- ============ CONTACT + NEWSLETTER ============ -->
 <section class="contact" id="contact">
   <div class="section-header">
-    <h2 class="section-title">Get in touch</h2>
-    <span class="section-note">A question · a country request · the monthly update</span>
+    <h2 class="section-title">Contact</h2>
+    <span class="section-note">Een vraag · een land · de maandelijkse update</span>
   </div>
   <div class="contact-grid">
-    <!-- Contact form -->
     <div class="panel">
-      <h3>Send a message</h3>
-      <p class="sub">Considering a jurisdiction, want a country added, or just have a question? Tell us. You'll get a real reply from André, not a template.</p>
+      <h3>Stuur een bericht</h3>
+      <p class="sub">Overweeg je een rechtsgebied, wil je dat ik een land toevoeg, of heb je gewoon een vraag? Laat het weten. Je krijgt een echt antwoord van André, geen sjabloon.</p>
       <form id="contact-form" novalidate>
         <div class="hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
         <div class="form-row">
-          <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" required autocomplete="name" /></div>
-          <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" /></div>
+          <div class="field"><label for="cf-name">Naam</label><input id="cf-name" name="name" type="text" required autocomplete="name" /></div>
+          <div class="field"><label for="cf-email">E-mail</label><input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="jij@email.com" /></div>
         </div>
-        <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" required placeholder="What would you like to know?"></textarea></div>
-        <button class="btn-teal" type="submit">Send message</button>
+        <div class="field"><label for="cf-msg">Bericht</label><textarea id="cf-msg" name="message" required placeholder="Wat wil je graag weten?"></textarea></div>
+        <button class="btn-teal" type="submit">Bericht sturen</button>
         <p class="form-status" role="status" aria-live="polite" hidden></p>
-        <p class="fineprint">We use your details only to reply to you. Prefer email? <a href="mailto:invest@andaluma.com">invest@andaluma.com</a>.</p>
+        <p class="fineprint">We gebruiken je gegevens alleen om te antwoorden. Liever mailen? <a href="mailto:invest@andaluma.com">invest@andaluma.com</a>.</p>
       </form>
     </div>
-    <!-- Newsletter -->
     <div class="panel nl-panel">
-      <h3>The monthly update</h3>
-      <p class="sub">One email a month on what André found on the ground: taxes, ownership rules, real costs. No sales talk, unsubscribe any time.</p>
+      <h3>De maandelijkse update</h3>
+      <p class="sub">Eén e-mail per maand met wat André ter plekke vindt: belastingen, eigendomsregels, echte kosten. Geen verkooppraat, uitschrijven kan altijd.</p>
       <form id="newsletter-form" novalidate>
         <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
-        <div class="field"><label for="nl-email">Email address</label><input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" /></div>
-        <button class="btn-teal" type="submit">Subscribe</button>
+        <div class="field"><label for="nl-email">E-mailadres</label><input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="jij@email.com" /></div>
+        <button class="btn-teal" type="submit">Aanmelden</button>
         <p class="form-status" role="status" aria-live="polite" hidden></p>
-        <p class="fineprint">We'll send a confirmation email. Click the link to complete your subscription (double opt-in).</p>
+        <p class="fineprint">We sturen je een bevestigingsmail. Klik op de link om je aanmelding af te ronden (double opt-in).</p>
       </form>
-      <p class="aside-note">Goes deep on a curated few (Indonesia, UAE, Georgia, Italy, Peru), not everywhere at once.</p>
+      <p class="aside-note">Gaat de diepte in op enkele geselecteerde landen (Indonesië, VAE, Georgië, Italië, Peru), niet overal tegelijk.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ DISCLAIMER ============ -->
-<section class="disclaimer">
-  <p><strong>Educational content: not financial, tax or legal advice.</strong> André's Investment Guidance shares general frameworks and jurisdiction research for information only. Rules change and your situation is specific. Always confirm with a licensed professional in the relevant jurisdiction before acting.</p>
+<section class="i18n-note">
+  <p>Deze pagina is met AI vertaald. André spreekt Nederlands, dus schrijf hem gerust in het Nederlands.</p>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<section class="disclaimer">
+  <p><strong>Educatieve inhoud: geen financieel, fiscaal of juridisch advies.</strong> André's Beleggingsgids deelt algemene kaders en onderzoek naar rechtsgebieden, alleen ter informatie. Regels veranderen en jouw situatie is specifiek. Bevestig altijd met een bevoegde professional in het betreffende rechtsgebied voordat je handelt.</p>
+</section>
+
 <footer>
   <a href="https://andaluma.com" class="footer-brand">
-    <img class="mark" src="logo.svg" alt="" />
-    <span class="fb-name">André's <em>Investment</em> Guidance</span>
+    <img class="mark" src="../logo.svg" alt="" />
+    <span class="fb-name">André's <em>Beleggings</em>gids</span>
   </a>
   <ul class="footer-links">
-    <li><a href="#guidance">By Country</a></li>
-    <li><a href="#frameworks">Frameworks</a></li>
-    <li><a href="#guide">AI Guide</a></li>
+    <li><a href="#guidance">Per land</a></li>
+    <li><a href="#frameworks">Kaders</a></li>
+    <li><a href="#guide">AI-gids</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="../privacy.html">Privacy</a></li>
     <li><a href="#" onclick="return openCookieSettings()">Cookies</a></li>
-    <li><a href="https://andaluma.com">Andaluma family ↗</a></li>
+    <li><a href="../">EN</a></li>
+    <li><a href="https://andaluma.com">Andaluma-familie ↗</a></li>
   </ul>
   <div class="footer-contact">
     André van Wijngaarden<br>
@@ -460,51 +393,44 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   </div>
 </footer>
 
-<!-- ============ COOKIE CONSENT ============ -->
-<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie notice">
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookiemelding">
   <div class="cookie-inner">
-    <p class="cookie-text">We use cookies from Meta and Google to understand how the site is used and to show relevant content. You can accept, or continue with only what is necessary. <a href="privacy.html">Privacy &amp; cookie policy</a>.</p>
+    <p class="cookie-text">We gebruiken cookies van Meta en Google om te begrijpen hoe de site wordt gebruikt en om relevante inhoud te tonen. Je kunt accepteren, of doorgaan met alleen het noodzakelijke. <a href="../privacy.html">Privacy- en cookiebeleid</a>.</p>
     <div class="cookie-actions">
-      <button class="cookie-accept" id="cookie-accept" type="button">Accept</button>
-      <button class="cookie-necessary" id="cookie-necessary" type="button">Only necessary</button>
+      <button class="cookie-accept" id="cookie-accept" type="button">Accepteren</button>
+      <button class="cookie-necessary" id="cookie-necessary" type="button">Alleen noodzakelijk</button>
     </div>
   </div>
 </div>
 
-<!-- ============ NEWSLETTER POPUP ============ -->
-<aside class="nl-popup" id="nl-popup" role="dialog" aria-label="Newsletter signup" aria-hidden="true">
+<aside class="nl-popup" id="nl-popup" role="dialog" aria-label="Nieuwsbrief aanmelding" aria-hidden="true">
   <div class="nl-popup-bar"></div>
   <div class="nl-popup-body">
-    <button class="nl-popup-close" type="button" aria-label="Close">&times;</button>
-    <h3>Hey there,</h3>
-    <p>About once a month I send a short newsletter with my latest findings: interesting projects, tax changes and opportunities worth knowing about. Leave your email and I'll keep you in the loop.</p>
+    <button class="nl-popup-close" type="button" aria-label="Sluiten">&times;</button>
+    <h3>Hallo,</h3>
+    <p>Ongeveer één keer per maand stuur ik een korte nieuwsbrief met mijn laatste bevindingen: interessante projecten, fiscale veranderingen en kansen die het waard zijn om te kennen. Laat je e-mail achter en ik houd je op de hoogte.</p>
     <form id="popup-form" novalidate>
       <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
-      <input type="email" name="email" required autocomplete="email" placeholder="you@email.com" aria-label="Email address" />
-      <button class="btn-teal" type="submit">Keep me updated</button>
+      <input type="email" name="email" required autocomplete="email" placeholder="jij@email.com" aria-label="E-mailadres" />
+      <button class="btn-teal" type="submit">Houd me op de hoogte</button>
       <p class="form-status" role="status" aria-live="polite" hidden></p>
-      <p class="fineprint">One email a month. No spam, unsubscribe any time.</p>
+      <p class="fineprint">Eén e-mail per maand. Geen spam, uitschrijven kan altijd.</p>
     </form>
   </div>
 </aside>
 
 <script>
 (function () {
-  // Forms POST to a Cloudflare Worker (mirrors vaetestament-worker) that holds
-  // the Brevo API key as a secret. The site never sees the key. The Worker must
-  // be deployed and reachable at API_BASE before these forms work end-to-end.
   var API_BASE = 'https://api.andaluma.com';
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   var SUB_KEY = 'aig_nl_subscribed';
   var SEEN_KEY = 'aig_nl_popup_seen';
-  var POPUP_DELAY_MS = 30000; // show the popup after ~30s of reading
+  var POPUP_DELAY_MS = 30000;
 
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function markSubscribed() { store(SUB_KEY, '1'); }
 
-  // ---- Consent-gated analytics: Meta Pixel + GA4 load only after Accept ----
   var CONSENT_KEY = 'aig_cookie_consent';
   var GA4_ID = 'G-9DJ4GRJQPY';
   var PIXEL_ID = '1008248585135532';
@@ -529,7 +455,6 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     fbq('init', PIXEL_ID);
     fbq('track', 'PageView');
   }
-  // No-ops until the pixel has loaded (i.e. until the visitor accepts).
   window.investTrack = function (event, params) { if (window.fbq) fbq('track', event, params || {}); };
   function loadTracking() { loadGA4(); loadPixel(); }
 
@@ -542,9 +467,8 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     document.getElementById('cookie-accept').addEventListener('click', function () { store(CONSENT_KEY, 'all'); hideCookie(); loadTracking(); });
     document.getElementById('cookie-necessary').addEventListener('click', function () { store(CONSENT_KEY, 'necessary'); hideCookie(); });
     var consent = read(CONSENT_KEY);
-    if (consent === 'all') {
-      loadTracking();
-    } else if (consent !== 'necessary') {
+    if (consent === 'all') { loadTracking(); }
+    else if (consent !== 'necessary') {
       var shown = false;
       var reveal = function () { if (shown) return; shown = true; window.removeEventListener('scroll', reveal); showCookie(); };
       setTimeout(reveal, 4000);
@@ -560,14 +484,14 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       var fd = new FormData(form);
-      if (fd.get('website') || fd.get('company')) return; // honeypot tripped, silently drop
+      if (fd.get('website') || fd.get('company')) return;
       var email = (fd.get('email') || '').toString().trim();
       if (!EMAIL_RE.test(email)) {
-        status.textContent = 'Please enter a valid email address.';
+        status.textContent = 'Voer een geldig e-mailadres in.';
         status.className = 'form-status err'; status.hidden = false; return;
       }
       button.disabled = true;
-      status.textContent = 'One moment…'; status.className = 'form-status'; status.hidden = false;
+      status.textContent = 'Een moment…'; status.className = 'form-status'; status.hidden = false;
       try {
         var res = await fetch(API_BASE + endpoint, {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -578,7 +502,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
         form.reset();
         if (onSuccess) onSuccess();
       } catch (err) {
-        status.textContent = 'Something went wrong reaching us. Please email invest@andaluma.com directly.';
+        status.textContent = 'Er ging iets mis bij het contact opnemen. Mail ons direct op invest@andaluma.com.';
         status.className = 'form-status err';
       } finally { button.disabled = false; }
     });
@@ -586,73 +510,36 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
   bindForm('contact-form', '/v1/contact',
     function (fd, email) {
-      return {
-        name: (fd.get('name') || '').toString().trim(),
-        email: email,
-        message: (fd.get('message') || '').toString().trim(),
-        source: 'invest-site'
-      };
+      return { name: (fd.get('name') || '').toString().trim(), email: email, message: (fd.get('message') || '').toString().trim(), source: 'invest-nl' };
     },
-    'Thanks, your message is on its way. André will reply personally.',
+    'Bedankt, je bericht is onderweg. André antwoordt je persoonlijk.',
     function () { if (window.investTrack) investTrack('Contact'); });
 
   bindForm('newsletter-form', '/v1/newsletter/subscribe',
-    function (fd, email) { return { email: email, source: 'invest-site' }; },
-    'Almost there, check your inbox and click the confirmation link to finish subscribing.',
-    function () { markSubscribed(); if (window.investTrack) investTrack('Lead', { content_name: 'newsletter' }); });
+    function (fd, email) { return { email: email, source: 'invest-nl' }; },
+    'Bijna klaar. Check je inbox en klik op de bevestigingslink om je aanmelding af te ronden.',
+    function () { markSubscribed(); if (window.investTrack) investTrack('Lead', { content_name: 'newsletter_nl' }); });
 
-  // Newsletter popup: appears once per visitor (30 day memory), never if already subscribed.
   var popup = document.getElementById('nl-popup');
   if (popup) {
     var closeBtn = popup.querySelector('.nl-popup-close');
-    var recentlySeen = function () {
-      var v = read(SEEN_KEY);
-      return v && (Date.now() - parseInt(v, 10) < 30 * 24 * 3600 * 1000);
-    };
+    var recentlySeen = function () { var v = read(SEEN_KEY); return v && (Date.now() - parseInt(v, 10) < 30 * 24 * 3600 * 1000); };
     var openPopup = function () {
       if (read(SUB_KEY) === '1' || recentlySeen()) return;
-      popup.classList.add('show');
-      popup.setAttribute('aria-hidden', 'false');
-      store(SEEN_KEY, String(Date.now()));
+      popup.classList.add('show'); popup.setAttribute('aria-hidden', 'false'); store(SEEN_KEY, String(Date.now()));
     };
-    var closePopup = function () {
-      popup.classList.remove('show');
-      popup.setAttribute('aria-hidden', 'true');
-    };
+    var closePopup = function () { popup.classList.remove('show'); popup.setAttribute('aria-hidden', 'true'); };
     setTimeout(openPopup, POPUP_DELAY_MS);
     closeBtn.addEventListener('click', closePopup);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePopup(); });
 
     bindForm('popup-form', '/v1/newsletter/subscribe',
-      function (fd, email) { return { email: email, source: 'invest-popup' }; },
-      'Nice one. Check your inbox and click the confirmation link to finish subscribing.',
-      function () { markSubscribed(); if (window.investTrack) investTrack('Lead', { content_name: 'newsletter_popup' }); setTimeout(closePopup, 3000); });
+      function (fd, email) { return { email: email, source: 'invest-nl-popup' }; },
+      'Top! Check je inbox en klik op de bevestigingslink om je aanmelding af te ronden.',
+      function () { markSubscribed(); if (window.investTrack) investTrack('Lead', { content_name: 'newsletter_nl_popup' }); setTimeout(closePopup, 3000); });
   }
 })();
 </script>
-
-<!--
-  ============================================================
-  PHASE 2: AI Guide + Firebase (not yet wired up)
-  ============================================================
-  Backend plan:
-    • Frontend   : GitHub Pages (this repo)
-    • AI bot     : Firebase Cloud Functions (serverside LLM calls)
-    • Database   : Firebase Realtime DB (andaluma-planner-default-rtdb)
-
-  When phase 2 begins, load the Firebase SDK and initialise with the
-  andaluma-planner project config. Do NOT commit the apiKey in plaintext
-  here. Inject it at build time or restrict the key by HTTP referrer in
-  the Google Cloud console. Placeholder config:
-
-  const firebaseConfig = {
-    apiKey:      "<<SET_VIA_ENV_OR_RESTRICTED_KEY>>",
-    authDomain:  "andaluma-planner.firebaseapp.com",
-    databaseURL: "https://andaluma-planner-default-rtdb.firebaseio.com",
-    projectId:   "andaluma-planner"
-  };
-  ============================================================
--->
 
 </body>
 </html>
