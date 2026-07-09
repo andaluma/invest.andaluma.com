@@ -200,6 +200,21 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 @media(max-width:600px){
   .nl-popup { right:0.75rem; left:0.75rem; bottom:0.75rem; width:auto; }
 }
+
+/* ---- Cookie consent banner ---- */
+.cookie-banner { position:fixed; left:0; right:0; bottom:0; z-index:300; background:var(--cream); border-top:2px solid var(--teal); box-shadow:0 -2px 16px rgba(26,18,8,0.12); display:none; }
+.cookie-banner.show { display:block; }
+.cookie-inner { max-width:1100px; margin:0 auto; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
+.cookie-text { flex:1 1 300px; font-size:0.88rem; color:var(--dark); line-height:1.55; margin:0; }
+.cookie-actions { display:flex; align-items:center; gap:1rem; flex-shrink:0; }
+.cookie-accept { background:var(--teal); color:#fff; border:none; padding:0.7rem 1.9rem; border-radius:3px; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:500; letter-spacing:0.06em; cursor:pointer; }
+.cookie-accept:hover { background:var(--dark); }
+.cookie-necessary { background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.82rem; text-decoration:underline; cursor:pointer; }
+.cookie-necessary:hover { color:var(--dark); }
+@media(max-width:640px){
+  .cookie-inner { flex-direction:column; align-items:stretch; gap:0.75rem; }
+  .cookie-actions { flex-direction:column; } .cookie-accept, .cookie-necessary { width:100%; padding:0.85rem; }
+}
 </style>
 </head>
 <body>
@@ -428,6 +443,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     <li><a href="#frameworks">Frameworks</a></li>
     <li><a href="#guide">AI Guide</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#" onclick="return openCookieSettings()">Cookies</a></li>
     <li><a href="https://andaluma.com">Andaluma family ↗</a></li>
   </ul>
   <div class="footer-contact">
@@ -435,6 +451,17 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     <a href="mailto:invest@andaluma.com">invest@andaluma.com</a>
   </div>
 </footer>
+
+<!-- ============ COOKIE CONSENT ============ -->
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use cookies from Meta and Google to understand how the site is used and to show relevant content. You can accept, or continue with only what is necessary.</p>
+    <div class="cookie-actions">
+      <button class="cookie-accept" id="cookie-accept" type="button">Accept</button>
+      <button class="cookie-necessary" id="cookie-necessary" type="button">Only necessary</button>
+    </div>
+  </div>
+</div>
 
 <!-- ============ NEWSLETTER POPUP ============ -->
 <aside class="nl-popup" id="nl-popup" role="dialog" aria-label="Newsletter signup" aria-hidden="true">
@@ -468,6 +495,54 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function markSubscribed() { store(SUB_KEY, '1'); }
+
+  // ---- Consent-gated analytics: Meta Pixel + GA4 load only after Accept ----
+  var CONSENT_KEY = 'aig_cookie_consent';
+  var GA4_ID = 'G-9DJ4GRJQPY';
+  var PIXEL_ID = '1008248585135532';
+
+  function loadGA4() {
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA4_ID);
+  }
+  function loadPixel() {
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+  // No-ops until the pixel has loaded (i.e. until the visitor accepts).
+  window.investTrack = function (event, params) { if (window.fbq) fbq('track', event, params || {}); };
+  function loadTracking() { loadGA4(); loadPixel(); }
+
+  var cookieBanner = document.getElementById('cookie-banner');
+  var showCookie = function () { if (cookieBanner) cookieBanner.classList.add('show'); };
+  var hideCookie = function () { if (cookieBanner) cookieBanner.classList.remove('show'); };
+  window.openCookieSettings = function () { try { localStorage.removeItem(CONSENT_KEY); } catch (e) {} showCookie(); return false; };
+
+  if (cookieBanner) {
+    document.getElementById('cookie-accept').addEventListener('click', function () { store(CONSENT_KEY, 'all'); hideCookie(); loadTracking(); });
+    document.getElementById('cookie-necessary').addEventListener('click', function () { store(CONSENT_KEY, 'necessary'); hideCookie(); });
+    var consent = read(CONSENT_KEY);
+    if (consent === 'all') {
+      loadTracking();
+    } else if (consent !== 'necessary') {
+      var shown = false;
+      var reveal = function () { if (shown) return; shown = true; window.removeEventListener('scroll', reveal); showCookie(); };
+      setTimeout(reveal, 4000);
+      window.addEventListener('scroll', reveal, { passive: true });
+    }
+  }
 
   function bindForm(formId, endpoint, buildBody, okMsg, onSuccess) {
     var form = document.getElementById(formId);
@@ -510,12 +585,13 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
         source: 'invest-site'
       };
     },
-    'Thanks, your message is on its way. André will reply personally.');
+    'Thanks, your message is on its way. André will reply personally.',
+    function () { if (window.investTrack) investTrack('Contact'); });
 
   bindForm('newsletter-form', '/v1/newsletter/subscribe',
     function (fd, email) { return { email: email, source: 'invest-site' }; },
     'Almost there, check your inbox and click the confirmation link to finish subscribing.',
-    markSubscribed);
+    function () { markSubscribed(); if (window.investTrack) investTrack('Lead', { content_name: 'newsletter' }); });
 
   // Newsletter popup: appears once per visitor (30 day memory), never if already subscribed.
   var popup = document.getElementById('nl-popup');
@@ -542,7 +618,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     bindForm('popup-form', '/v1/newsletter/subscribe',
       function (fd, email) { return { email: email, source: 'invest-popup' }; },
       'Nice one. Check your inbox and click the confirmation link to finish subscribing.',
-      function () { markSubscribed(); setTimeout(closePopup, 3000); });
+      function () { markSubscribed(); if (window.investTrack) investTrack('Lead', { content_name: 'newsletter_popup' }); setTimeout(closePopup, 3000); });
   }
 })();
 </script>
