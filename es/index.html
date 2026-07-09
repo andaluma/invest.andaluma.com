@@ -199,6 +199,10 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .cookie-necessary { background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.82rem; text-decoration:underline; cursor:pointer; }
 .cookie-necessary:hover { color:var(--dark); }
 @media(max-width:640px){ .cookie-inner { flex-direction:column; align-items:stretch; gap:0.75rem; } .cookie-actions { flex-direction:column; } .cookie-accept, .cookie-necessary { width:100%; padding:0.85rem; } }
+.wa-fab { position:fixed; bottom:1.25rem; left:1.25rem; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,0.18); z-index:200; transition:transform 0.15s, box-shadow 0.15s; }
+.wa-fab:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.22); }
+.wa-fab:focus-visible { outline:3px solid var(--teal); outline-offset:3px; }
+@media(min-width:480px){ .wa-fab { bottom:1.5rem; left:1.5rem; } }
 </style>
 </head>
 <body>
@@ -546,6 +550,10 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   }
 })();
 </script>
+
+<a class="wa-fab" href="https://wa.me/31616146007?text=Hola%20Andr%C3%A9%2C%20tengo%20una%20pregunta%20sobre%20tu%20gu%C3%ADa%20de%20inversi%C3%B3n." target="_blank" rel="noopener" aria-label="Haz una pregunta por WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.81 9.81 0 0 0 12.03 2C6.5 2 2.01 6.49 2.01 12.02c0 1.76.46 3.48 1.34 4.99L2 22l5.13-1.34a9.97 9.97 0 0 0 4.9 1.25h.01c5.53 0 10.02-4.49 10.02-10.02 0-2.68-1.04-5.19-2.93-7.08l-1.08-.9zM12.03 20.13h-.01a8.13 8.13 0 0 1-4.15-1.14l-.3-.18-3.04.8.81-2.96-.19-.31a8.12 8.12 0 0 1-1.24-4.32c0-4.49 3.65-8.14 8.14-8.14 2.17 0 4.21.85 5.75 2.38a8.06 8.06 0 0 1 2.38 5.76c0 4.49-3.66 8.11-8.15 8.11zm4.46-6.09c-.25-.12-1.45-.71-1.67-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.96-.14.16-.29.18-.54.06a6.7 6.7 0 0 1-1.96-1.21 7.4 7.4 0 0 1-1.36-1.69c-.14-.24-.02-.37.1-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.46c-.16 0-.43.06-.65.31-.22.24-.85.83-.85 2.03 0 1.2.87 2.36.99 2.52.12.16 1.71 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.18 1.11.16 1.52.1.46-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
 
 </body>
 </html>
