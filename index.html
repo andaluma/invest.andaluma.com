@@ -39,6 +39,11 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .nav-links a:hover { color:var(--teal); }
 .nav-contact { background:var(--dark); color:#fff!important; padding:0.45rem 1.1rem; border-radius:2px; font-size:0.72rem!important; font-weight:500!important; letter-spacing:0.1em!important; transition:background 0.2s!important; }
 .nav-contact:hover { background:var(--teal)!important; }
+.nav-lang-mobile { display:none; gap:0.4rem; align-items:center; }
+.nav-lang-mobile a { font-size:0.78rem; color:var(--muted); text-decoration:none; letter-spacing:0.06em; }
+.nav-lang-mobile a.active { color:var(--teal); font-weight:500; }
+.nav-lang-mobile span { color:var(--border); }
+@media(max-width:960px){ .nav-lang-mobile { display:flex; } }
 
 /* ---- Hero ---- */
 .hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; padding-top:4.5rem; }
@@ -241,6 +246,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     <li><a href="https://andaluma.com">Andaluma ↗</a></li>
     <li><a href="#contact" class="nav-contact">Get in touch</a></li>
   </ul>
+  <div class="nav-lang-mobile"><a href="index.html" class="active">EN</a><span>·</span><a href="es/">ES</a><span>·</span><a href="nl/">NL</a></div>
 </nav>
 
 <section class="hero" id="top">

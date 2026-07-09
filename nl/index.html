@@ -41,6 +41,11 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .lang-switch a { font-size:0.72rem; letter-spacing:0.08em; }
 .lang-switch a.active { color:var(--teal); font-weight:500; }
 .lang-switch span { color:var(--border); }
+.nav-lang-mobile { display:none; gap:0.4rem; align-items:center; }
+.nav-lang-mobile a { font-size:0.78rem; color:var(--muted); text-decoration:none; letter-spacing:0.06em; }
+.nav-lang-mobile a.active { color:var(--teal); font-weight:500; }
+.nav-lang-mobile span { color:var(--border); }
+@media(max-width:960px){ .nav-lang-mobile { display:flex; } }
 .hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; padding-top:4.5rem; }
 .hero-left { background:var(--teal); padding:7rem 4.5rem 5rem; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center; }
 .hero-left::before { content:'A'; position:absolute; font-family:'Playfair Display',serif; font-size:65vw; font-weight:900; color:rgba(255,255,255,0.05); top:-15%; left:-8%; line-height:1; pointer-events:none; }
@@ -213,6 +218,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     <li class="lang-switch"><a href="../">EN</a><span>·</span><a href="../es/">ES</a><span>·</span><a href="index.html" class="active">NL</a></li>
     <li><a href="#contact" class="nav-contact">Contact</a></li>
   </ul>
+  <div class="nav-lang-mobile"><a href="../">EN</a><span>·</span><a href="../es/">ES</a><span>·</span><a href="index.html" class="active">NL</a></div>
 </nav>
 
 <section class="hero" id="top">
