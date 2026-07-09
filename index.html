@@ -129,6 +129,20 @@ a.card:hover .card-arrow { transform:translate(3px,-3px); }
 .disclaimer { background:var(--sand); border-top:1.5px solid var(--border); padding:1.6rem 4rem; }
 .disclaimer p { font-size:0.74rem; color:var(--muted); line-height:1.7; max-width:100ch; margin:0 auto; text-align:center; }
 
+/* ---- About (personal, photo-forward) ---- */
+.about { position:relative; min-height:620px; display:flex; align-items:center; background-color:var(--teal); background-image:linear-gradient(90deg, rgba(26,18,8,0.86) 0%, rgba(26,18,8,0.5) 48%, rgba(26,18,8,0.12) 100%), url('about.jpg'); background-size:cover; background-position:center 28%; }
+.about-inner { position:relative; z-index:2; max-width:660px; padding:5.5rem 4.5rem; }
+.about-eyebrow { font-size:0.7rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:1.75rem; display:flex; align-items:center; gap:0.7rem; }
+.about-eyebrow::before { content:''; width:2rem; height:1px; background:rgba(255,255,255,0.4); }
+.about h2 { font-family:'Playfair Display',serif; font-size:clamp(1.9rem,3.1vw,2.9rem); font-weight:400; line-height:1.32; color:#fff; margin-bottom:1.75rem; }
+.about h2 strong { font-weight:700; }
+.about h2 em { font-style:italic; color:#3FAFBD; }
+.about p { font-size:1rem; color:rgba(255,255,255,0.72); line-height:1.9; max-width:54ch; margin-bottom:1.5rem; }
+.about-sign { font-family:'Playfair Display',serif; font-style:italic; font-size:1.4rem; color:#fff; margin-bottom:0!important; }
+.about-ig { display:inline-flex; align-items:center; gap:0.6rem; margin-top:1.75rem; text-decoration:none; color:#fff; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; border:1.5px solid rgba(255,255,255,0.4); padding:0.75rem 1.5rem; border-radius:2px; transition:background 0.2s,gap 0.2s; }
+.about-ig:hover { background:rgba(255,255,255,0.16); gap:1rem; }
+@media(max-width:960px){ .about { min-height:auto; } .about-inner { padding:3.5rem 1.5rem; } }
+
 /* ---- Footer ---- */
 footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
 .footer-brand { display:flex; align-items:center; gap:0.7rem; text-decoration:none; }
@@ -243,6 +257,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     </span>
   </a>
   <ul class="nav-links">
+    <li><a href="#about">About</a></li>
     <li><a href="#guidance">By Country</a></li>
     <li><a href="#frameworks">Frameworks</a></li>
     <li><a href="#guide">AI Guide</a></li>
@@ -279,6 +294,18 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
         <span class="status-place">Foundation live · content in progress</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<!-- Add a photo named about.jpg to the invest folder (a portrait / on-the-ground travel shot). Until then a teal panel shows as a clean fallback. -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <p class="about-eyebrow">The person behind the guidance</p>
+    <h2>I'm <strong>André</strong>. I don't do this from a desk in a suit. I go to the countries myself, spend real time on the ground, and work out how investing there <em>actually</em> works: the taxes, the ownership rules, the real costs and the real returns.</h2>
+    <p>[Your story goes here. A few honest, personal lines: who you are, how this started, why you travel, and what you want to help other traveling families do. Keep it in your own voice, unpolished is good.]</p>
+    <p class="about-sign">André</p>
+    <a class="about-ig" href="https://instagram.com/" target="_blank" rel="noopener">Follow along on Instagram ↗</a>
   </div>
 </section>
 
