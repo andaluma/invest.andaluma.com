@@ -115,6 +115,29 @@ a.card:hover .card-arrow { transform:translate(3px,-3px); }
 .advisor p { font-size:0.98rem; color:rgba(255,255,255,0.66); line-height:1.9; max-width:60ch; margin-bottom:2rem; }
 .advisor-cta { display:inline-flex; align-items:center; gap:0.7rem; background:rgba(255,255,255,0.1); border:1.5px solid rgba(255,255,255,0.28); color:#fff; text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; padding:0.85rem 1.9rem; border-radius:2px; transition:background 0.2s; }
 .advisor-cta:hover { background:rgba(255,255,255,0.2); }
+/* ---- About / de persoon (intro voorpagina) ---- */
+.about { padding:6rem 4rem; background:var(--sand); border-top:1.5px solid var(--border); }
+.about-eyebrow { font-size:0.7rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); margin-bottom:1.9rem; display:flex; align-items:center; gap:0.7rem; }
+.about-eyebrow::before { content:''; width:2rem; height:1px; background:var(--muted); }
+.about-grid { display:grid; grid-template-columns:1.08fr 0.92fr; gap:3.5rem; align-items:center; }
+.about h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.4vw,3.1rem); font-weight:700; line-height:1.14; color:var(--dark); letter-spacing:-0.01em; margin-bottom:1.1rem; }
+.about h2 em { font-style:italic; font-weight:400; color:var(--teal); }
+.about-sub { font-family:'Playfair Display',serif; font-style:italic; font-size:1.2rem; color:var(--teal); line-height:1.55; margin-bottom:1.6rem; }
+.about-intro { font-size:1.02rem; color:var(--dark); opacity:0.88; line-height:1.95; max-width:58ch; }
+.about-photo { position:relative; border-radius:8px; overflow:hidden; box-shadow:0 16px 44px rgba(26,18,8,0.16); margin:0; }
+.about-photo img { display:block; width:100%; height:100%; min-height:340px; object-fit:cover; }
+.about-grid.no-photo { grid-template-columns:1fr; }
+.about-grid.no-photo .about-photo { display:none; }
+.value-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:3rem; }
+.value-item { border-top:2px solid var(--teal); padding-top:1.1rem; }
+.value-item h4 { font-family:'Playfair Display',serif; font-style:italic; font-size:1.08rem; font-weight:700; color:var(--dark); margin-bottom:0.45rem; }
+.value-item p { font-size:0.86rem; color:var(--muted); line-height:1.75; }
+.about-ctas { display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; margin-top:2.75rem; }
+.story-cta { display:inline-flex; align-items:center; gap:0.75rem; background:var(--teal); color:#fff; font-size:0.78rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none; padding:0.9rem 2.1rem; border-radius:2px; transition:background 0.2s,gap 0.2s; }
+.story-cta:hover { background:var(--dark); gap:1.2rem; }
+.about-ig { display:inline-flex; align-items:center; gap:0.6rem; text-decoration:none; color:var(--dark); font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; border:1.5px solid var(--border); padding:0.85rem 1.5rem; border-radius:2px; transition:border-color 0.2s,color 0.2s; }
+.about-ig:hover { border-color:var(--teal); color:var(--teal); }
+@media(max-width:960px){ .about { padding:3.5rem 1.5rem; } .about-grid { grid-template-columns:1fr; gap:2rem; } .about-photo img { min-height:260px; } .value-strip { grid-template-columns:1fr; gap:1.25rem; margin-top:2.5rem; } }
 .i18n-note { background:var(--cream); border-top:1.5px solid var(--border); padding:1rem 1.5rem; }
 .i18n-note p { max-width:72ch; margin:0 auto; text-align:center; font-size:0.78rem; color:var(--muted); line-height:1.6; }
 .disclaimer { background:var(--sand); border-top:1.5px solid var(--border); padding:1.6rem 4rem; }
@@ -216,6 +239,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     </span>
   </a>
   <ul class="nav-links">
+    <li><a href="#about">Over mij</a></li>
     <li><a href="#guidance">Per land</a></li>
     <li><a href="#frameworks">Kaders</a></li>
     <li><a href="#guide">AI-gids</a></li>
@@ -251,6 +275,32 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
         <span class="status-place">Basis live · content in voorbereiding</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ OVER MIJ / DE PERSOON ============ -->
+<section class="about" id="about">
+  <p class="about-eyebrow">De persoon achter de gids</p>
+  <div class="about-grid" id="about-grid">
+    <div>
+      <h2>Wie is André en <em>waarom zou ik blijven hangen?</em></h2>
+      <p class="about-sub">Een eerlijke kijk op waar een reizend gezin zijn geld echt in steekt, en wat dat voor dat van jou zou kunnen betekenen.</p>
+      <p class="about-intro">Ik ben niet je broker of financiële goeroe die in een mooie auto rijdt om zijn successen te laten zien. Ik ben een nuchtere vader en echtgenoot met een oprechte interesse in vastgoed, hospitality, bouwen en beleggen, die op dit moment in een knusse kleine villa in Kuta, Lombok woont en zichzelf (en het gezin) vervoert op een Honda Scoopy, het liefst in een kleurrijk overhemd en op slippers.</p>
+    </div>
+    <!-- IMAGE SLOT (homepage): personal photo. Shared with the English page: drop a file named about.jpg into the repo ROOT and it appears here automatically. -->
+    <figure class="about-photo">
+      <img src="../about.jpg" alt="André onderweg, op locatiebezoek" onerror="document.getElementById('about-grid').classList.add('no-photo')" />
+    </figure>
+  </div>
+  <div class="value-strip">
+    <div class="value-item"><h4>Eerst zien, dan vertrouwen.</h4><p>André brengt echt tijd door op elke plek en vertelt wat hij daadwerkelijk aantreft, goed en slecht.</p></div>
+    <div class="value-item"><h4>De echte cijfers begrijpen.</h4><p>Belastingen, eigendomsregels, echte kosten en echte opbrengsten, per land, in gewone taal.</p></div>
+    <div class="value-item"><h4>Geen druk, geen verkooppraatje.</h4><p>Hij deelt zijn bevindingen zoals een vriend dat zou doen. Past iets bij je, dan helpt hij. Zo niet, dan zegt hij dat.</p></div>
+    <div class="value-item"><h4>Beleggen zonder te verhuizen.</h4><p>Je hoeft niet ergens te gaan wonen om er te beleggen.</p></div>
+  </div>
+  <div class="about-ctas">
+    <a class="story-cta" href="story.html">Lees het hele verhaal →</a>
+    <a class="about-ig" href="https://instagram.com/an.da.lu.ma" target="_blank" rel="noopener">Volg @an.da.lu.ma ↗</a>
   </div>
 </section>
 
