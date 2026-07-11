@@ -65,6 +65,13 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .story-img { margin:3rem 0; border-radius:12px; overflow:hidden; background:#fff; border:1px solid var(--border); box-shadow:0 22px 45px -26px rgba(26,18,8,0.5); }
 .story-img img { display:block; width:100%; max-height:600px; object-fit:cover; object-position:center; }
 .story-img figcaption { font-size:0.82rem; font-style:italic; color:var(--muted); padding:0.85rem 1.1rem; background:#fff; border-top:1px solid var(--border); }
+.story-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:3rem 0; }
+.story-duo .story-img { margin:0; display:flex; flex-direction:column; }
+.story-duo .story-img img { max-height:none; height:auto; }
+.story-duo.duo-wide .story-img img { aspect-ratio:4/3; }
+.story-duo.duo-tall .story-img img { aspect-ratio:3/4; }
+.story-duo .story-img figcaption { margin-top:auto; }
+@media(max-width:640px){ .story-duo { grid-template-columns:1fr; } }
 .story-sign { font-family:'Playfair Display',serif; font-style:italic; font-size:1.6rem; color:var(--teal); margin-top:2.4rem; }
 .ai-note { font-style:italic; font-size:0.9rem; color:var(--muted); border-left:3px solid var(--teal); padding:0.35rem 0 0.35rem 1.25rem; margin:3rem 0 0; line-height:1.85; }
 
@@ -160,17 +167,33 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
   <p>Mientras tanto, el trabajo en Pepsi sí me subió al primer peldaño: logré comprar mi primer apartamento a los 19 años. Fui escalando en la hospitalidad hasta terminar dirigiendo equipos grandes en hoteles boutique y restaurantes alrededor del mundo durante mis veintes, hasta que conocí a mi (ahora) esposa Daniella, en Perú.</p>
 
-  <!-- IMAGE SLOT: one of the Dulce Compañía stores (built by hand). Shared with the English page via ../story-peru.jpg. -->
-  <figure class="story-img">
-    <img src="../story-peru.jpg" alt="Frente a una de nuestras tiendas Dulce Compañía, en familia" onerror="this.parentElement.style.display='none'" />
-    <figcaption>Una de nuestras tiendas Dulce Compañía. Las diseñábamos y construíamos nosotros mismos.</figcaption>
-  </figure>
+  <!-- IMAGE SLOT: building one of the stores, next to the finished store. -->
+  <div class="story-duo duo-tall">
+    <figure class="story-img">
+      <img src="../story-store-build.jpg" alt="Construyendo una de nuestras tiendas a mano" onerror="this.parentElement.style.display='none'" />
+      <figcaption>Construyendo una de nuestras tiendas a mano.</figcaption>
+    </figure>
+    <figure class="story-img">
+      <img src="../story-peru.jpg" alt="La misma tienda Dulce Compañía, terminada y abierta" onerror="this.parentElement.style.display='none'" />
+      <figcaption>La misma tienda, terminada y abierta.</figcaption>
+    </figure>
+  </div>
 
   <p>Juntos montamos negocios y esos negocios empezaron a abrir tiendas. Siendo creativos con nuestros recursos financieros, y siendo Daniella arquitecta titulada, diseñamos nuestras propias tiendas y yo empecé a desempolvar mis habilidades para supervisar la construcción y ensuciarme las manos construyéndolas. La gente sentía la pasión, y la sangre, el sudor y las lágrimas que llevaban dentro, y tienda tras tienda nuestras construcciones empezaron a llamar la atención.</p>
 
   <p>Siendo creativos también con nuestros propios recursos, decidimos comprar una casa abandonada en la zona que nos gustaba y arreglarla nosotros mismos, sin ahorrar en calidad pero siendo creativos con las cosas que no marcarían la diferencia. Traíamos maletas llenas de grifería Grohe de un outlet en los Países Bajos, importábamos suelo radiante del Reino Unido, pero conservamos las ventanas de acero originales y nos tomamos el tiempo de quitar el óxido y encontrar un vidriero local que pusiera doble vidrio. Ya te haces la idea.</p>
 
-  <!-- IMAGE SLOT (optional): antes + después de la casa, lado a lado. Añade story-house-before.jpg y story-house-after.jpg para activarlo. Vacío por ahora. -->
+  <!-- IMAGE SLOT: antes + después de la casa, lado a lado. -->
+  <div class="story-duo duo-wide">
+    <figure class="story-img">
+      <img src="../story-house-before.jpg" alt="El espacio antes, en obra" onerror="this.parentElement.style.display='none'" />
+      <figcaption>Antes.</figcaption>
+    </figure>
+    <figure class="story-img">
+      <img src="../story-house-after.jpg" alt="El mismo espacio, renovado" onerror="this.parentElement.style.display='none'" />
+      <figcaption>Después.</figcaption>
+    </figure>
+  </div>
 
   <p>Cuando la casa estuvo lista, unos terrenos cerca de la playa nos llamaron la atención y, tomándome un tiempo fuera de la oficina, llevé allí todos los retazos de madera y materiales de construcción que sobraban, y empecé a construir nuestro primer galpón. Los primeros meses los niños dormían en el depósito de materiales que habíamos construido con madera sobrante, mientras nosotros dormíamos en una carpa, y paso a paso convertimos el lugar en un acogedor glamping que empezamos a alquilar en Airbnb. En 2023 decidimos vender nuestros negocios y, con el tiempo, también nuestra casa. Vaciar las tiendas y la oficina me dio materiales nuevos para construir un segundo glamping para alquilar.</p>
 

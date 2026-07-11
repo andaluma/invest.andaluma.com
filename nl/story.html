@@ -65,6 +65,13 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .story-img { margin:3rem 0; border-radius:12px; overflow:hidden; background:#fff; border:1px solid var(--border); box-shadow:0 22px 45px -26px rgba(26,18,8,0.5); }
 .story-img img { display:block; width:100%; max-height:600px; object-fit:cover; object-position:center; }
 .story-img figcaption { font-size:0.82rem; font-style:italic; color:var(--muted); padding:0.85rem 1.1rem; background:#fff; border-top:1px solid var(--border); }
+.story-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:3rem 0; }
+.story-duo .story-img { margin:0; display:flex; flex-direction:column; }
+.story-duo .story-img img { max-height:none; height:auto; }
+.story-duo.duo-wide .story-img img { aspect-ratio:4/3; }
+.story-duo.duo-tall .story-img img { aspect-ratio:3/4; }
+.story-duo .story-img figcaption { margin-top:auto; }
+@media(max-width:640px){ .story-duo { grid-template-columns:1fr; } }
 .story-sign { font-family:'Playfair Display',serif; font-style:italic; font-size:1.6rem; color:var(--teal); margin-top:2.4rem; }
 .ai-note { font-style:italic; font-size:0.9rem; color:var(--muted); border-left:3px solid var(--teal); padding:0.35rem 0 0.35rem 1.25rem; margin:3rem 0 0; line-height:1.85; }
 
@@ -160,17 +167,33 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
   <p>Ondertussen bracht de Pepsi-baan me wel op de eerste sport van de ladder: ik wist op mijn 19e mijn eerste appartement te kopen. Ik werkte me omhoog in de hospitality en gaf in mijn twintiger jaren uiteindelijk leiding aan grote teams in boutiquehotels en restaurants over de hele wereld, tot ik mijn (inmiddels) vrouw Daniella ontmoette, in Peru.</p>
 
-  <!-- IMAGE SLOT: one of the Dulce Compañía stores (built by hand). Shared with the English page via ../story-peru.jpg. -->
-  <figure class="story-img">
-    <img src="../story-peru.jpg" alt="Voor een van onze Dulce Compañía-winkels, met het gezin" onerror="this.parentElement.style.display='none'" />
-    <figcaption>Een van onze Dulce Compañía-winkels. We ontwierpen en bouwden ze zelf.</figcaption>
-  </figure>
+  <!-- IMAGE SLOT: building one of the stores, next to the finished store. -->
+  <div class="story-duo duo-tall">
+    <figure class="story-img">
+      <img src="../story-store-build.jpg" alt="Een van onze winkels, met de hand aan het bouwen" onerror="this.parentElement.style.display='none'" />
+      <figcaption>Een van onze winkels, met de hand gebouwd.</figcaption>
+    </figure>
+    <figure class="story-img">
+      <img src="../story-peru.jpg" alt="Dezelfde Dulce Compañía-winkel, af en open" onerror="this.parentElement.style.display='none'" />
+      <figcaption>Dezelfde winkel, af en open.</figcaption>
+    </figure>
+  </div>
 
   <p>Samen begonnen we bedrijven en die bedrijven begonnen winkels te openen. Creatief met onze financiële middelen, en met Daniella als gediplomeerd architect, ontwierpen we onze eigen winkels en begon ik mijn vaardigheden weer op te graven om de bouw te begeleiden en zelf mijn handen vuil te maken aan het bouwen van onze eigen winkels. Mensen voelden de passie, en het bloed, zweet en de tranen die erin zaten, en winkel na winkel begonnen onze bouwsels de aandacht te trekken.</p>
 
   <p>Ook creatief met onze eigen middelen besloten we een verlaten huis te kopen in de buurt die we leuk vonden en het zelf op te knappen, zonder te besparen op kwaliteit maar creatief met dingen die geen verschil zouden maken. We namen koffers vol Grohe-kranen mee van een outlet in Nederland, importeerden vloerverwarming uit het Verenigd Koninkrijk, maar behielden de originele stalen ramen en namen de tijd om de roest te verwijderen en een lokale glaszetter te vinden voor dubbel glas. Je snapt het idee.</p>
 
-  <!-- IMAGE SLOT (optional): voor + na van het huis, naast elkaar. Voeg story-house-before.jpg en story-house-after.jpg toe om dit te activeren. Voorlopig leeg. -->
+  <!-- IMAGE SLOT: voor + na van het huis, naast elkaar. -->
+  <div class="story-duo duo-wide">
+    <figure class="story-img">
+      <img src="../story-house-before.jpg" alt="De ruimte ervoor, in aanbouw" onerror="this.parentElement.style.display='none'" />
+      <figcaption>Voor.</figcaption>
+    </figure>
+    <figure class="story-img">
+      <img src="../story-house-after.jpg" alt="Dezelfde ruimte, gerenoveerd" onerror="this.parentElement.style.display='none'" />
+      <figcaption>Na.</figcaption>
+    </figure>
+  </div>
 
   <p>Toen het huis klaar was, trokken een paar stukken grond dicht bij het strand onze aandacht en, met wat tijd vrij van kantoor, reed ik alle overgebleven houtresten en bouwmaterialen daarheen en begon ik onze eerste schuur te bouwen. De eerste maanden sliepen de kinderen in de materiaalopslag die we van resthout hadden gebouwd, terwijl wij in een tent sliepen, en stap voor stap veranderden we de plek in een knusse glamping die we via Airbnb gingen verhuren. In 2023 besloten we onze bedrijven te verkopen en uiteindelijk ook ons huis. Het leeghalen van de winkels en het kantoor gaf me nieuwe materialen om vervolgens een tweede glamping voor de verhuur te bouwen.</p>
 
