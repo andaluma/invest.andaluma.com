@@ -58,9 +58,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .story { max-width:720px; margin:0 auto; padding:4.5rem 2rem 1rem; }
 .story p { font-size:1.05rem; line-height:1.95; margin-bottom:1.7rem; color:var(--dark); }
 .story p:first-of-type::first-letter { font-family:'Playfair Display',serif; font-size:3.4rem; font-weight:900; float:left; line-height:0.85; padding:0.25rem 0.6rem 0 0; color:var(--teal); }
-.story-img { margin:2.75rem 0; border-radius:8px; overflow:hidden; box-shadow:0 16px 44px rgba(26,18,8,0.16); }
-.story-img img { display:block; width:100%; }
-.story-img figcaption { font-size:0.8rem; color:var(--muted); padding:0.7rem 1rem; background:#fff; border-top:1.5px solid var(--border); }
+.story-img { margin:3rem 0; border-radius:12px; overflow:hidden; background:#fff; border:1px solid var(--border); box-shadow:0 22px 45px -26px rgba(26,18,8,0.5); }
+.story-img img { display:block; width:100%; max-height:600px; object-fit:cover; object-position:center; }
+.story-img figcaption { font-size:0.82rem; font-style:italic; color:var(--muted); padding:0.85rem 1.1rem; background:#fff; border-top:1px solid var(--border); }
 .story-sign { font-family:'Playfair Display',serif; font-style:italic; font-size:1.6rem; color:var(--teal); margin-top:2.4rem; }
 .ai-note { font-style:italic; font-size:0.9rem; color:var(--muted); border-left:3px solid var(--teal); padding:0.35rem 0 0.35rem 1.25rem; margin:3rem 0 0; line-height:1.85; }
 
@@ -153,25 +153,25 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
   <p>Meanwhile the Pepsi job did get me on the ladder as I managed to buy my first apartment at 19 years old. I worked my way up in hospitality ending up managing large teams in boutique hotels and restaurants around the world in my 20's until I met my (now) wife Daniella, in Peru.</p>
 
-  <!-- IMAGE SLOT: Peru / early days / Daniella. Drop a file named story-peru.jpg into the repo root and it appears here automatically. -->
+  <!-- IMAGE SLOT: one of the Dulce Compañía stores (built by hand). Swap story-peru.jpg to change it. -->
   <figure class="story-img">
-    <img src="story-peru.jpg" alt="Peru, the early days with Daniella" onerror="this.parentElement.style.display='none'" />
+    <img src="story-peru.jpg" alt="Outside one of our Dulce Compañía stores, with the family" onerror="this.parentElement.style.display='none'" />
+    <figcaption>One of our Dulce Compañía stores. We designed and built them ourselves.</figcaption>
   </figure>
 
   <p>Together we started businesses and those businesses started to open stores. Being creative with our financial resources, and Daniella being a licensed Architect, we designed our own stores and I started digging up my skills to supervise construction and get my own hands dirty building our own stores. People felt the passion, and the blood, sweat and tears that went into them, and store after store our builds started drawing attention.</p>
 
   <p>Being creative with our own resources too, we decided to buy an abandoned house in the area we liked and fix it up ourselves, not saving on quality but being creative with things that would not make a difference. We would bring suitcases full of Grohe fittings from an outlet in The Netherlands, import floor heating from the UK but keep the original steel windows and take the time to clear the rust and find a local glass fitter to put in double glass. You get it.</p>
 
-  <!-- IMAGE SLOT: the renovated house / steel windows. Drop a file named story-house.jpg into the repo root and it appears here automatically. -->
-  <figure class="story-img">
-    <img src="story-house.jpg" alt="The renovated house with its original steel windows" onerror="this.parentElement.style.display='none'" />
-  </figure>
+  <!-- IMAGE SLOT (optional): before + after of the renovated house, side by side.
+       Add story-house-before.jpg and story-house-after.jpg to enable this. Left empty for now. -->
 
   <p>When the house was done, some terrains close to the beach caught our eyes and taking off some time from the office, I drove all left over scrapes of wood and building materials there, and started to build our first shed. The first months the kids slept in the material storage we had built out of scrap wood, while we slept in a tent, and step by step we turned the place into a cosy glamping side which we started renting on Airbnb. In 2023 we decided to sell our businesses and eventually also our house. Emptying out the stores and office gave me new materials to then build a second glamping for rental.</p>
 
   <!-- IMAGE SLOT: the glamping build. Drop a file named story-glamping.jpg into the repo root and it appears here automatically. -->
   <figure class="story-img">
-    <img src="story-glamping.jpg" alt="Building the glamping near the beach" onerror="this.parentElement.style.display='none'" />
+    <img src="story-glamping.jpg" alt="The glamping we built, looking out to the sea" onerror="this.parentElement.style.display='none'" />
+    <figcaption>The glamping we built by hand, looking out to the sea.</figcaption>
   </figure>
 
   <p>Soon after we started traveling as a family without a plan. We booked one way tickets to Aruba, wanting to visit some other caribean Islands I lived on. With time on my hands, I picked up reading again, starting off with some finance books. That is where I looked back on my life and could actually see what had worked and what hadn't.</p>
@@ -184,7 +184,8 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
   <!-- IMAGE SLOT: family travel. Drop a file named story-family.jpg into the repo root and it appears here automatically. -->
   <figure class="story-img">
-    <img src="story-family.jpg" alt="Traveling as a family" onerror="this.parentElement.style.display='none'" />
+    <img src="story-family.jpg" alt="On the road as a family" onerror="this.parentElement.style.display='none'" />
+    <figcaption>On the road, the four of us.</figcaption>
   </figure>
 
   <p class="story-sign">André</p>

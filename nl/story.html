@@ -62,8 +62,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .story { max-width:720px; margin:0 auto; padding:4.5rem 2rem 1rem; }
 .story p { font-size:1.05rem; line-height:1.95; margin-bottom:1.7rem; color:var(--dark); }
 .story p:first-of-type::first-letter { font-family:'Playfair Display',serif; font-size:3.4rem; font-weight:900; float:left; line-height:0.85; padding:0.25rem 0.6rem 0 0; color:var(--teal); }
-.story-img { margin:2.75rem 0; border-radius:8px; overflow:hidden; box-shadow:0 16px 44px rgba(26,18,8,0.16); }
-.story-img img { display:block; width:100%; }
+.story-img { margin:3rem 0; border-radius:12px; overflow:hidden; background:#fff; border:1px solid var(--border); box-shadow:0 22px 45px -26px rgba(26,18,8,0.5); }
+.story-img img { display:block; width:100%; max-height:600px; object-fit:cover; object-position:center; }
+.story-img figcaption { font-size:0.82rem; font-style:italic; color:var(--muted); padding:0.85rem 1.1rem; background:#fff; border-top:1px solid var(--border); }
 .story-sign { font-family:'Playfair Display',serif; font-style:italic; font-size:1.6rem; color:var(--teal); margin-top:2.4rem; }
 .ai-note { font-style:italic; font-size:0.9rem; color:var(--muted); border-left:3px solid var(--teal); padding:0.35rem 0 0.35rem 1.25rem; margin:3rem 0 0; line-height:1.85; }
 
@@ -159,25 +160,24 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
   <p>Ondertussen bracht de Pepsi-baan me wel op de eerste sport van de ladder: ik wist op mijn 19e mijn eerste appartement te kopen. Ik werkte me omhoog in de hospitality en gaf in mijn twintiger jaren uiteindelijk leiding aan grote teams in boutiquehotels en restaurants over de hele wereld, tot ik mijn (inmiddels) vrouw Daniella ontmoette, in Peru.</p>
 
-  <!-- IMAGE SLOT: Peru / early days / Daniella. Shared with the English page: drop a file named story-peru.jpg into the repo ROOT and it appears here automatically. -->
+  <!-- IMAGE SLOT: one of the Dulce Compañía stores (built by hand). Shared with the English page via ../story-peru.jpg. -->
   <figure class="story-img">
-    <img src="../story-peru.jpg" alt="Peru, de begintijd met Daniella" onerror="this.parentElement.style.display='none'" />
+    <img src="../story-peru.jpg" alt="Voor een van onze Dulce Compañía-winkels, met het gezin" onerror="this.parentElement.style.display='none'" />
+    <figcaption>Een van onze Dulce Compañía-winkels. We ontwierpen en bouwden ze zelf.</figcaption>
   </figure>
 
   <p>Samen begonnen we bedrijven en die bedrijven begonnen winkels te openen. Creatief met onze financiële middelen, en met Daniella als gediplomeerd architect, ontwierpen we onze eigen winkels en begon ik mijn vaardigheden weer op te graven om de bouw te begeleiden en zelf mijn handen vuil te maken aan het bouwen van onze eigen winkels. Mensen voelden de passie, en het bloed, zweet en de tranen die erin zaten, en winkel na winkel begonnen onze bouwsels de aandacht te trekken.</p>
 
   <p>Ook creatief met onze eigen middelen besloten we een verlaten huis te kopen in de buurt die we leuk vonden en het zelf op te knappen, zonder te besparen op kwaliteit maar creatief met dingen die geen verschil zouden maken. We namen koffers vol Grohe-kranen mee van een outlet in Nederland, importeerden vloerverwarming uit het Verenigd Koninkrijk, maar behielden de originele stalen ramen en namen de tijd om de roest te verwijderen en een lokale glaszetter te vinden voor dubbel glas. Je snapt het idee.</p>
 
-  <!-- IMAGE SLOT: the renovated house / steel windows. Shared with the English page: drop a file named story-house.jpg into the repo ROOT and it appears here automatically. -->
-  <figure class="story-img">
-    <img src="../story-house.jpg" alt="Het gerenoveerde huis met de originele stalen ramen" onerror="this.parentElement.style.display='none'" />
-  </figure>
+  <!-- IMAGE SLOT (optional): voor + na van het huis, naast elkaar. Voeg story-house-before.jpg en story-house-after.jpg toe om dit te activeren. Voorlopig leeg. -->
 
   <p>Toen het huis klaar was, trokken een paar stukken grond dicht bij het strand onze aandacht en, met wat tijd vrij van kantoor, reed ik alle overgebleven houtresten en bouwmaterialen daarheen en begon ik onze eerste schuur te bouwen. De eerste maanden sliepen de kinderen in de materiaalopslag die we van resthout hadden gebouwd, terwijl wij in een tent sliepen, en stap voor stap veranderden we de plek in een knusse glamping die we via Airbnb gingen verhuren. In 2023 besloten we onze bedrijven te verkopen en uiteindelijk ook ons huis. Het leeghalen van de winkels en het kantoor gaf me nieuwe materialen om vervolgens een tweede glamping voor de verhuur te bouwen.</p>
 
   <!-- IMAGE SLOT: the glamping build. Shared with the English page: drop a file named story-glamping.jpg into the repo ROOT and it appears here automatically. -->
   <figure class="story-img">
-    <img src="../story-glamping.jpg" alt="De bouw van de glamping dicht bij het strand" onerror="this.parentElement.style.display='none'" />
+    <img src="../story-glamping.jpg" alt="De glamping die we bouwden, met uitzicht op zee" onerror="this.parentElement.style.display='none'" />
+    <figcaption>De glamping die we met de hand bouwden, met uitzicht op zee.</figcaption>
   </figure>
 
   <p>Kort daarna begonnen we als gezin te reizen zonder plan. We boekten enkeltjes naar Aruba, met de wens om een paar andere Caribische eilanden te bezoeken waar ik heb gewoond. Met tijd over pakte ik het lezen weer op, te beginnen met wat financiële boeken. Daar keek ik terug op mijn leven en kon ik daadwerkelijk zien wat had gewerkt en wat niet.</p>
@@ -190,7 +190,8 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
   <!-- IMAGE SLOT: family travel. Shared with the English page: drop a file named story-family.jpg into the repo ROOT and it appears here automatically. -->
   <figure class="story-img">
-    <img src="../story-family.jpg" alt="Reizen als gezin" onerror="this.parentElement.style.display='none'" />
+    <img src="../story-family.jpg" alt="Onderweg, als gezin" onerror="this.parentElement.style.display='none'" />
+    <figcaption>Onderweg, met z'n vieren.</figcaption>
   </figure>
 
   <p class="story-sign">André</p>

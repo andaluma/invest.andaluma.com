@@ -62,8 +62,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .story { max-width:720px; margin:0 auto; padding:4.5rem 2rem 1rem; }
 .story p { font-size:1.05rem; line-height:1.95; margin-bottom:1.7rem; color:var(--dark); }
 .story p:first-of-type::first-letter { font-family:'Playfair Display',serif; font-size:3.4rem; font-weight:900; float:left; line-height:0.85; padding:0.25rem 0.6rem 0 0; color:var(--teal); }
-.story-img { margin:2.75rem 0; border-radius:8px; overflow:hidden; box-shadow:0 16px 44px rgba(26,18,8,0.16); }
-.story-img img { display:block; width:100%; }
+.story-img { margin:3rem 0; border-radius:12px; overflow:hidden; background:#fff; border:1px solid var(--border); box-shadow:0 22px 45px -26px rgba(26,18,8,0.5); }
+.story-img img { display:block; width:100%; max-height:600px; object-fit:cover; object-position:center; }
+.story-img figcaption { font-size:0.82rem; font-style:italic; color:var(--muted); padding:0.85rem 1.1rem; background:#fff; border-top:1px solid var(--border); }
 .story-sign { font-family:'Playfair Display',serif; font-style:italic; font-size:1.6rem; color:var(--teal); margin-top:2.4rem; }
 .ai-note { font-style:italic; font-size:0.9rem; color:var(--muted); border-left:3px solid var(--teal); padding:0.35rem 0 0.35rem 1.25rem; margin:3rem 0 0; line-height:1.85; }
 
@@ -159,25 +160,24 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
   <p>Mientras tanto, el trabajo en Pepsi sí me subió al primer peldaño: logré comprar mi primer apartamento a los 19 años. Fui escalando en la hospitalidad hasta terminar dirigiendo equipos grandes en hoteles boutique y restaurantes alrededor del mundo durante mis veintes, hasta que conocí a mi (ahora) esposa Daniella, en Perú.</p>
 
-  <!-- IMAGE SLOT: Peru / early days / Daniella. Shared with the English page: drop a file named story-peru.jpg into the repo ROOT and it appears here automatically. -->
+  <!-- IMAGE SLOT: one of the Dulce Compañía stores (built by hand). Shared with the English page via ../story-peru.jpg. -->
   <figure class="story-img">
-    <img src="../story-peru.jpg" alt="Perú, los primeros tiempos con Daniella" onerror="this.parentElement.style.display='none'" />
+    <img src="../story-peru.jpg" alt="Frente a una de nuestras tiendas Dulce Compañía, en familia" onerror="this.parentElement.style.display='none'" />
+    <figcaption>Una de nuestras tiendas Dulce Compañía. Las diseñábamos y construíamos nosotros mismos.</figcaption>
   </figure>
 
   <p>Juntos montamos negocios y esos negocios empezaron a abrir tiendas. Siendo creativos con nuestros recursos financieros, y siendo Daniella arquitecta titulada, diseñamos nuestras propias tiendas y yo empecé a desempolvar mis habilidades para supervisar la construcción y ensuciarme las manos construyéndolas. La gente sentía la pasión, y la sangre, el sudor y las lágrimas que llevaban dentro, y tienda tras tienda nuestras construcciones empezaron a llamar la atención.</p>
 
   <p>Siendo creativos también con nuestros propios recursos, decidimos comprar una casa abandonada en la zona que nos gustaba y arreglarla nosotros mismos, sin ahorrar en calidad pero siendo creativos con las cosas que no marcarían la diferencia. Traíamos maletas llenas de grifería Grohe de un outlet en los Países Bajos, importábamos suelo radiante del Reino Unido, pero conservamos las ventanas de acero originales y nos tomamos el tiempo de quitar el óxido y encontrar un vidriero local que pusiera doble vidrio. Ya te haces la idea.</p>
 
-  <!-- IMAGE SLOT: the renovated house / steel windows. Shared with the English page: drop a file named story-house.jpg into the repo ROOT and it appears here automatically. -->
-  <figure class="story-img">
-    <img src="../story-house.jpg" alt="La casa renovada con sus ventanas de acero originales" onerror="this.parentElement.style.display='none'" />
-  </figure>
+  <!-- IMAGE SLOT (optional): antes + después de la casa, lado a lado. Añade story-house-before.jpg y story-house-after.jpg para activarlo. Vacío por ahora. -->
 
   <p>Cuando la casa estuvo lista, unos terrenos cerca de la playa nos llamaron la atención y, tomándome un tiempo fuera de la oficina, llevé allí todos los retazos de madera y materiales de construcción que sobraban, y empecé a construir nuestro primer galpón. Los primeros meses los niños dormían en el depósito de materiales que habíamos construido con madera sobrante, mientras nosotros dormíamos en una carpa, y paso a paso convertimos el lugar en un acogedor glamping que empezamos a alquilar en Airbnb. En 2023 decidimos vender nuestros negocios y, con el tiempo, también nuestra casa. Vaciar las tiendas y la oficina me dio materiales nuevos para construir un segundo glamping para alquilar.</p>
 
   <!-- IMAGE SLOT: the glamping build. Shared with the English page: drop a file named story-glamping.jpg into the repo ROOT and it appears here automatically. -->
   <figure class="story-img">
-    <img src="../story-glamping.jpg" alt="Construyendo el glamping cerca de la playa" onerror="this.parentElement.style.display='none'" />
+    <img src="../story-glamping.jpg" alt="El glamping que construimos, con vistas al mar" onerror="this.parentElement.style.display='none'" />
+    <figcaption>El glamping que construimos a mano, con vistas al mar.</figcaption>
   </figure>
 
   <p>Poco después empezamos a viajar como familia sin un plan. Compramos boletos de ida a Aruba, con ganas de visitar otras islas del Caribe en las que viví. Con tiempo en las manos, retomé la lectura, empezando por algunos libros de finanzas. Ahí fue donde miré atrás en mi vida y pude ver de verdad qué había funcionado y qué no.</p>
@@ -190,7 +190,8 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
   <!-- IMAGE SLOT: family travel. Shared with the English page: drop a file named story-family.jpg into the repo ROOT and it appears here automatically. -->
   <figure class="story-img">
-    <img src="../story-family.jpg" alt="Viajando en familia" onerror="this.parentElement.style.display='none'" />
+    <img src="../story-family.jpg" alt="En ruta, en familia" onerror="this.parentElement.style.display='none'" />
+    <figcaption>En ruta, los cuatro.</figcaption>
   </figure>
 
   <p class="story-sign">André</p>
