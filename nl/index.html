@@ -221,7 +221,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .cookie-accept:hover { background:var(--dark); }
 .cookie-necessary { background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.82rem; text-decoration:underline; cursor:pointer; }
 .cookie-necessary:hover { color:var(--dark); }
-@media(max-width:640px){ .cookie-inner { flex-direction:column; align-items:stretch; gap:0.75rem; } .cookie-actions { flex-direction:column; } .cookie-accept, .cookie-necessary { width:100%; padding:0.85rem; } }
+@media(max-width:640px){ .cookie-inner { flex-direction:column; align-items:stretch; gap:0.6rem; padding:0.85rem 1.1rem; } .cookie-text { flex:none; } .cookie-actions { flex-direction:column; gap:0.6rem; } .cookie-accept, .cookie-necessary { width:100%; padding:0.75rem; } }
 .wa-fab { position:fixed; bottom:1.25rem; left:1.25rem; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,0.18); z-index:200; transition:transform 0.15s, box-shadow 0.15s; }
 .wa-fab:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.22); }
 .wa-fab:focus-visible { outline:3px solid var(--teal); outline-offset:3px; }
@@ -241,6 +241,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   <ul class="nav-links">
     <li><a href="#about">Over mij</a></li>
     <li><a href="#guidance">Per land</a></li>
+    <li><a href="services.html">Diensten</a></li>
     <li><a href="#frameworks">Kaders</a></li>
     <li><a href="#guide">AI-gids</a></li>
     <li class="lang-switch"><a href="../">EN</a><span>·</span><a href="../es/">ES</a><span>·</span><a href="index.html" class="active">NL</a></li>
@@ -311,13 +312,13 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   </div>
   <p class="section-lead">Elk land behandelt een buitenlandse of niet-ingezeten belegger anders: verblijfsdrempels, behandeling van vermogenswinst, toegang tot brokers, bankieren, rapportage. Elke handleiding hieronder vat één rechtsgebied samen in een praktische opzetgids. Er komen meer landen bij naarmate ze onderzocht worden.</p>
   <div class="grid">
-    <div class="card c-teal">
-      <div class="card-top"><div class="card-icon">🇮🇩</div><span class="badge">Loopt</span></div>
+    <a class="card c-teal" href="blog/three-ways-to-own-property-indonesia.html">
+      <div class="card-top"><div class="card-icon">🇮🇩</div><span class="badge">1 artikel live</span></div>
       <span class="card-sub">Zuidoost-Azië · Lombok</span>
       <h3 class="card-name">Indonesië</h3>
       <p class="card-desc">Eigendomsstructuren voor buitenlanders (eigendom vs. erfpacht), verblijfsroutes en het echte fiscale plaatje voor vastgoedkopers.</p>
-      <span class="card-foot">Handleiding <span class="card-arrow">→</span></span>
-    </div>
+      <span class="card-foot">Lees het eerste artikel <span class="card-arrow">→</span></span>
+    </a>
     <div class="card c-forest">
       <div class="card-top"><div class="card-icon">🇦🇪</div><span class="badge">Gepland</span></div>
       <span class="card-sub">Midden-Oosten</span>
@@ -377,6 +378,21 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     <div class="frame"><div class="frame-num fn-5">05</div><div class="frame-body"><h4>Rapportage en compliance</h4><p>CRS, FATCA, lokale aangiften: wat moet worden aangegeven, aan wie en wanneer.</p></div></div>
     <div class="frame"><div class="frame-num fn-6">06</div><div class="frame-body"><h4>De technische stack</h4><p>Tools, apps en workflows die een locatie-onafhankelijke portefeuille echt beheersbaar maken.</p></div></div>
   </div>
+</section>
+
+<!-- ============ VAN DE BLOG ============ -->
+<section class="block" id="blog" style="background:var(--cream);">
+  <div class="section-header">
+    <h2 class="section-title">Van de blog</h2>
+    <span class="section-note">Nieuw · Indonesië</span>
+  </div>
+  <a class="card c-teal" href="blog/three-ways-to-own-property-indonesia.html" style="max-width:560px;">
+    <div class="card-top"><div class="card-icon">🇮🇩</div><span class="badge">Nieuw</span></div>
+    <span class="card-sub">Indonesië · Eigendom</span>
+    <h3 class="card-name">Drie Manieren om Vastgoed te Bezitten in Indonesië als Buitenlander</h3>
+    <p class="card-desc">Geen freehold, maar drie echte, legale routes. Wat het echt kost, en waar mensen vastlopen.</p>
+    <span class="card-foot">Lees de analyse <span class="card-arrow">→</span></span>
+  </a>
 </section>
 
 <section class="advisor" id="guide">
@@ -439,6 +455,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   </a>
   <ul class="footer-links">
     <li><a href="#guidance">Per land</a></li>
+    <li><a href="services.html">Diensten</a></li>
     <li><a href="#frameworks">Kaders</a></li>
     <li><a href="#guide">AI-gids</a></li>
     <li><a href="#contact">Contact</a></li>
