@@ -139,6 +139,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .hub-item:hover { transform:translateY(-2px); box-shadow:0 16px 32px -24px rgba(26,18,8,0.4); border-color:rgba(10,122,136,0.35); }
 .hub-item a { display:flex; align-items:flex-start; gap:1.1rem; padding:1.5rem 1.75rem; text-decoration:none; color:var(--dark); }
 .hub-item a::before { content:counter(hub); flex-shrink:0; width:2.1rem; height:2.1rem; border-radius:50%; background:var(--teal-tint); color:var(--teal); font-family:'Playfair Display',serif; font-weight:700; font-size:0.95rem; display:flex; align-items:center; justify-content:center; margin-top:0.1rem; }
+.hub-item-body { flex:1; min-width:0; }
 .hub-item-meta { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem; }
 .hub-tag { font-size:0.62rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); background:var(--teal-tint); padding:0.24rem 0.7rem; border-radius:20px; }
 .hub-date { font-size:0.78rem; color:var(--muted); }
@@ -194,25 +195,25 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
     <li class="hub-item">
       <a href="blog/one-month-on-lombok.html">
-        <div class="hub-item-meta"><span class="hub-tag">Monthly report · 01</span><span class="hub-date">28 Jul 2026</span></div>
+        <div class="hub-item-body"><div class="hub-item-meta"><span class="hub-tag">Monthly report · 01</span><span class="hub-date">28 Jul 2026</span></div>
         <h3>One Month on Lombok</h3>
-        <p>Our first month on the ground. What I found across the developments, and the three projects that passed the first test.</p>
+        <p>Our first month on the ground. What I found across the developments, and the three projects that passed the first test.</p></div>
       </a>
     </li>
 
     <li class="hub-item">
       <a href="blog/south-lombok-isnt-one-place.html">
-        <div class="hub-item-meta"><span class="hub-tag">Area guide</span><span class="hub-date">20 Jul 2026</span></div>
+        <div class="hub-item-body"><div class="hub-item-meta"><span class="hub-tag">Area guide</span><span class="hub-date">20 Jul 2026</span></div>
         <h3>South Lombok Isn't One Place. Here's a Ground-Level Map of It.</h3>
-        <p>An area-by-area map of South Lombok. What is actually built, what is still just land, and who each area fits.</p>
+        <p>An area-by-area map of South Lombok. What is actually built, what is still just land, and who each area fits.</p></div>
       </a>
     </li>
 
     <li class="hub-item">
       <a href="blog/three-ways-to-own-property-indonesia.html">
-        <div class="hub-item-meta"><span class="hub-tag">Ownership</span><span class="hub-date">14 Jul 2026</span></div>
+        <div class="hub-item-body"><div class="hub-item-meta"><span class="hub-tag">Ownership</span><span class="hub-date">14 Jul 2026</span></div>
         <h3>Three Ways to Own Real Estate in Indonesia as a Foreigner</h3>
-        <p>No freehold, but three real, legal routes. What each one actually costs, and where people get stuck.</p>
+        <p>No freehold, but three real, legal routes. What each one actually costs, and where people get stuck.</p></div>
       </a>
     </li>
 
