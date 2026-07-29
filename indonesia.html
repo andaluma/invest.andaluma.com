@@ -120,9 +120,10 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 
 /* ---- Country hub ---- */
 .hub-hero { position:relative; overflow:hidden; padding-bottom:6.5rem; }
-.hub-hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 60%; opacity:0.32; }
+.hub-hero::before { content:none; }
+.hub-hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; }
 .hub-hero .story-hero-inner { position:relative; z-index:2; }
-.hub-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,122,136,0.55) 0%, rgba(10,122,136,0.88) 100%); z-index:1; }
+.hub-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,122,136,0.3) 0%, rgba(10,122,136,0.75) 100%); z-index:1; }
 .story-hero .hub-sub { font-family:'DM Sans',sans-serif; font-style:normal; font-size:1.05rem; color:rgba(255,255,255,0.82); line-height:1.6; margin-top:1.1rem; max-width:58ch; }
 .hub { max-width:760px; margin:0 auto; padding:3.5rem 2rem 1rem; }
 .hub-story { display:flex; align-items:center; justify-content:space-between; gap:1.5rem; background:var(--sand); border:1.5px solid var(--border); border-left:4px solid var(--teal); border-radius:12px; padding:1.5rem 1.75rem; text-decoration:none; color:var(--dark); transition:transform 0.15s, box-shadow 0.15s; margin-bottom:3.5rem; }
@@ -133,16 +134,16 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .hub-story .hs-arrow { font-size:1.6rem; color:var(--teal); flex-shrink:0; }
 .hub-h2 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--dark); margin-bottom:0.4rem; }
 .hub-note { font-size:0.82rem; color:var(--muted); margin-bottom:2rem; }
-.hub-list { list-style:none; padding:0; margin:0; }
-.hub-item { border-top:1.5px solid var(--border); }
-.hub-item:last-child { border-bottom:1.5px solid var(--border); }
-.hub-item a { display:block; padding:1.75rem 0; text-decoration:none; color:var(--dark); transition:padding-left 0.15s; }
-.hub-item a:hover { padding-left:0.5rem; }
-.hub-item-meta { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.6rem; }
+.hub-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:1.1rem; counter-reset:hub; }
+.hub-item { counter-increment:hub; background:#fff; border:1.5px solid var(--border); border-radius:12px; transition:transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+.hub-item:hover { transform:translateY(-2px); box-shadow:0 16px 32px -24px rgba(26,18,8,0.4); border-color:rgba(10,122,136,0.35); }
+.hub-item a { display:flex; align-items:flex-start; gap:1.1rem; padding:1.5rem 1.75rem; text-decoration:none; color:var(--dark); }
+.hub-item a::before { content:counter(hub); flex-shrink:0; width:2.1rem; height:2.1rem; border-radius:50%; background:var(--teal-tint); color:var(--teal); font-family:'Playfair Display',serif; font-weight:700; font-size:0.95rem; display:flex; align-items:center; justify-content:center; margin-top:0.1rem; }
+.hub-item-meta { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem; }
 .hub-tag { font-size:0.62rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); background:var(--teal-tint); padding:0.24rem 0.7rem; border-radius:20px; }
 .hub-date { font-size:0.78rem; color:var(--muted); }
-.hub-item h3 { font-family:'Playfair Display',serif; font-size:1.28rem; font-weight:700; color:var(--dark); line-height:1.3; margin-bottom:0.4rem; }
-.hub-item p { font-size:0.92rem; color:var(--muted); line-height:1.7; max-width:64ch; }
+.hub-item h3 { font-family:'Playfair Display',serif; font-size:1.22rem; font-weight:700; color:var(--dark); line-height:1.3; margin-bottom:0.4rem; }
+.hub-item p { font-size:0.9rem; color:var(--muted); line-height:1.65; max-width:64ch; }
 @media(max-width:760px){ .hub-story { flex-direction:column; align-items:flex-start; } .hub-story .hs-arrow { display:none; } }
 </style>
 </head>
@@ -188,7 +189,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   </a>
 
   <h2 class="hub-h2">The posts and reports</h2>
-  <p class="hub-note">Newest first.</p>
+  <p class="hub-note">Most recent first.</p>
   <ol class="hub-list">
 
     <li class="hub-item">
