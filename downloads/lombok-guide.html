@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Lombok Guide · André's Investment Guidance</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+:root {
+  --cream:#F7F2E8; --sand:#EDE5D4; --dark:#1A1208; --teal:#0A7A88; --teal-lt:#3FAFBD;
+  --coral:#E04F28; --berry:#B83368; --amber:#C98A10; --muted:#7A6E5A; --border:rgba(26,18,8,0.13);
+  --teal-tint:rgba(10,122,136,0.08);
+}
+body { font-family:'DM Sans',sans-serif; background:var(--sand); color:var(--dark); line-height:1.7; -webkit-font-smoothing:antialiased; padding:2rem 1rem; }
+.sheet { max-width:820px; margin:0 auto; background:var(--cream); box-shadow:0 30px 60px -30px rgba(26,18,8,0.45); }
+
+/* Cover */
+.cover { background:var(--teal); color:#fff; padding:3.25rem 3rem 2.75rem; }
+.cover-brand { display:flex; align-items:center; gap:0.7rem; margin-bottom:2.5rem; }
+.cover-brand img { width:38px; height:38px; border-radius:9px; }
+.cover-brand .cb-name { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; }
+.cover-brand .cb-name em { font-style:italic; font-weight:400; color:var(--teal-lt); }
+.cover-eyebrow { font-size:0.66rem; font-weight:500; letter-spacing:0.24em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:1rem; }
+.cover h1 { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; line-height:1.1; margin-bottom:0.9rem; }
+.cover .lede { font-family:'Playfair Display',serif; font-style:italic; font-size:1.1rem; color:rgba(255,255,255,0.85); max-width:52ch; }
+.cover .meta { font-size:0.78rem; color:rgba(255,255,255,0.6); margin-top:1.5rem; }
+
+.body { padding:2.75rem 3rem 3rem; }
+.intro p { font-size:0.96rem; margin-bottom:1rem; max-width:68ch; }
+.note { background:var(--sand); border-left:3px solid var(--amber); border-radius:5px; padding:0.9rem 1.2rem; font-size:0.83rem; color:var(--dark); opacity:0.9; margin:1.75rem 0 0; }
+
+h2.sec { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; margin:2.75rem 0 0.35rem; }
+.sec-note { font-size:0.82rem; color:var(--muted); margin-bottom:1.5rem; }
+
+/* Project block */
+.proj { border:1.5px solid var(--border); border-radius:12px; overflow:hidden; background:#fff; margin-bottom:2rem; page-break-inside:avoid; }
+.proj-img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
+.proj-imgs { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
+.proj-imgs img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
+.proj-body { padding:1.6rem 1.75rem 1.75rem; }
+.proj-head { display:flex; align-items:center; gap:0.85rem; margin-bottom:0.3rem; }
+.proj-num { width:2rem; height:2rem; flex-shrink:0; border-radius:50%; background:var(--teal-tint); color:var(--teal); font-family:'Playfair Display',serif; font-weight:700; font-size:0.9rem; display:flex; align-items:center; justify-content:center; }
+.proj-head h3 { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; line-height:1.25; }
+.proj-who { font-family:'Playfair Display',serif; font-style:italic; font-size:0.95rem; color:var(--teal); margin:0 0 1rem 2.85rem; }
+.proj-body > p { font-size:0.93rem; color:var(--dark); opacity:0.9; margin-bottom:1.1rem; }
+.facts { border-top:1.5px solid var(--border); margin-top:1.2rem; padding-top:1.2rem; }
+.fact { display:flex; gap:1rem; padding:0.5rem 0; font-size:0.9rem; border-bottom:1px solid rgba(26,18,8,0.07); }
+.fact:last-child { border-bottom:none; }
+.fact dt { flex:0 0 11rem; font-weight:600; color:var(--muted); font-size:0.74rem; letter-spacing:0.08em; text-transform:uppercase; padding-top:0.2rem; }
+.fact dd { flex:1; }
+.fact dd strong { color:var(--teal); font-weight:600; }
+
+/* Closing */
+.closing { background:var(--sand); border-radius:12px; padding:1.75rem 1.9rem; margin-top:2.5rem; }
+.closing h3 { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; margin-bottom:0.6rem; }
+.closing p { font-size:0.92rem; margin-bottom:0.9rem; max-width:64ch; }
+.closing a.cta { display:inline-flex; align-items:center; gap:0.5rem; background:var(--teal); color:#fff; text-decoration:none; font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; padding:0.8rem 1.7rem; border-radius:3px; }
+.contact { font-size:0.88rem; color:var(--muted); margin-top:1.25rem; line-height:1.9; }
+.contact a { color:var(--teal); text-decoration:none; }
+.disclaimer { font-size:0.74rem; color:var(--muted); line-height:1.7; border-top:1.5px solid var(--border); margin-top:2.5rem; padding-top:1.25rem; }
+
+@media print {
+  body { background:#fff; padding:0; }
+  .sheet { box-shadow:none; max-width:none; }
+  .no-print { display:none !important; }
+  .proj { break-inside:avoid; }
+}
+.print-bar { max-width:820px; margin:0 auto 1rem; text-align:right; }
+.print-bar button { font-family:'DM Sans',sans-serif; background:var(--dark); color:#fff; border:none; padding:0.6rem 1.3rem; border-radius:3px; font-size:0.76rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; }
+@media(max-width:700px){ .cover, .body { padding-left:1.5rem; padding-right:1.5rem; } .cover h1 { font-size:2rem; } .fact { flex-direction:column; gap:0.15rem; } .fact dt { flex:none; } .proj-imgs { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div class="print-bar no-print"><button onclick="window.print()">Save as PDF</button></div>
+
+<div class="sheet">
+
+  <header class="cover">
+    <div class="cover-brand">
+      <img src="../logo.svg" alt="" />
+      <span class="cb-name">André's <em>Investment</em> Guidance</span>
+    </div>
+    <p class="cover-eyebrow">Nomad Guidance · Private guide</p>
+    <h1>The Lombok Guide</h1>
+    <p class="lede">The three projects that passed the first test, and how you would actually get into each one.</p>
+    <p class="meta">Companion to Report 01, One Month on Lombok · July 2026</p>
+  </header>
+
+  <div class="body">
+
+    <div class="intro">
+      <p>This is the part I keep off the public page. In the report I wrote about what a month on the ground actually showed me: some construction in poor shape, sea views that may not survive the next project next door, and thousands of near-identical villas going up at once. Of roughly ten projects I looked at and did a basic level of diligence on, three passed the first test.</p>
+      <p>Those three gave me clean, transparent answers and the supporting documentation to back them up. Below is each one, what it is, and the entry point and structure as it stands today.</p>
+      <div class="note"><strong>How to read this.</strong> These are the terms as they stand right now, and they move. Minimums change, allocations fill up, and structures get adjusted. Nothing here is a recommendation or an offer, and none of it is tax or legal advice. Before committing to anything, verify the current terms directly and take your own professional advice for your situation.</div>
+    </div>
+
+    <h2 class="sec">The three projects</h2>
+    <p class="sec-note">In the same order as the report.</p>
+
+    <!-- 1: THE GREEN HUB -->
+    <div class="proj">
+      <img class="proj-img" src="guide-greenhub.jpg" alt="The Green Hub rendering" />
+      <div class="proj-body">
+        <div class="proj-head"><span class="proj-num">1</span><h3>The Green Hub</h3></div>
+        <p class="proj-who">Lionel and Javi · Kuta, South Lombok</p>
+        <p>The first dedicated coworking space in Kuta with world-class facilities and on-site accommodation. Coworking combined with co-living, plus a cafe for hospitality revenue, an auditorium to rent out for events, and a flexible layout that can shift to more or fewer private offices as demand moves. The roof is going on now, and they expect to be operational within six months.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Minimum investment</dt><dd><strong>$30K</strong>, increasing to $40K soon</dd></div>
+          <div class="fact"><dt>Structure</dt><dd>Singaporean SPV. Ownership share is given out, and returns are paid out through the SPV.</dd></div>
+          <div class="fact"><dt>Stage</dt><dd>Under construction, roof going on. Operational target within six months.</dd></div>
+          <div class="fact"><dt>Why it stood out</dt><dd>A real concept rather than another villa. Multiple revenue lines, and it matches where remote work is actually going.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <!-- 2: CANVAS -->
+    <div class="proj">
+      <div class="proj-imgs">
+        <img src="guide-canvas.jpg" alt="Canvas rendering" />
+        <img src="guide-canvas-2.jpg" alt="Canvas site at Are Guling" />
+      </div>
+      <div class="proj-body">
+        <div class="proj-head"><span class="proj-num">2</span><h3>Canvas</h3></div>
+        <p class="proj-who">Shaun and Brandon · Are Guling, South Lombok</p>
+        <p>A multi-faceted space on top of a hill overlooking Areguling beach. At its base a boutique hotel with beautiful finishes and views, but built with company retreats and small congresses in mind, which fits Shaun's contacts in the corporate space and the growing demand for places to take teams for team-building, product launches or client events, combined with a program of exploring Lombok and surfing.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Minimum investment</dt><dd><strong>$100K</strong></dd></div>
+          <div class="fact"><dt>Structure</dt><dd>Singapore SPV.</dd></div>
+          <div class="fact"><dt>Why it stood out</dt><dd>Transparency and documentation. Shaun has construction and real estate experience, built four villas himself while documenting the whole thing, and is selective about who he works with.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <!-- 3: TAMPAH BEACH VILLAS -->
+    <div class="proj">
+      <div class="proj-imgs">
+        <img src="guide-tampah.jpg" alt="Tampah Beach Villas rendering" />
+        <img src="guide-tampah-2.jpg" alt="Tampah bay" />
+      </div>
+      <div class="proj-body">
+        <div class="proj-head"><span class="proj-num">3</span><h3>Tampah Beach Villas</h3></div>
+        <p class="proj-who">Baraca Development · Tampah beach, South Lombok</p>
+        <p>Right on Tampah beach, probably the most exclusive part of Southern Lombok. Villas, most with private pools or sitting on a shared lagoon. In terms of location, finishes and concept it is hard to beat, and a known Dutch contractor has been hired to supervise the project.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Entry level</dt><dd><strong>€220K</strong></dd></div>
+          <div class="fact"><dt>Returns</dt><dd>Positive expected returns. Current figures on request.</dd></div>
+          <div class="fact"><dt>Why it stood out</dt><dd>I worked at Baraca long enough to see how things are done there. Diana oversees this one, and she is my go-to person because I can always expect an honest answer.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="closing">
+      <h3>A fourth one is in validation</h3>
+      <p>I am in the last stage of validating a fourth project, and it has one of the best views I have seen. If you want, we can go through that one together too, along with the taxes and structuring for whichever of these fits what you are actually after.</p>
+      <a class="cta" href="https://api.whatsapp.com/send/?phone=31616146007&text=Hi%20Andr%C3%A9%2C%20I%20read%20the%20Lombok%20guide%20and%20have%20a%20question." target="_blank" rel="noopener">Ask me anything →</a>
+      <p class="contact">
+        André van Wijngaarden<br>
+        <a href="mailto:invest@andaluma.com">invest@andaluma.com</a> · <a href="https://api.whatsapp.com/send/?phone=31616146007">WhatsApp +31 6 16146007</a><br>
+        <a href="https://invest.andaluma.com/indonesia.html">invest.andaluma.com/indonesia</a>
+      </p>
+    </div>
+
+    <p class="disclaimer"><strong>Important.</strong> This guide is shared for information only. It is not investment, tax or legal advice, not a recommendation, and not an offer or solicitation to invest in any project. I am not a licensed financial advisor. Figures and terms come from the developers and from my own conversations on the ground, they can and do change, and I cannot guarantee their accuracy. Property investment carries real risk, including the risk of losing your capital, and rules for foreign buyers in Indonesia are specific and change over time. Do your own due diligence and take independent professional advice before making any decision. Where I have a commercial relationship with a project, it runs through Andaluma OÜ and I will tell you so directly.</p>
+
+  </div>
+</div>
+
+</body>
+</html>
