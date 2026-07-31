@@ -1,38 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How We Got to Lombok · André's Investment Guidance</title>
-<meta name="description" content="How a traveling family ended up on Lombok, and why we are looking here. The backstory, and where the monthly findings from the ground begin." />
-<link rel="canonical" href="https://invest.andaluma.com/blog/lombok-start-here.html" />
+<title>Cómo Llegamos a Lombok · Guía de Inversión de André</title>
+<meta name="description" content="Cómo una familia viajera terminó en Lombok, y por qué estamos mirando aquí. La historia, y dónde empiezan los hallazgos mensuales desde el terreno." />
+<link rel="canonical" href="https://invest.andaluma.com/es/blog/lombok-start-here.html" />
 <link rel="alternate" hreflang="en" href="https://invest.andaluma.com/blog/lombok-start-here.html" />
 <link rel="alternate" hreflang="es" href="https://invest.andaluma.com/es/blog/lombok-start-here.html" />
 <link rel="alternate" hreflang="nl" href="https://invest.andaluma.com/nl/blog/lombok-start-here.html" />
 <link rel="alternate" hreflang="x-default" href="https://invest.andaluma.com/blog/lombok-start-here.html" />
 <meta name="author" content="André van Wijngaarden" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-<meta name="keywords" content="Lombok, Andaluma, André van Wijngaarden, nomad family, moving to Lombok" />
+<meta name="keywords" content="Lombok, Andaluma, André van Wijngaarden, familia nómada, mudarse a Lombok" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="How We Got to Lombok" />
-<meta property="og:description" content="How a traveling family ended up on Lombok, and why we are looking here. The backstory, and where the monthly findings begin." />
-<meta property="og:url" content="https://invest.andaluma.com/blog/lombok-start-here.html" />
-<meta property="og:site_name" content="André's Investment Guidance" />
-<meta property="og:locale" content="en_US" />
-<!-- og:image and twitter:image to add once the hero photo is supplied -->
+<meta property="og:title" content="Cómo Llegamos a Lombok" />
+<meta property="og:description" content="Cómo una familia viajera terminó en Lombok, y por qué estamos mirando aquí. La historia, y dónde empiezan los hallazgos mensuales." />
+<meta property="og:url" content="https://invest.andaluma.com/es/blog/lombok-start-here.html" />
+<meta property="og:site_name" content="Guía de Inversión de André" />
+<meta property="og:locale" content="es_ES" />
 <meta property="article:published_time" content="2026-07-28" />
-<meta property="article:modified_time" content="2026-07-28" />
+<meta property="article:modified_time" content="2026-07-30" />
 <meta property="article:author" content="André van Wijngaarden" />
-<meta property="article:section" content="About" />
+<meta property="article:section" content="Sobre nosotros" />
 <meta property="article:tag" content="Lombok" />
 <meta property="article:tag" content="Andaluma" />
-<meta property="article:tag" content="nomad family" />
+<meta property="article:tag" content="familia nómada" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="How We Got to Lombok" />
-<meta name="twitter:description" content="How a traveling family ended up on Lombok, and why we are looking here." />
+<meta name="twitter:title" content="Cómo Llegamos a Lombok" />
+<meta name="twitter:description" content="Cómo una familia viajera terminó en Lombok, y por qué estamos mirando aquí." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,8 +46,6 @@
 }
 html { scroll-behavior: smooth; }
 body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--dark); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
-
-/* ---- Nav (shared pattern) ---- */
 nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; display:flex; align-items:center; justify-content:space-between; background:rgba(247,242,232,0.93); backdrop-filter:blur(14px); border-bottom:1.5px solid var(--border); }
 .nav-wordmark { display:flex; align-items:center; gap:0.7rem; text-decoration:none; }
 .nav-wordmark .mark { width:30px; height:30px; border-radius:7px; flex-shrink:0; display:block; }
@@ -61,9 +58,15 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .nav-links a:hover { color:var(--teal); }
 .nav-contact { background:var(--dark); color:#fff!important; padding:0.45rem 1.1rem; border-radius:2px; font-size:0.72rem!important; font-weight:500!important; letter-spacing:0.1em!important; transition:background 0.2s!important; }
 .nav-contact:hover { background:var(--teal)!important; }
-@media(max-width:1080px){ .nav-links{display:none;} nav{padding:1rem 1.5rem;} }
-
-/* ---- Post shell ---- */
+.nav-lang-mobile { display:none; gap:0.4rem; align-items:center; }
+.nav-lang-mobile a { font-size:0.78rem; color:var(--muted); text-decoration:none; letter-spacing:0.06em; }
+.nav-lang-mobile a.active { color:var(--teal); font-weight:500; }
+.nav-lang-mobile span { color:var(--border); }
+.lang-switch { display:flex; gap:0.35rem; align-items:center; }
+.lang-switch a { font-size:0.72rem; letter-spacing:0.08em; }
+.lang-switch a.active { color:var(--teal); font-weight:500; }
+.lang-switch span { color:var(--border); }
+@media(max-width:1080px){ .nav-links{display:none;} .nav-lang-mobile{display:flex;} nav{padding:1rem 1.5rem;} }
 .post { max-width:820px; margin:0 auto; padding:8.5rem 2rem 1rem; }
 .post-back { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; margin-bottom:1.75rem; }
 .post-back:hover { color:var(--teal); }
@@ -71,56 +74,17 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .post-eyebrow::before { content:''; width:2rem; height:1px; background:var(--teal); }
 .post h1 { font-family:'Playfair Display',serif; font-size:clamp(1.9rem,3.6vw,2.9rem); font-weight:900; line-height:1.16; color:var(--dark); letter-spacing:-0.01em; margin-bottom:1rem; }
 .post-meta { font-size:0.8rem; color:var(--muted); margin-bottom:1.75rem; }
-
 .disclaimer-box { background:var(--sand); border-left:3px solid var(--teal); border-radius:6px; padding:1.1rem 1.4rem; margin-bottom:2.5rem; }
 .disclaimer-box p { font-size:0.82rem; color:var(--dark); opacity:0.82; line-height:1.75; font-style:normal; }
-
 .post-intro p { font-size:1.02rem; color:var(--dark); line-height:1.9; margin-bottom:1.3rem; max-width:70ch; }
-
-/* ---- Orientation map (branded coastline) ---- */
-.post-map { margin:2.75rem 0 0.5rem; }
-.post-map figure { margin:0; }
-.post-map img { width:100%; height:auto; display:block; border-radius:10px; border:1.5px solid var(--border); background:var(--sand); }
-.post-map figcaption { font-size:0.72rem; color:var(--muted); letter-spacing:0.03em; line-height:1.55; margin-top:0.6rem; font-style:italic; text-align:center; }
-
-/* ---- Context section (why South Lombok / Mandalika) ---- */
 .context { margin:3.25rem 0; scroll-margin-top:6rem; }
 .context h2 { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--dark); margin-bottom:1.5rem; }
 .context p { font-size:0.98rem; color:var(--dark); opacity:0.88; line-height:1.9; margin-bottom:1.1rem; max-width:70ch; }
-
-/* ---- Area sections ---- */
-.area { margin:3.5rem 0; padding-top:2.25rem; border-top:1.5px solid var(--border); scroll-margin-top:6rem; }
-.area:first-of-type { border-top:none; padding-top:0; }
-.area-head { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; }
-.area-badge { width:2.75rem; height:2.75rem; border-radius:50%; background:var(--teal-tint); color:var(--teal); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:'Playfair Display',serif; font-weight:700; font-size:1.05rem; }
-.area h2 { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--dark); line-height:1.25; }
-.area-grid { display:block; }
-.area-grid::after { content:''; display:table; clear:both; }
-.area-media { float:left; width:45%; margin:0.35rem 1.9rem 1rem 0; }
-.area:nth-of-type(even) .area-media { float:right; margin:0.35rem 0 1rem 1.9rem; }
-.area-copy p { font-size:0.98rem; color:var(--dark); opacity:0.88; line-height:1.85; margin-bottom:1.1rem; }
-.area-copy p:last-child { margin-bottom:0; }
-@media(max-width:760px){ .area-media, .area:nth-of-type(even) .area-media { float:none; width:auto; margin:0 0 1.5rem 0; } }
-
-/* ---- Media slot: works for image OR video, populated later ---- */
 .media-slot { position:relative; aspect-ratio:3/2; border-radius:10px; overflow:hidden; background:var(--sand); border:1.5px solid var(--border); }
 .media-slot img, .media-slot video { width:100%; height:100%; object-fit:cover; display:block; }
-.media-placeholder { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:1.5rem; text-align:center; }
-.media-placeholder span { font-size:0.74rem; color:var(--muted); letter-spacing:0.04em; line-height:1.6; }
-@media(max-width:760px){ .media-slot{ aspect-ratio:16/10; } }
-
-/* ---- Secondary companion image: shorter, sits under the primary ---- */
-.media-second { position:relative; aspect-ratio:16/9; border-radius:10px; overflow:hidden; margin-top:0.85rem; background:var(--sand); border:1.5px solid var(--border); }
-.media-second--tall { aspect-ratio:4/5; }
-.media-second img { width:100%; height:100%; object-fit:cover; display:block; }
-.media-caption { font-size:0.72rem; color:var(--muted); letter-spacing:0.03em; line-height:1.55; margin-top:0.55rem; font-style:italic; }
-
-/* ---- Closing sections ---- */
-.closing, .why-three { margin:3.25rem 0; scroll-margin-top:6rem; }
+.closing { margin:3.25rem 0; scroll-margin-top:6rem; }
 .closing h2 { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--dark); margin-bottom:1.1rem; }
 .closing p { font-size:0.98rem; color:var(--dark); opacity:0.88; line-height:1.9; margin-bottom:1.1rem; max-width:70ch; }
-
-/* ---- CTA block: newsletter primary + IG quiet ---- */
 .post-cta { background:var(--teal); color:#fff; border-radius:12px; padding:2.25rem 2.25rem 2rem; margin:3.5rem 0; }
 .post-cta h3 { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; margin-bottom:0.5rem; }
 .post-cta .sub { font-size:0.92rem; color:rgba(255,255,255,0.8); line-height:1.7; margin-bottom:1.4rem; max-width:52ch; }
@@ -137,21 +101,6 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; 
 .post-cta-ig { display:inline-flex; align-items:center; gap:0.5rem; margin-top:1.25rem; text-decoration:none; color:rgba(255,255,255,0.75); font-size:0.74rem; letter-spacing:0.06em; border-top:1px solid rgba(255,255,255,0.18); padding-top:1rem; }
 .post-cta-ig:hover { color:#fff; }
 .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
-
-/* ---- FAQ ---- */
-.faq { margin:3.5rem 0; scroll-margin-top:6rem; }
-.faq h2 { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--dark); margin-bottom:1.75rem; }
-.faq-item { padding:1.5rem 0; border-top:1px solid var(--border); }
-.faq-item:last-child { border-bottom:1px solid var(--border); }
-.faq-q { font-family:'Playfair Display',serif; font-style:italic; font-size:1.05rem; font-weight:700; color:var(--dark); margin-bottom:0.6rem; }
-.faq-a { font-size:0.92rem; color:var(--dark); opacity:0.85; line-height:1.8; max-width:70ch; }
-
-/* ---- Quiet tertiary CTA + closing question ---- */
-.book-call-line { font-size:0.88rem; color:var(--muted); line-height:1.7; margin:2.5rem 0; }
-.book-call-line a { color:var(--teal); text-decoration:underline; }
-.closing-question { font-family:'Playfair Display',serif; font-style:italic; font-size:1.15rem; color:var(--dark); opacity:0.8; line-height:1.6; margin:2.5rem 0 4rem; max-width:60ch; }
-
-/* ---- Footer (shared) ---- */
 footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
 .footer-brand { display:flex; align-items:center; gap:0.7rem; text-decoration:none; }
 .footer-brand .mark { width:34px; height:34px; border-radius:8px; }
@@ -163,13 +112,7 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .footer-contact { font-size:0.8rem; color:rgba(255,255,255,0.6); text-align:right; }
 .footer-contact a { color:var(--teal); text-decoration:none; }
 .footer-contact a:hover { text-decoration:underline; }
-
-@media(max-width:960px){
-  .post { padding:7rem 1.5rem 1rem; }
-  footer{flex-direction:column;text-align:center;padding:2.5rem 1.5rem;} .footer-links{justify-content:center;} .footer-contact{text-align:center;}
-}
-
-/* ---- Cookie consent banner (shared) ---- */
+@media(max-width:960px){ .post { padding:7rem 1.5rem 1rem; } footer{flex-direction:column;text-align:center;padding:2.5rem 1.5rem;} .footer-links{justify-content:center;} .footer-contact{text-align:center;} }
 .cookie-banner { position:fixed; left:0; right:0; bottom:0; z-index:300; background:var(--cream); border-top:2px solid var(--teal); box-shadow:0 -2px 16px rgba(26,18,8,0.12); display:none; }
 .cookie-banner.show { display:block; }
 .cookie-inner { max-width:1100px; margin:0 auto; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
@@ -185,8 +128,6 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .wa-fab:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.22); }
 .wa-fab:focus-visible { outline:3px solid var(--teal); outline-offset:3px; }
 @media(min-width:480px){ .wa-fab { bottom:1.5rem; left:1.5rem; } }
-
-/* ---- Nomad Guidance: elevated hero + editorial ---- */
 .ng-hero { background:var(--teal); color:#fff; padding:8.5rem 2rem 4.5rem; position:relative; overflow:hidden; }
 .ng-hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 40%; z-index:0; }
 .ng-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,122,136,0.32) 0%, rgba(10,122,136,0.72) 100%); z-index:1; }
@@ -203,17 +144,6 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .mini-photo figcaption { font-size:0.68rem; color:var(--muted); font-style:italic; padding:0.5rem 0.6rem; background:#fff; }
 @media(max-width:600px){ .mini-photo { float:none; width:65%; margin:1rem auto; } }
 p.pullquote { font-family:'Playfair Display',serif; font-style:italic; font-size:1.5rem; line-height:1.5; color:var(--teal); border-left:3px solid var(--teal); padding:0.35rem 0 0.35rem 1.6rem; margin:2.75rem 0; max-width:62ch; }
-.media-placeholder { flex-direction:column; gap:0.7rem; }
-.media-placeholder::before { content:''; width:40px; height:40px; opacity:0.4; background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A6E5A' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='7' width='18' height='13' rx='2'/%3E%3Cpath d='M8 7l1.5-2.5h5L16 7'/%3E%3Ccircle cx='12' cy='13.5' r='3.2'/%3E%3C/svg%3E"); }
-.media-placeholder span { font-size:0.64rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); }
-.project-card { background:#fff; border:1.5px solid var(--border); border-radius:16px; overflow:hidden; margin:2.75rem 0; box-shadow:0 24px 45px -34px rgba(26,18,8,0.45); }
-.project-card .media-slot { border:none; border-radius:0; margin:0; aspect-ratio:16/9; }
-.project-card .pc-body { padding:1.9rem 2rem 2rem; }
-.project-card .area-head { margin-bottom:0.35rem; }
-.project-card .pc-who { font-family:'Playfair Display',serif; font-style:italic; font-size:1.05rem; color:var(--teal); margin-bottom:1.1rem; }
-.project-card .area-copy p:last-child { margin-bottom:0; }
-.pc-bridge { background:var(--teal-tint); border-top:1.5px solid var(--border); padding:1.1rem 2rem; margin:1.5rem -2rem -2rem; font-size:0.9rem; color:var(--dark); line-height:1.7; }
-.pc-bridge a { color:var(--teal); font-weight:600; text-decoration:none; }
 @media(max-width:760px){ .ng-hero { padding:7rem 1.5rem 2.5rem; } p.pullquote { font-size:1.28rem; } }
 </style>
 </head>
@@ -221,90 +151,89 @@ p.pullquote { font-family:'Playfair Display',serif; font-style:italic; font-size
 
 <nav>
   <a href="../index.html" class="nav-wordmark">
-    <img class="mark" src="../logo.svg" alt="" />
+    <img class="mark" src="../../logo.svg" alt="" />
     <span class="wm-text">
-      <span class="wm-name">André's <em>Investment</em> Guidance</span>
-      <span class="wm-sub">An Andaluma Venture</span>
+      <span class="wm-name">Guía de <em>Inversión</em> de André</span>
+      <span class="wm-sub">Una iniciativa de Andaluma</span>
     </span>
   </a>
   <ul class="nav-links">
-    <li><a href="../index.html#about">About</a></li>
-    <li><a href="../index.html#guidance">By Country</a></li>
-    <li><a href="../services.html">Services</a></li>
-    <li><a href="../index.html#guide">AI Guide</a></li>
-    <li><a href="../index.html#contact" class="nav-contact">Get in touch</a></li>
+    <li><a href="../index.html#about">Sobre mí</a></li>
+    <li><a href="../index.html#guidance">Por país</a></li>
+    <li><a href="../services.html">Servicios</a></li>
+    <li><a href="../index.html#guide">Guía IA</a></li>
+    <li class="lang-switch"><a href="../../blog/lombok-start-here.html">EN</a><span>·</span><a href="lombok-start-here.html" class="active">ES</a><span>·</span><a href="../../nl/blog/lombok-start-here.html">NL</a></li>
+    <li><a href="../index.html#contact" class="nav-contact">Contacto</a></li>
   </ul>
+  <div class="nav-lang-mobile"><a href="../../blog/lombok-start-here.html">EN</a><span>·</span><a href="lombok-start-here.html" class="active">ES</a><span>·</span><a href="../../nl/blog/lombok-start-here.html">NL</a></div>
 </nav>
 
 <header class="ng-hero">
-  <img class="ng-hero-img" src="../indonesia-banner.jpg" alt="" />
+  <img class="ng-hero-img" src="../../indonesia-banner.jpg" alt="" />
   <div class="ng-hero-inner">
-    <a href="../indonesia.html" class="ng-back">← Indonesia</a>
-    <p class="ng-eyebrow">Nomad Guidance · Start here</p>
-    <h1>How we got to Lombok</h1>
-    <p class="ng-sub">The story behind the reports. New here? This is the place to start. The monthly findings and the projects live in the reports.</p>
+    <a href="../../indonesia.html" class="ng-back">← Indonesia</a>
+    <p class="ng-eyebrow">Nomad Guidance · Empieza aquí</p>
+    <h1>Cómo llegamos a Lombok</h1>
+    <p class="ng-sub">La historia detrás de los informes. ¿Nuevo por aquí? Este es el sitio para empezar. Los hallazgos mensuales y los proyectos viven en los informes.</p>
   </div>
 </header>
 
 <article class="post ng-post">
 
   <div class="post-intro">
-    <p>It has been a full month on Lombok but it feels like lots more. I guess my months of research prior to arrival helped in getting on the ground running. In this page I will take you along on our findings on the ground, living on Lombok, both as a family and as an investor. Just in case you are curious, at the end of this page I will tell you about three projects we consider investing in and why those 3 stood out from the hundreds of projects around.</p>
+    <p>Ha sido un mes completo en Lombok pero se siente como mucho más. Supongo que mis meses de investigación antes de llegar ayudaron a arrancar sobre el terreno. En esta página te llevaré por nuestros hallazgos sobre el terreno, viviendo en Lombok, tanto como familia como inversor. Por si tienes curiosidad, al final de esta página te contaré sobre tres proyectos que estamos considerando invertir y por qué esos 3 destacaron entre los cientos de proyectos que hay.</p>
   </div>
 
   <section class="context">
-    <h2>A bit of a personal story</h2>
-    <div class="media-slot" style="aspect-ratio:16/9; margin-bottom:1.75rem;"><img src="../story-family-vietnam.jpg" alt="On the road in Vietnam" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
-    <p>Let's start with a bit more of a personal story. We arrived to Lombok with my mother in law, as she had traveled from Peru to Bali to see the grandkids (and us, of course). Through Facebook we found a small villa (as they call free standing houses here), in Kuta. Kuta is a town in the South of Lombok and is often the starting point for many travelers. In Kuta you find the bigger supermarket, most restaurants and tourist services. Our villa is slightly away from the main road and is just a simple house with an open living and two bedrooms on the second floor. The biggest asset to the house is not a swimming pool but a mango tree, it turns out. The kids love climbing the tree and we have hosted several meetings in the last month where families came over to our place. It's what we love and seems to happen everywhere we go. Naturally we end up in a house that is inviting and then fill it up with happy people as often as we can.</p>
-    <p class="pullquote">The biggest asset to the house is not a swimming pool but a mango tree.</p>
-    <p>Meanwhile we did our research before arriving and the kids joined a summer camp a few days a week at one of the schools in Kuta, complemented with playdates at the nearby outdoor playground Milo's Village, from where I am now writing you this page while the kids are playing. Daniella, as an art director, is currently working on a few editorial projects so we split our time with the kids until they start school full time, next week.</p>
+    <h2>Un poco de historia personal</h2>
+    <div class="media-slot" style="aspect-ratio:16/9; margin-bottom:1.75rem;"><img src="../../story-family-vietnam.jpg" alt="En la carretera en Vietnam" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <p>Empecemos con un poco más de historia personal. Llegamos a Lombok con mi suegra, que había viajado desde Perú hasta Bali para ver a los nietos (y a nosotros, claro). A través de Facebook encontramos una villa pequeña (así llaman aquí a las casas independientes), en Kuta. Kuta es un pueblo en el sur de Lombok y suele ser el punto de partida para muchos viajeros. En Kuta encuentras el supermercado más grande, la mayoría de restaurantes y servicios turísticos. Nuestra villa está un poco alejada de la carretera principal y es simplemente una casa sencilla con un salón abierto y dos habitaciones en la segunda planta. Resulta que el mayor activo de la casa no es una piscina sino un árbol de mango. A los niños les encanta trepar el árbol y hemos organizado varias reuniones el último mes donde han venido familias a nuestra casa. Es lo que nos encanta y parece pasar allá donde vamos. Naturalmente acabamos en una casa acogedora y luego la llenamos de gente feliz tan a menudo como podemos.</p>
+    <p class="pullquote">El mayor activo de la casa no es una piscina sino un árbol de mango.</p>
+    <p>Mientras tanto hicimos nuestra investigación antes de llegar y los niños se apuntaron a un campamento de verano unos días a la semana en una de las escuelas de Kuta, complementado con quedadas en el parque infantil cercano Milo's Village, desde donde te estoy escribiendo esta página ahora mismo mientras los niños juegan. Daniella, como directora de arte, está trabajando actualmente en varios proyectos editoriales, así que repartimos el tiempo con los niños hasta que empiecen el colegio a tiempo completo, la próxima semana.</p>
   </section>
 
   <section class="context">
-    <h2>The last few years</h2>
-    <figure class="mini-photo"><img src="../story-store-peru.jpg" alt="Opening one of our stores in Peru" /><figcaption>Opening one of our stores in Peru.</figcaption></figure>
-    <p>I will shortly take you through the last years in case you are new here and wonder where this all came from. Daniella and I met in 2013 in Daniella's home country, Peru. After traveling the world for two years, and celebrating our "world wide wedding" on 6 continents, we started a stationery business in Peru. It started as many stories from a bedroom and ended in 2024 with our top 5 stores and a team of 35 people. Meanwhile we built 4 businesses, of which 3 were related to stationery (corporate + import) and the 4th was focused on bicycle accessories. Some worked, some didn't, but in general we created a beautiful community around our main business doing events, workshops, product launches and even a festival during our 7 years.</p>
-    <p>As much as it was fun, going from starting a creative business to running a large team and having lots of responsibilities changed our roles a lot. It also made us get more "stuck" in Peru, which is kind of the opposite of what we had in mind starting it all, so at the end of 2023 we decided to shut it all down. Over 7 months we sold one business and closed down the others. We found our team new jobs and sold our house. With only 3 self-built glamping sites left, we started traveling with only a one-way ticket to Aruba. While traveling the Caribbean we found a camper for sale in Las Vegas and ended up traveling the US, Canada and parts of Mexico. Meanwhile we bought another camper in Europe to travel lots of Europe.</p>
-    <p>After the first year of intense travel we realized we and the kids needed more community, and we signed up for Traveling Village, which is a concept of 20 families traveling together, in our case for 4.5 months, staying 5 weeks in each location with 10 day breaks in between. This would give us 4.5 months with the same friends, a slow pace and 3 new countries to visit. Before the program started we still had about 10 months to fill, so we exchanged our campers for a caravan in Europe and ended up living in Sicily for 7 months. Meanwhile, in need of new challenges, I started working for a real estate company in the UAE. As I always prefer to see things first hand on the ground, we decided to spend some weeks in the UAE to actually see the projects on the ground.</p>
-    <p>In January we started Traveling Village in Vietnam, followed by Taiwan, a brief detour through Japan and then finished in South Korea. Meanwhile the war in the UAE changed the circumstances and the company I was working for stopped funding my project, which led me to starting my own research into interesting places to invest our money. This led me to Lombok. In my free time I started doing lots of research into investment opportunities around the world, and where lots of investors are looking at Bali, I found that many experienced people in the field have moved their focus to Lombok. Curious and sometimes skeptical as I am/we are, we decided to move temporarily to Lombok to find out what is really here. That leads me to the idea of this website. While on it, I might as well share what I find on my way, sharing subjects we have already tackled where others are still trying to figure it out.</p>
+    <h2>Los últimos años</h2>
+    <figure class="mini-photo"><img src="../../story-store-peru.jpg" alt="Abriendo una de nuestras tiendas en Perú" /><figcaption>Abriendo una de nuestras tiendas en Perú.</figcaption></figure>
+    <p>Te llevaré brevemente por los últimos años por si eres nuevo por aquí y te preguntas de dónde viene todo esto. Daniella y yo nos conocimos en 2013 en Perú, el país natal de Daniella. Después de viajar por el mundo durante dos años, y celebrar nuestra "boda mundial" en 6 continentes, montamos un negocio de papelería en Perú. Empezó como muchas historias desde un dormitorio y terminó en 2024 con nuestras 5 mejores tiendas y un equipo de 35 personas. Mientras tanto construimos 4 negocios, de los cuales 3 estaban relacionados con papelería (corporativo + importación) y el 4º se centraba en accesorios de bicicleta. Algunos funcionaron, otros no, pero en general creamos una comunidad preciosa alrededor de nuestro negocio principal haciendo eventos, talleres, lanzamientos de producto e incluso un festival durante nuestros 7 años.</p>
+    <p>Por muy divertido que fuera, pasar de montar un negocio creativo a dirigir un equipo grande y tener muchas responsabilidades cambió bastante nuestros roles. También hizo que nos quedáramos más "atrapados" en Perú, que es un poco lo contrario de lo que teníamos en mente al empezar todo esto, así que a finales de 2023 decidimos cerrarlo todo. Durante 7 meses vendimos un negocio y cerramos los demás. Encontramos nuevos trabajos para nuestro equipo y vendimos nuestra casa. Con solo 3 glampings autoconstruidos restantes, empezamos a viajar con solo un billete de ida a Aruba. Viajando por el Caribe encontramos una autocaravana en venta en Las Vegas y acabamos recorriendo EE. UU., Canadá y parte de México. Mientras tanto compramos otra autocaravana en Europa para recorrer buena parte de Europa.</p>
+    <p>Después del primer año de viaje intenso nos dimos cuenta de que nosotros y los niños necesitábamos más comunidad, y nos apuntamos a Traveling Village, que es un concepto de 20 familias viajando juntas, en nuestro caso durante 4,5 meses, quedándonos 5 semanas en cada lugar con descansos de 10 días entre medias. Eso nos daría 4,5 meses con los mismos amigos, un ritmo tranquilo y 3 países nuevos que visitar. Antes de que empezara el programa todavía teníamos unos 10 meses por llenar, así que cambiamos nuestras autocaravanas por una caravana en Europa y acabamos viviendo en Sicilia 7 meses. Mientras tanto, necesitando nuevos retos, empecé a trabajar para una inmobiliaria en los EAU. Como siempre prefiero ver las cosas de primera mano sobre el terreno, decidimos pasar unas semanas en los EAU para ver realmente los proyectos in situ.</p>
+    <p>En enero empezamos Traveling Village en Vietnam, seguido de Taiwán, un breve desvío por Japón y terminamos en Corea del Sur. Mientras tanto la guerra en los EAU cambió las circunstancias y la empresa para la que trabajaba dejó de financiar mi proyecto, lo que me llevó a empezar mi propia investigación sobre lugares interesantes donde invertir nuestro dinero. Eso me llevó a Lombok. En mi tiempo libre empecé a investigar mucho sobre oportunidades de inversión por el mundo, y mientras muchos inversores miran hacia Bali, descubrí que mucha gente experimentada en el sector ha movido su atención hacia Lombok. Curiosos y a veces escépticos como soy/somos, decidimos mudarnos temporalmente a Lombok para descubrir qué hay realmente aquí. Eso me lleva a la idea de esta web. Ya puestos, comparto lo que voy encontrando por el camino, compartiendo temas que ya hemos abordado donde otros todavía están tratando de entenderlos.</p>
   </section>
 
-  <!-- ============ BRIDGE: the three projects live in the report ============ -->
   <section class="closing">
-    <h2>The three projects</h2>
-    <p>Those three projects I mentioned, the ones that stood out from the hundreds around, are in the first monthly report, together with what a month on the ground actually taught me.</p>
-    <p style="margin-top:0.5rem;"><a href="one-month-on-lombok.html" style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--teal); color:#fff; font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:0.85rem 1.9rem; border-radius:3px;">Read Report 01: One Month on Lombok →</a></p>
+    <h2>Los tres proyectos</h2>
+    <p>Esos tres proyectos que mencioné, los que destacaron entre los cientos de alrededor, están en el primer informe mensual, junto con lo que un mes sobre el terreno realmente me enseñó.</p>
+    <p style="margin-top:0.5rem;"><a href="one-month-on-lombok.html" style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--teal); color:#fff; font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:0.85rem 1.9rem; border-radius:3px;">Leer el Informe 01: Un Mes en Lombok →</a></p>
   </section>
 
-  <!-- ============ NEWSLETTER ============ -->
   <div class="post-cta">
-    <h3>Follow the monthly reports</h3>
-    <p class="sub">One email when a new report from the ground goes up. What I found, which projects held up, and what did not. No sales talk, unsubscribe any time.</p>
+    <h3>Sigue los informes mensuales</h3>
+    <p class="sub">Un correo cuando suba un nuevo informe desde el terreno. Lo que encontré, qué proyectos aguantaron, y cuáles no. Sin discurso de venta, cancela cuando quieras.</p>
     <form id="post-newsletter-form" novalidate>
       <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
-      <input type="email" name="email" required autocomplete="email" placeholder="you@email.com" aria-label="Email address" />
-      <button class="btn-cta" type="submit">Follow along</button>
+      <input type="email" name="email" required autocomplete="email" placeholder="tu@email.com" aria-label="Correo electrónico" />
+      <button class="btn-cta" type="submit">Seguir el hilo</button>
     </form>
     <p class="form-status" role="status" aria-live="polite" hidden></p>
-    <p class="fineprint">We email a confirmation link to complete signup (double opt-in); unsubscribe anytime.</p>
-    <a class="post-cta-ig" href="https://instagram.com/an.da.lu.ma" target="_blank" rel="noopener">Or follow along on Instagram → @an.da.lu.ma</a>
+    <p class="fineprint">Te enviaremos un enlace de confirmación para completar el registro (doble opt-in); cancela cuando quieras.</p>
+    <a class="post-cta-ig" href="https://instagram.com/an.da.lu.ma" target="_blank" rel="noopener">O síguenos en Instagram → @an.da.lu.ma</a>
   </div>
 
 </article>
-<!-- ============ FOOTER ============ -->
 <footer>
   <a href="https://andaluma.com" class="footer-brand">
-    <img class="mark" src="../logo.svg" alt="" />
-    <span class="fb-name">André's <em>Investment</em> Guidance</span>
+    <img class="mark" src="../../logo.svg" alt="" />
+    <span class="fb-name">Guía de <em>Inversión</em> de André</span>
   </a>
   <ul class="footer-links">
-    <li><a href="../index.html#guidance">By Country</a></li>
-    <li><a href="../services.html">Services</a></li>
-    <li><a href="../story.html">The story</a></li>
-    <li><a href="../index.html#contact">Contact</a></li>
-    <li><a href="../privacy.html">Privacy</a></li>
+    <li><a href="../index.html#guidance">Por país</a></li>
+    <li><a href="../services.html">Servicios</a></li>
+    <li><a href="../story.html">La historia</a></li>
+    <li><a href="../index.html#contact">Contacto</a></li>
+    <li><a href="../../privacy.html">Privacidad</a></li>
     <li><a href="#" onclick="return openCookieSettings()">Cookies</a></li>
-    <li><a href="https://andaluma.com">Andaluma family ↗</a></li>
+    <li><a href="https://andaluma.com">Familia Andaluma ↗</a></li>
   </ul>
   <div class="footer-contact">
     André van Wijngaarden<br>
@@ -312,18 +241,17 @@ p.pullquote { font-family:'Playfair Display',serif; font-style:italic; font-size
   </div>
 </footer>
 
-<!-- ============ COOKIE CONSENT ============ -->
-<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie notice">
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Aviso de cookies">
   <div class="cookie-inner">
-    <p class="cookie-text">We use cookies from Meta and Google to understand how the site is used and to show relevant content. You can accept, or continue with only what is necessary. <a href="../privacy.html">Privacy &amp; cookie policy</a>.</p>
+    <p class="cookie-text">Usamos cookies de Meta y Google para entender cómo se usa el sitio y mostrar contenido relevante. Puedes aceptar, o continuar solo con lo necesario. <a href="../../privacy.html">Política de privacidad y cookies</a>.</p>
     <div class="cookie-actions">
-      <button class="cookie-accept" id="cookie-accept" type="button">Accept</button>
-      <button class="cookie-necessary" id="cookie-necessary" type="button">Only necessary</button>
+      <button class="cookie-accept" id="cookie-accept" type="button">Aceptar</button>
+      <button class="cookie-necessary" id="cookie-necessary" type="button">Solo lo necesario</button>
     </div>
   </div>
 </div>
 
-<a class="wa-fab" href="https://wa.me/31616146007?text=Hi%20Andr%C3%A9%2C%20I%20have%20a%20question%20about%20South%20Lombok." target="_blank" rel="noopener" aria-label="Ask a question via WhatsApp">
+<a class="wa-fab" href="https://wa.me/31616146007?text=Hola%20Andr%C3%A9%2C%20tengo%20una%20pregunta%20sobre%20el%20sur%20de%20Lombok." target="_blank" rel="noopener" aria-label="Preguntar por WhatsApp">
   <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.81 9.81 0 0 0 12.03 2C6.5 2 2.01 6.49 2.01 12.02c0 1.76.46 3.48 1.34 4.99L2 22l5.13-1.34a9.97 9.97 0 0 0 4.9 1.25h.01c5.53 0 10.02-4.49 10.02-10.02 0-2.68-1.04-5.19-2.93-7.08l-1.08-.9zM12.03 20.13h-.01a8.13 8.13 0 0 1-4.15-1.14l-.3-.18-3.04.8.81-2.96-.19-.31a8.12 8.12 0 0 1-1.24-4.32c0-4.49 3.65-8.14 8.14-8.14 2.17 0 4.21.85 5.75 2.38a8.06 8.06 0 0 1 2.38 5.76c0 4.49-3.66 8.11-8.15 8.11zm4.46-6.09c-.25-.12-1.45-.71-1.67-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.96-.14.16-.29.18-.54.06a6.7 6.7 0 0 1-1.96-1.21 7.4 7.4 0 0 1-1.36-1.69c-.14-.24-.02-.37.1-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.46c-.16 0-.43.06-.65.31-.22.24-.85.83-.85 2.03 0 1.2.87 2.36.99 2.52.12.16 1.71 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.18 1.11.16 1.52.1.46-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28z"/></svg>
 </a>
 
@@ -331,23 +259,22 @@ p.pullquote { font-family:'Playfair Display',serif; font-style:italic; font-size
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "How we got to Lombok",
-  "description": "How a traveling family ended up on Lombok, and why we are looking here. The backstory, and where the monthly findings from the ground begin.",
-  "inLanguage": "en",
-  "articleSection": "About",
-  "keywords": "Lombok, Andaluma, nomad family, moving to Lombok",
+  "headline": "Cómo llegamos a Lombok",
+  "description": "Cómo una familia viajera terminó en Lombok, y por qué estamos mirando aquí. La historia, y dónde empiezan los hallazgos mensuales desde el terreno.",
+  "inLanguage": "es",
+  "articleSection": "Sobre nosotros",
+  "keywords": "Lombok, Andaluma, familia nómada, mudarse a Lombok",
   "datePublished": "2026-07-28",
-  "dateModified": "2026-07-28",
+  "dateModified": "2026-07-30",
   "author": { "@type": "Person", "name": "André van Wijngaarden", "url": "https://invest.andaluma.com/" },
   "publisher": {
     "@type": "Organization",
     "name": "André's Investment Guidance",
     "logo": { "@type": "ImageObject", "url": "https://invest.andaluma.com/logo.svg" }
   },
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://invest.andaluma.com/blog/lombok-start-here.html" }
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://invest.andaluma.com/es/blog/lombok-start-here.html" }
 }
 </script>
-
 
 <script>
 (function () {
@@ -407,24 +334,24 @@ p.pullquote { font-family:'Playfair Display',serif; font-style:italic; font-size
       if (fd.get('website')) return;
       var email = (fd.get('email') || '').toString().trim();
       if (!EMAIL_RE.test(email)) {
-        status.textContent = 'Please enter a valid email address.'; status.className = 'form-status err'; status.hidden = false; return;
+        status.textContent = 'Introduce un correo electrónico válido.'; status.className = 'form-status err'; status.hidden = false; return;
       }
-      button.disabled = true; status.textContent = 'One moment…'; status.className = 'form-status'; status.hidden = false;
+      button.disabled = true; status.textContent = 'Un momento…'; status.className = 'form-status'; status.hidden = false;
       try {
         var res = await fetch(API_BASE + '/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email, source: 'lombok-start-here' })
+          body: JSON.stringify({ email: email, source: 'lombok-start-here-es' })
         });
         if (res.ok) {
-          status.textContent = 'Almost there — check your email to confirm.'; status.className = 'form-status ok';
-          if (window.investTrack) window.investTrack('Lead', { content_name: 'lombok-start-here' });
+          status.textContent = 'Ya casi está — revisa tu correo para confirmar.'; status.className = 'form-status ok';
+          if (window.investTrack) window.investTrack('Lead', { content_name: 'lombok-start-here-es' });
           form.reset();
         } else {
-          status.textContent = 'Something went wrong. Please try again.'; status.className = 'form-status err';
+          status.textContent = 'Algo ha fallado. Inténtalo de nuevo.'; status.className = 'form-status err';
         }
       } catch (err) {
-        status.textContent = 'Something went wrong. Please try again.'; status.className = 'form-status err';
+        status.textContent = 'Algo ha fallado. Inténtalo de nuevo.'; status.className = 'form-status err';
       } finally {
         button.disabled = false;
       }

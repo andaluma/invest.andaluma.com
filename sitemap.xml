@@ -92,9 +92,21 @@
   </url>
   <url>
     <loc>https://invest.andaluma.com/blog/lombok-start-here.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://invest.andaluma.com/es/blog/lombok-start-here.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://invest.andaluma.com/nl/blog/lombok-start-here.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://invest.andaluma.com/blog/one-month-on-lombok.html</loc>
