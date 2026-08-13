@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Investeren vanuit Nederland · André's Beleggingsgids</title>
+<meta name="description" content="Praktische gids voor Nederlanders die vanuit Nederland in Indonesië investeren: hoe internationale overboekingen werken, eigendomsstructuren, emigratie-mechaniek, en een interactieve rekentool." />
+<link rel="canonical" href="https://invest.andaluma.com/nl/investeren-vanuit-nederland.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream:  #F7F2E8; --sand: #EDE5D4;
+  --dark:   #1A1208; --coral: #E04F28;
+  --berry:  #B83368; --teal: #0A7A88;
+  --amber:  #C98A10; --forest: #2D5C3A; --navy: #1B3D6B;
+  --muted:  #7A6E5A; --border: rgba(26,18,8,0.11);
+  --teal-tint: rgba(10,122,136,0.08);
+}
+html { scroll-behavior: smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--dark); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+
+/* ---- Nav (shared pattern) ---- */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.1rem 4rem; display:flex; align-items:center; justify-content:space-between; background:rgba(247,242,232,0.93); backdrop-filter:blur(14px); border-bottom:1.5px solid var(--border); }
+.nav-wordmark { display:flex; align-items:center; gap:0.7rem; text-decoration:none; }
+.nav-wordmark .mark { width:30px; height:30px; border-radius:7px; flex-shrink:0; display:block; }
+.nav-wordmark .wm-text { display:flex; flex-direction:column; line-height:1.05; }
+.nav-wordmark .wm-name { font-family:'Playfair Display',serif; font-size:1.02rem; font-weight:700; letter-spacing:0.01em; color:var(--dark); }
+.nav-wordmark .wm-name em { font-style:italic; font-weight:400; color:var(--teal); }
+.nav-wordmark .wm-sub { font-size:0.56rem; font-weight:500; letter-spacing:0.24em; text-transform:uppercase; color:var(--muted); }
+.nav-links { display:flex; gap:2.2rem; list-style:none; align-items:center; }
+.nav-links a { font-size:0.78rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--teal); }
+.nav-contact { background:var(--dark); color:#fff!important; padding:0.45rem 1.1rem; border-radius:2px; font-size:0.72rem!important; font-weight:500!important; letter-spacing:0.1em!important; transition:background 0.2s!important; }
+.nav-contact:hover { background:var(--teal)!important; }
+@media(max-width:1080px){ .nav-links{display:none;} nav{padding:1rem 1.5rem;} }
+
+/* ---- Hero ---- */
+.hero { background:var(--dark); padding:9.5rem 4rem 4rem; position:relative; overflow:hidden; }
+.hero::before { content:'A'; position:absolute; font-family:'Playfair Display',serif; font-size:42vw; font-weight:900; color:rgba(255,255,255,0.04); top:-28%; right:-6%; line-height:1; pointer-events:none; }
+.hero-inner { max-width:820px; margin:0 auto; position:relative; z-index:1; }
+.eyebrow { font-size:0.7rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem; }
+.eyebrow::before { content:''; width:2rem; height:1px; background:rgba(255,255,255,0.35); }
+.hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:900; line-height:1.15; color:#fff; letter-spacing:-0.01em; }
+.hero p.sub { font-size:1.02rem; color:rgba(255,255,255,0.72); line-height:1.6; margin-top:1.1rem; max-width:60ch; }
+
+/* ---- Tabs ---- */
+.tabbar { position:sticky; top:64px; z-index:90; background:var(--cream); border-bottom:1.5px solid var(--border); }
+.tabbar-inner { max-width:820px; margin:0 auto; display:flex; gap:0.25rem; padding:0 1.5rem; overflow-x:auto; }
+.tab-btn { flex-shrink:0; background:none; border:none; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; color:var(--muted); padding:1rem 1.1rem; cursor:pointer; border-bottom:2.5px solid transparent; transition:color 0.15s, border-color 0.15s; white-space:nowrap; }
+.tab-btn:hover { color:var(--dark); }
+.tab-btn.active { color:var(--teal); border-bottom-color:var(--teal); font-weight:600; }
+.tab-btn .lock { font-size:0.7rem; margin-left:0.3rem; opacity:0.6; }
+
+main.hub { max-width:820px; margin:0 auto; padding:3rem 1.5rem 1rem; }
+.panel { display:none; }
+.panel.active { display:block; }
+
+.panel h2 { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; margin-bottom:0.6rem; }
+.panel > p.lede { font-size:1rem; color:var(--muted); line-height:1.65; margin-bottom:2.2rem; max-width:64ch; }
+
+.block { margin-bottom:2.6rem; }
+.block h3 { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:700; margin-bottom:0.7rem; }
+.block p { font-size:0.96rem; color:var(--dark); opacity:0.92; line-height:1.7; margin-bottom:0.8rem; max-width:66ch; }
+.block ul, .block ol { margin:0.6rem 0 0.8rem 1.3rem; }
+.block li { font-size:0.94rem; line-height:1.65; margin-bottom:0.5rem; color:var(--dark); opacity:0.92; max-width:62ch; }
+
+.fact-box { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:1.4rem 1.6rem; margin:1.2rem 0; }
+.fact-box .fb-label { font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.5rem; }
+
+.disclaimer { background:var(--sand); border-left:4px solid var(--amber); border-radius:0 10px 10px 0; padding:1.1rem 1.4rem; font-size:0.86rem; color:var(--dark); line-height:1.6; margin-bottom:2rem; }
+.disclaimer strong { color:var(--amber); }
+
+.open-questions { background:var(--dark); color:rgba(255,255,255,0.9); border-radius:14px; padding:1.8rem 2rem; margin-top:2.5rem; }
+.open-questions h3 { font-family:'Playfair Display',serif; color:#fff; font-size:1.1rem; margin-bottom:0.3rem; }
+.open-questions .oq-note { font-size:0.82rem; color:rgba(255,255,255,0.55); margin-bottom:1.2rem; }
+.open-questions ol { margin:0; padding-left:1.3rem; }
+.open-questions li { font-size:0.88rem; line-height:1.6; color:rgba(255,255,255,0.85); margin-bottom:0.9rem; }
+.open-questions li:last-child { margin-bottom:0; }
+
+.pending-banner { background:var(--sand); border:1.5px dashed var(--amber); border-radius:14px; padding:2.5rem 2rem; text-align:center; }
+.pending-banner .pb-tag { display:inline-block; font-size:0.68rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--amber); background:rgba(201,138,16,0.12); padding:0.3rem 0.9rem; border-radius:20px; margin-bottom:1rem; }
+.pending-banner h3 { font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:0.6rem; }
+.pending-banner p { font-size:0.92rem; color:var(--muted); max-width:48ch; margin:0 auto; }
+
+/* ---- Calculator ---- */
+.calc-panel { background:#fff; border:1.5px solid var(--border); border-radius:14px; padding:1.6rem 1.8rem; margin-bottom:1.6rem; }
+.calc-panel h3 { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:700; margin-bottom:1.1rem; }
+.calc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.2rem 1.6rem; }
+.calc-grid label { display:block; font-size:0.78rem; color:var(--muted); margin-bottom:0.4rem; font-weight:600; }
+.calc-grid input[type=number] { width:100%; padding:0.6rem 0.7rem; border:1.5px solid var(--border); border-radius:7px; font-size:0.94rem; font-family:'DM Sans',sans-serif; background:var(--cream); }
+.calc-radiogroup { display:flex; flex-direction:column; gap:0.5rem; }
+.calc-radiogroup label.opt { display:flex; align-items:flex-start; gap:0.6rem; font-weight:400; color:var(--dark); font-size:0.88rem; cursor:pointer; }
+.calc-radiogroup input { margin-top:0.2rem; accent-color:var(--teal); }
+.calc-radiogroup .opt-detail { display:block; color:var(--muted); font-weight:400; font-size:0.8rem; margin-top:0.1rem; }
+.calc-table { border-collapse:collapse; width:100%; font-size:0.86rem; }
+.calc-table th, .calc-table td { padding:0.65rem 0.6rem; text-align:right; border-bottom:1px solid var(--border); }
+.calc-table th:first-child, .calc-table td:first-child { text-align:left; }
+.calc-table thead th { color:var(--muted); font-weight:600; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.04em; }
+.calc-path-name { font-weight:650; }
+.calc-path-name small { display:block; font-weight:400; color:var(--muted); font-size:0.74rem; margin-top:0.15rem; }
+.calc-pill { display:inline-block; padding:0.15rem 0.55rem; border-radius:99px; font-size:0.7rem; font-weight:650; }
+.calc-pill.good { background:rgba(45,92,58,0.12); color:var(--forest); }
+.calc-pill.bad { background:rgba(224,79,40,0.12); color:var(--coral); }
+.calc-best { background:var(--teal-tint); }
+.calc-num { font-variant-numeric:tabular-nums; }
+.calc-assumptions summary { cursor:pointer; font-weight:600; font-size:0.9rem; color:var(--dark); }
+.calc-assumptions ul { margin:0.8rem 0 0 1.2rem; }
+.calc-assumptions li { font-size:0.85rem; color:var(--muted); line-height:1.6; margin-bottom:0.5rem; }
+.calc-flag { color:var(--amber); font-weight:600; }
+
+/* ---- Footer (shared pattern) ---- */
+footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; margin-top:3rem; }
+.footer-brand { display:flex; align-items:center; gap:0.7rem; text-decoration:none; }
+.footer-brand .mark { width:34px; height:34px; border-radius:8px; }
+.footer-brand .fb-name { font-family:'Playfair Display',serif; font-size:1.02rem; font-weight:700; color:#fff; }
+.footer-brand .fb-name em { font-style:italic; font-weight:400; color:var(--teal); }
+.footer-links { display:flex; gap:2rem; list-style:none; flex-wrap:wrap; }
+.footer-links a { font-size:0.78rem; color:rgba(255,255,255,0.6); text-decoration:none; letter-spacing:0.06em; transition:color 0.2s; }
+.footer-links a:hover { color:#fff; }
+.footer-contact { font-size:0.8rem; color:rgba(255,255,255,0.6); text-align:right; }
+.footer-contact a { color:var(--teal); text-decoration:none; }
+@media(max-width:960px){ footer{flex-direction:column;text-align:center;padding:2.5rem 1.5rem;} .footer-links{justify-content:center;} .footer-contact{text-align:center;} .hero{padding:7.5rem 1.5rem 3rem;} }
+
+.cookie-banner { position:fixed; left:0; right:0; bottom:0; z-index:300; background:var(--cream); border-top:2px solid var(--teal); box-shadow:0 -2px 16px rgba(26,18,8,0.12); display:none; }
+.cookie-banner.show { display:block; }
+.cookie-inner { max-width:1100px; margin:0 auto; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
+.cookie-text { flex:1 1 300px; font-size:0.88rem; color:var(--dark); line-height:1.55; margin:0; }
+.cookie-text a { color:var(--teal); text-decoration:underline; }
+.cookie-actions { display:flex; align-items:center; gap:1rem; flex-shrink:0; }
+.cookie-accept { background:var(--teal); color:#fff; border:none; padding:0.7rem 1.9rem; border-radius:3px; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:500; letter-spacing:0.06em; cursor:pointer; }
+.cookie-necessary { background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.82rem; text-decoration:underline; cursor:pointer; }
+@media(max-width:640px){ .cookie-inner{flex-direction:column;align-items:stretch;gap:0.6rem;padding:0.85rem 1.1rem;} .cookie-text{flex:none;} .cookie-actions{flex-direction:column;gap:0.6rem;} .cookie-accept,.cookie-necessary{width:100%;padding:0.75rem;} }
+.wa-fab { position:fixed; bottom:1.25rem; left:1.25rem; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,0.18); z-index:200; }
+@media(min-width:480px){ .wa-fab { bottom:1.5rem; left:1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-wordmark">
+    <img class="mark" src="../logo.svg" alt="" />
+    <span class="wm-text">
+      <span class="wm-name">André's <em>Beleggings</em>gids</span>
+      <span class="wm-sub">Een Andaluma-project</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">Over mij</a></li>
+    <li><a href="../index.html#guidance">Per land</a></li>
+    <li><a href="investeren-vanuit-nederland.html">Vanuit Nederland</a></li>
+    <li><a href="services.html">Diensten</a></li>
+    <li><a href="../index.html#guide">AI-gids</a></li>
+    <li><a href="../index.html#contact" class="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Nomad Guidance · Voor Nederlanders</p>
+    <h1>Investeren vanuit Nederland</h1>
+    <p class="sub">Vier praktische kanten van hetzelfde vraagstuk: hoe je geld daadwerkelijk overkomt, hoe eigendom fiscaal in elkaar zit, wat emigreren met je BV en je huis doet, en een rekentool om het zelf door te rekenen.</p>
+  </div>
+</header>
+
+<div class="tabbar">
+  <div class="tabbar-inner">
+    <button class="tab-btn active" data-tab="geld" type="button">Geld overmaken</button>
+    <button class="tab-btn" data-tab="structuur" type="button">Eigendomsstructuur</button>
+    <button class="tab-btn" data-tab="emigreren" type="button">Emigreren</button>
+    <button class="tab-btn" data-tab="rekentool" type="button">Rekentool</button>
+  </div>
+</div>
+
+<main class="hub">
+
+  <!-- ============ TAB 1: GELD OVERMAKEN (publishable now) ============ -->
+  <section class="panel active" id="panel-geld">
+    <h2>Hoe je geld daadwerkelijk overkomt</h2>
+    <p class="lede">Operationeel, niet fiscaal: de praktische kant van een storting overmaken voor een aankoop of deelname in Indonesië. Gebaseerd op André's eigen ervaring met het regelen van deze overboekingen.</p>
+
+    <div class="block">
+      <h3>Hoe een internationale overboeking in de praktijk werkt</h3>
+      <p>Een storting voor een aankoop of deelname loopt meestal via een van twee routes: een gewone SWIFT-overboeking vanuit je Nederlandse bank, of een gespecialiseerde overboekingsdienst. Het verschil zit vooral in kosten, snelheid, en hoeveel controle je hebt over de wisselkoers.</p>
+      <p>Een traditionele bank (ABN AMRO, ING, Rabobank) kan een SWIFT-overboeking direct naar een Indonesische of Singaporese rekening sturen, maar rekent vaak een minder gunstige wisselkoers en een vast overboekingstarief, en het bedrag kan onderweg via correspondentbanken lopen die er nog eigen kosten bovenop leggen. Een gespecialiseerde dienst zoals <strong>Wise</strong> gebruikt lokale bankrekeningen in het ontvangende land, waardoor het geld niet daadwerkelijk grenzen over hoeft en de wisselkoers dichter bij de werkelijke marktkoers ligt.</p>
+    </div>
+
+    <div class="block">
+      <h3>Welke banken en diensten hiervoor gangbaar zijn</h3>
+      <ul>
+        <li><strong>Wise (Business)</strong> — André's eigen keuze voor de meeste overboekingen. Transparante, lage kosten, real-time wisselkoers, en een zakelijke rekening waarop meerdere valuta tegelijk aangehouden kunnen worden.</li>
+        <li><strong>Xolo</strong> — gebruikt naast Wise voor een deel van de zakelijke administratie en facturering rond internationale betalingen.</li>
+        <li><strong>Reguliere Nederlandse banken</strong> — nog steeds de gangbare route voor de eerste, grotere storting, mede omdat sommige tegenpartijen (notarissen, PT PMA-oprichters) een overboeking vanaf een bekende bank prettiger vinden voor hun eigen due diligence.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>KYC/AML in de praktijk</h3>
+      <p>Elke partij in de keten, je eigen bank, de ontvangende bank of dienst, en vaak ook de Indonesische of Singaporese tegenpartij, moet vaststellen wie je bent en waar het geld vandaan komt. Voor bedragen die passen bij een vastgoedaankoop of investeringsdeelname (doorgaans vanaf zo'n €10.000-15.000) is een simpele overboeking niet genoeg, verwacht in ieder geval:</p>
+      <ul>
+        <li>Een geldig identiteitsbewijs en woonadresbewijs, zoals gebruikelijk bij het openen van een rekening.</li>
+        <li>Een verklaring of bewijs van herkomst van het geld (bronvermogen): een loonstrook, verkoopakte, jaarrekening van een BV, of erfenisdocumentatie, afhankelijk van waar het geld vandaan komt.</li>
+        <li>Bij grotere of eerste overboekingen: mogelijk een korte toelichting op het doel van de overboeking (bijvoorbeeld een concept-koopovereenkomst of investeringsovereenkomst).</li>
+      </ul>
+      <p>Dit is geen uitzonderlijke horde, het is standaardpraktijk bij elke grensoverschrijdende overboeking van enige omvang, maar reken wel op wat vertraging bij de eerste keer terwijl deze documentatie wordt beoordeeld.</p>
+    </div>
+
+    <div class="block">
+      <h3>Realistische tijdlijnen</h3>
+      <div class="fact-box">
+        <div class="fb-label">Vuistregel</div>
+        <p style="margin-bottom:0">Een eerste, grotere overboeking: reken op <strong>3 tot 7 werkdagen</strong> tussen versturen en aankomst, vooral door de KYC/AML-controle aan beide kanten. Een vervolgoverboeking naar een al bekende rekening loopt meestal binnen <strong>1 tot 2 werkdagen</strong>.</p>
+      </div>
+      <p>Plan een storting daarom niet op de laatste dag voor een deadline. Begin de KYC-documentatie zodra een deal serieus wordt, niet pas op het moment dat het geld daadwerkelijk moet gaan.</p>
+    </div>
+  </section>
+
+  <!-- ============ TAB 2: EIGENDOMSSTRUCTUUR (gated) ============ -->
+  <section class="panel" id="panel-structuur" data-gated="true"></section>
+  <template id="tpl-structuur">
+    <h2>Eigendomsstructuur: hoe de belasting in elkaar zit</h2>
+    <p class="lede">Een algemeen, niet-cliëntspecifiek overzicht van hoe belasting werkt wanneer je vanuit Nederland investeert in een Indonesisch vastgoed-/verhuurproject. Iedereen die kapitaal heeft, privé of in een BV, en kiest hoe te investeren, doorloopt dezelfde vier beslispunten en dezelfde belastinglagen.</p>
+
+    <div class="disclaimer"><strong>Let op:</strong> dit is algemene informatie, geen persoonlijk fiscaal advies. Elk percentage hieronder is gebaseerd op openbare bronnen en moet bevestigd worden met een Nederlandse belastingadviseur en een Indonesische/Singaporese tegenhanger voordat het als een feit gepresenteerd wordt aan een individuele situatie.</div>
+
+    <div class="block">
+      <h3>De vier beslissingen</h3>
+      <ol>
+        <li><strong>Herkomst van het kapitaal</strong> — privévermogen, of vermogen binnen een Nederlandse BV.</li>
+        <li><strong>Indonesië-structuur</strong> — een eigen PT PMA die de investeerder direct bezit (bijna 100%), of een gepoolde Singaporese overkoepelende structuur die de onderliggende PT PMA('s) bezit en uitkeert aan meerdere investeerders.</li>
+        <li><strong>Omvang van het belang</strong> (alleen relevant bij privévermogen) — 5%+ direct persoonlijk belang in een buitenlandse onderneming valt in <strong>box 2</strong>; onder 5% valt in <strong>box 3</strong>. Een eigen PT PMA is vrijwel altijd 5%+ (box 2). Een gepoolde Singaporese SPV is vrijwel altijd onder 5% (box 3).</li>
+        <li><strong>Uitkeren of aanhouden</strong> — de winst er ieder jaar uithalen, of laten staan en verder laten groeien binnen de structuur.</li>
+      </ol>
+      <p>Samen geeft dit vier hoofdroutes: privé + PT PMA (box 2), privé + Singaporese SPV (box 3), BV + PT PMA, BV + Singaporese SPV, elk met een uitkeer- en een aanhoudvariant.</p>
+    </div>
+
+    <div class="block">
+      <h3>De belastinglagen, in de volgorde waar het geld doorheen gaat</h3>
+
+      <h3 style="font-size:1.05rem; margin-top:1.6rem;">Laag 1 — Indonesië, bij de PT PMA</h3>
+      <p>Twee verschillende regimes kunnen van toepassing zijn op de huurinkomsten die de PT PMA verdient, en <strong>welke van de twee van toepassing is, staat nog niet vast voor een resort-/villa-verhuurpoolstructuur</strong>:</p>
+      <ul>
+        <li><strong>Standaard vennootschapsbelasting: 22%</strong> op de nettowinst. Het standaardtarief voor elke PT PMA als binnenlandse onderneming.</li>
+        <li><strong>PPh Final op grond-/gebouwverhuur: 10% van de bruto huurwaarde</strong> (PP 34/2017), een eindheffing die de standaard inkomstenbelasting vervangt voor deze specifieke inkomstenstroom.</li>
+        <li><strong>De adder onder het gras:</strong> PP 34/2017 sluit accommodatiediensten (pensions en hotels) expliciet uit van het 10%-tarief. Een resorteenheid in een verhuurpool, geboekt via Booking.com/Agoda en gerund als een beheerd hospitality-product, zit ambigu tussen "grond-/gebouwverhuur" en "accommodatiedienst" in. Dit is de grootste wisselfactor in het hele model (10% versus 22% is meer dan het dubbele) en vraagt om een uitspraak of een helder antwoord van de Indonesische accountant/notaris, niet om een aanname.</li>
+        <li><strong>BTW (PPN): effectief 11%</strong>. Een aparte transactiebelasting, telt niet mee tegen de winstbelasting hierboven, wordt meestal doorberekend aan de huurder/gast.</li>
+      </ul>
+
+      <h3 style="font-size:1.05rem; margin-top:1.6rem;">Laag 2 — Indonesië naar waar het geld daarna heen gaat (dividendbelasting)</h3>
+      <ul>
+        <li><strong>Zonder verdragsvoordeel (standaard): 20%</strong> van het bruto dividend.</li>
+        <li><strong>Naar een Singaporese aandeelhouder:</strong> 10% als de Singaporese entiteit 25%+ bezit, 15% bij een kleiner belang.</li>
+        <li><strong>Rechtstreeks naar een Nederlandse aandeelhouder:</strong> 5-10% bij een substantieel/kwalificerend belang, 15% bij een portefeuillebelang.</li>
+        <li><strong>Voorwaarden om het verdragstarief te krijgen (PMK 112/2025):</strong> het belang moet minimaal 365 dagen onafgebroken zijn aangehouden, een geldige woonplaatsverklaring, een volledig DGT-formulier via Coretax, en een toets op uiteindelijk belanghebbende/Principal Purpose Test. Mis je één van deze, dan geldt het volle tarief van 20%, later terugvorderbaar maar niet automatisch.</li>
+      </ul>
+
+      <h3 style="font-size:1.05rem; margin-top:1.6rem;">Laag 3 — Singapore (alleen relevant bij de route via de overkoepelende structuur)</h3>
+      <p>Singapore kan buitenlands dividend vrijstellen van eigen vennootschapsbelasting als aan drie voorwaarden is voldaan: het inkomen was daadwerkelijk belast in Indonesië (altijd waar), Indonesië's <strong>koerstarief is minimaal 15%</strong> (Indonesië's algemene tarief van 22% haalt dit, maar het is onduidelijk of hier gekeken wordt naar het algemene tarief of naar het specifieke 10%-eindtarief dat daadwerkelijk van toepassing was, <strong>onbevestigd, een directe vraag waard aan een Singaporese belastingadviseur</strong>), en goedkeuring van de Comptroller (routinematig verleend). Als de vrijstelling geldt: 0% Singaporese belasting op het dividend, en geen Singaporese bronbelasting op wat het weer uitkeert.</p>
+
+      <h3 style="font-size:1.05rem; margin-top:1.6rem;">Laag 4 — Nederland</h3>
+      <ul>
+        <li><strong>Privé, box 2 (5%+ belang, bijv. een eigen PT PMA):</strong> 24,5% tot €68.843 aan box 2-inkomen, 31% daarboven, <strong>alleen over daadwerkelijk gerealiseerde uitkeringen</strong>. Al betaalde buitenlandse bronbelasting is verrekenbaar tot het Nederlandse belastingbedrag.</li>
+        <li><strong>Privé, box 3 (onder 5%, bijv. een gepoolde Singaporese SPV):</strong> 36% belasting over een <strong>fictief rendement</strong>, momenteel 6,00% (definitief voor 2026), jaarlijks toegepast op de waarde, <strong>ongeacht of er dat jaar daadwerkelijk iets is uitgekeerd.</strong> Heffingsvrij vermogen €59.357 alleenstaand / €118.714 fiscale partners.</li>
+        <li><strong>Via een Nederlandse BV, beide routes:</strong> vennootschapsbelasting geldt, tenzij de deelnemingsvrijstelling van toepassing is. Als de BV 5%+ bezit en de onderliggende entiteit de onderworpenheidstoets doorstaat (redelijke heffing, richtsnoer rond 10%), is het dividend/de winst <strong>volledig vrijgesteld (0%)</strong> op BV-niveau. Het geld is dan nog niet van de persoon zelf, het er later persoonlijk uithalen triggert alsnog box 2. De BV-route stelt uit en laat groeien, het elimineert de uiteindelijke persoonlijke belasting niet.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Wat er verandert met de box 3-hervorming</h3>
+      <p><strong>Tijdlijn:</strong> de Wet werkelijk rendement box 3 is op 12 februari 2026 door de Tweede Kamer aangenomen en ligt nu bij de Eerste Kamer. Beoogde ingangsdatum: <strong>1 januari 2028</strong> (al eerder uitgesteld vanaf 2027).</p>
+      <p><strong>2026-2027 (overbruggingsperiode):</strong> het huidige systeem met fictief rendement blijft gelden. De tegenbewijsregeling (sinds het Kerstarrest van 2021) bestaat al en blijft bruikbaar om een lager werkelijk rendement aan te tonen.</p>
+      <p><strong>Vanaf 2028:</strong> box 3 gaat van fictief naar werkelijk rendement, maar de uitwerking verschilt per vermogenscategorie. Direct gehouden vastgoed: huurinkomen belast zoals verdiend, waardestijging alleen belast bij verkoop. Aandelen in een onderneming (niet-kwalificerend belang, zoals een Singaporese SPV): belast op zowel ontvangen dividend als ongerealiseerde waardestijging, jaarlijks berekend, niet alleen bij daadwerkelijke uitkering.</p>
+      <p>Voor de vergelijking betekent dit: de hervorming lost het "fantoominkomen"-probleem deels op voor direct gehouden vastgoed, maar een gepoolde Singaporese SPV is een aandelenbelang, geen direct vastgoed, en blijft dus waarschijnlijk op het zwaardere spoor zitten, ook na 2028. Box 2 (eigen PT PMA) houdt hoe dan ook zijn structurele voordeel, omdat het alleen bij realisatie belast wordt. De hervorming verkleint het verschil, maar sluit het waarschijnlijk niet.</p>
+    </div>
+
+    <div class="open-questions">
+      <h3>Openstaande vragen, op volgorde van prioriteit</h3>
+      <p class="oq-note">Nog te bevestigen met echte adviseurs voordat dit als vaststaand gepresenteerd wordt.</p>
+      <ol>
+        <li>Is de inkomst van een resort-/verhuurpooleenheid "grond-/gebouwverhuur" (10% eindheffing) of een "accommodatie-/hospitalitydienst" (standaard 22% vennootschapsbelasting, uitgesloten van PP 34/2017)? De grootste wisselfactor, relevant voor elke structuur.</li>
+        <li>Kijkt Singapore's toets van "koerstarief minimaal 15%" voor de vrijstelling van buitenlands dividend naar Indonesië's algemene tarief van 22%, of naar het specifieke eindtarief van 10% dat daadwerkelijk van toepassing was?</li>
+        <li>Kijkt de Nederlandse deelnemingsvrijstellingstoets door een Singaporese houdstermaatschappij heen naar de onderliggende Indonesische belasting, of voldoet Singapore's eigen koerstarief van 17% op zichzelf al aan de toets?</li>
+        <li>Geldt de dubbele-belastingverrekening voor buitenlands vermogen in box 3 ook voor indirect gehouden buitenlands vastgoed (aandelen in een onderneming die het bezit), of alleen voor direct eigendom?</li>
+        <li>Wat precies bepaalt of 10% of 15% Indonesische dividendbelasting van toepassing is, en haalt een Singaporese overkoepelende structuur in de praktijk betrouwbaar de 25%+ eigendomsdrempel?</li>
+        <li>De precieze cijfers van het box 3-regime vanaf 2028 (exact tarief, exacte behandeling van buitenlandse aandelen via een buitenlandse houdstermaatschappij) staan nog niet vast in het wetsvoorstel.</li>
+      </ol>
+    </div>
+  </template>
+
+  <!-- ============ TAB 3: EMIGREREN (gated) ============ -->
+  <section class="panel" id="panel-emigreren" data-gated="true"></section>
+  <template id="tpl-emigreren">
+    <h2>Emigreren: je BV, je huis, en je fiscale woonplaats</h2>
+    <p class="lede">Een algemeen overzicht voor iedereen die fiscaal inwoner van Nederland is, 5%+ van een Nederlandse BV bezit, een Nederlands huis bezit, en overweegt om de fiscale woonplaats te verplaatsen. Niet gebonden aan Lombok, Indonesië, of een specifieke bestemming.</p>
+
+    <div class="disclaimer"><strong>Let op:</strong> dit is algemene informatie, geen persoonlijk fiscaal advies. De belangrijkste variabele, naar welk land iemand daadwerkelijk verhuist, verandert het antwoord wezenlijk en is niet generiek op te lossen. Bevestig specifieke situaties met een Nederlandse belastingadviseur.</div>
+
+    <div class="block">
+      <h3>De drie dingen die eigenlijk spelen</h3>
+      <p>Wie in deze positie zit, maakt eigenlijk drie aparte keuzes, niet één: <strong>de onderneming</strong> (een Nederlandse BV met een aanmerkelijk belang van 5%+), <strong>het huis</strong> (een Nederlandse woning, doorgaans de hoofdverblijfplaats), en <strong>de bestemming</strong> (waar het leven daadwerkelijk naartoe verhuist, en welk belastingverdrag dat land met Nederland heeft). Ze hangen samen, maar hoeven niet in één keer besloten te worden, en de volgorde waarin ze worden aangepakt verandert de uitkomst.</p>
+    </div>
+
+    <div class="block">
+      <h3>Hoe de Nederlandse fiscale woonplaats daadwerkelijk eindigt</h3>
+      <p>Er is geen dagentelling. Artikel 4 AWR verplicht de Belastingdienst om "alle omstandigheden van het geval" te wegen om te bepalen of er nog een <strong>"duurzame band van persoonlijke aard"</strong> met Nederland bestaat. Relevante feiten: beschikbare woonruimte, waar het gezin woont, economische banden (een lopende onderneming, bankrekeningen), sociale banden (zorgverzekering, lidmaatschappen), en gedrag (hoe vaak iemand daadwerkelijk terug is.</p>
+      <p><strong>De meest voorkomende manier waarop dit misgaat: een Nederlands huis beschikbaar houden voor eigen gebruik, ook deeltijds, is op zichzelf al bewijs van een duurzame band</strong>, ongeacht hoeveel dagen per jaar er daadwerkelijk in het buitenland wordt doorgebracht. Uitschrijven bij de BRP is een formele stap, geen bewijs op zichzelf, de Belastingdienst kijkt of de onderliggende feiten dat ondersteunen.</p>
+    </div>
+
+    <div class="block">
+      <h3>De BV: conserverende aanslag bij emigratie</h3>
+      <p>Zodra iemand fiscaal niet-inwoner wordt terwijl er nog een aanmerkelijk belang (5%+) in een BV wordt gehouden, behandelt Nederland dit als een <strong>fictieve vervreemding</strong>, alsof de aandelen zijn verkocht tegen de waarde in het economisch verkeer op de dag van vertrek, ook al is er niets daadwerkelijk verkocht.</p>
+      <ul>
+        <li>De fictieve winst (aandelenwaarde bij emigratie minus de oorspronkelijke fiscale verkrijgingsprijs) wordt belast als box 2-inkomen, tegen de standaardtarieven (24,5%/31% in 2026).</li>
+        <li>Dit is een <strong>conserverende aanslag</strong>, een aanslag, geen directe cash-rekening. Voor iedereen die na 15 september 2015 emigreert, is het uitstel van betaling <strong>onbeperkt</strong> ("levenslang uitstel").</li>
+        <li>Het uitstel vervalt als de persoon later: de aandelen verkoopt, de onderneming ophoudt te bestaan, of <strong>de BV een dividend/uitkering boven het normale niveau uitkeert</strong>. Een gewoon dividend jaren later, ver in een nieuw leven in het buitenland, kan dus alsnog een gedeeltelijke Nederlandse belastingaanslag triggeren.</li>
+        <li><strong>Of Nederland daadwerkelijk kan innen, hangt volledig af van het belastingverdrag met het nieuwe woonland.</strong> Waar het verdrag een expliciet "AB-voorbehoud" bevat, blijft Nederland's heffingsrecht overeind. Waar het verdrag geen zo'n bepaling heeft, kan Nederland's recht verdragsrechtelijk geblokkeerd worden zodra iemand daadwerkelijk elders woont. <strong>Dit is de belangrijkste variabele in het hele scenario, en hangt volledig af van welk land gekozen wordt.</strong></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Volgorde: eerst de BV sluiten, of eerst emigreren?</h3>
+      <p>Er zit geen tariefverschil tussen de twee, box 2-belasting over de winst is hetzelfde tarief in beide gevallen. Het echte verschil is zekerheid versus uitstel.</p>
+      <p><strong>Liquideren/uitkeren terwijl nog inwoner, dan emigreren:</strong> gewone box 2-belasting nu, in contanten, tegen bekende tarieven. Afgerond voor vertrek, geen afhankelijkheid van hoe een toekomstig verdrag wordt uitgelegd, geen onbeperkte voorwaardelijke verplichting.</p>
+      <p><strong>Eerst emigreren, de BV laten doorlopen, de conserverende aanslag meedragen:</strong> geen directe cash-belasting, mogelijk onbeperkt uitgesteld. Dit werkt alleen schoon als het verdrag met het bestemmingsland geen (of een tijdelijk) AB-voorbehoud heeft, en zelfs dan betekent het een langlopende, meldingsplichtige Nederlandse belastingpositie meedragen.</p>
+      <p><strong>Algemene indruk:</strong> als het plan sowieso is om ooit volledig uit de BV te stappen, is dat doen vóór emigratie meestal de schonere weg. Als het plan is de onderneming voor onbepaalde tijd door te laten lopen, is de conserverende-aanslagroute een reële optie, maar dan moet de bestemming eerst vaststaan.</p>
+    </div>
+
+    <div class="block">
+      <h3>Het huis</h3>
+      <p>Nederland belast in het algemeen de winst bij verkoop van een eigen woning niet. Verkocht vóór uitschrijving: blijft gewoon onder de eigenwoningregeling. Aangehouden na uitschrijving: blijft altijd in Nederland belast, ongeacht waar de eigenaar woont, verhuisd naar het box 3-equivalent voor niet-ingezetenen als het verhuurd wordt of simpelweg als tweede woning wordt aangehouden. Los daarvan, en belangrijker: <strong>een huis beschikbaar houden voor eigen gebruik is zelf al een risico voor het slagen van de woonplaatsbreuk</strong>, onafhankelijk van welke box het in valt.</p>
+      <p><strong>Algemene indruk:</strong> er is geen fiscale reden om verkoop uit te stellen tot na vertrek, de verkoop zelf wordt in beide gevallen niet belast. Verkopen vóór of vlak vóór uitschrijving verwijdert het grootste bewijsstuk dat de Belastingdienst zou kunnen gebruiken om te stellen dat iemand nooit echt is vertrokken.</p>
+    </div>
+
+    <div class="block">
+      <h3>Een praktische volgorde van stappen</h3>
+      <ol>
+        <li>Bepaal eerst het bestemmingsland (of een vaste shortlist). Het AB-voorbehoud in het verdrag NL-[bestemming], of het ontbreken ervan, bepaalt of "eerst emigreren, BV laten doorlopen" een reële optie is.</li>
+        <li>Verkoop het huis, idealiter afgerond vóór uitschrijving.</li>
+        <li>Beslis het lot van de BV met open ogen: liquideren/uitkeren voor zekerheid, of laten doorlopen met bewuste kennis van de conserverende aanslag.</li>
+        <li>Verhuis het middelpunt van het leven daadwerkelijk, wonen, bankieren, zorg, sociale banden, vóór of gelijktijdig met uitschrijving.</li>
+        <li>Schrijf uit bij de BRP en dien het M-formulier in, de formele, laatste stap, niet de eerste.</li>
+      </ol>
+    </div>
+
+    <div class="open-questions">
+      <h3>Openstaande vragen om per situatie te bevestigen</h3>
+      <p class="oq-note">Op volgorde van prioriteit.</p>
+      <ol>
+        <li>Naar welk land wordt daadwerkelijk verhuisd? Bepaalt de hele conserverende-aanslaganalyse en of er dubbele belasting dreigt op de BV-aandelen en op eventueel achtergebleven Nederlands vastgoedinkomen.</li>
+        <li>Wat de BV daadwerkelijk bezit. Bij aanzienlijke ingehouden winsten of activa boven werkkapitaal kan de fictieve box 2-winst bij emigratie substantieel zijn, een echte waardering waard.</li>
+        <li>Of een gefaseerde aanpak werkbaar is, deels uitkeren/liquideren vóór vertrek om de fictieve-winstbasis te verkleinen, in plaats van alles-of-niets.</li>
+        <li>De huidige praktijk van de Belastingdienst rond de "verhuisregeling"-fictie voor een huis dat daadwerkelijk te koop staat na emigratie, en hoe lang die overgangsregeling in de praktijk standhoudt.</li>
+      </ol>
+    </div>
+  </template>
+
+  <!-- ============ TAB 4: REKENTOOL (gated) ============ -->
+  <section class="panel" id="panel-rekentool" data-gated="true"></section>
+  <template id="tpl-rekentool">
+    <h2>Rekentool: vier manieren om dezelfde investering te structureren</h2>
+    <p class="lede">Vul je eigen cijfers in en vergelijk de vier hoofdroutes. De rekenlogica staat vast, alleen de invoer verandert het resultaat.</p>
+    <div class="disclaimer"><strong>Let op:</strong> een planningshulpmiddel op basis van openbare bronnen, geen aangifteklaar cijfer en geen fiscaal advies. Twee van de belangrijkste aannames (hoe Indonesië verhuurpoolinkomen classificeert, en één Singaporese vrijstellingstoets) staan nog open en zijn hieronder gemarkeerd. Bevestig met een echte adviseur voordat dit ergens op wordt gebaseerd.</div>
+
+    <div class="calc-panel">
+      <h3>1. Jouw cijfers</h3>
+      <div class="calc-grid">
+        <div>
+          <label for="amount">Geïnvesteerd bedrag (€)</label>
+          <input type="number" id="amount" value="100000" step="1000" min="0">
+        </div>
+        <div>
+          <label for="yieldPct">Verwacht bruto jaarlijks rendement (%)</label>
+          <input type="number" id="yieldPct" value="10" step="0.5" min="0">
+        </div>
+        <div>
+          <label for="maintenance">Jaarlijkse PT PMA-beheerkosten (€)</label>
+          <input type="number" id="maintenance" value="600" step="50" min="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-panel">
+      <h3>2. De twee open vragen die de uitkomst bepalen</h3>
+      <div class="calc-grid">
+        <div>
+          <label>Hoe belast Indonesië de huurinkomsten bij de PT PMA?</label>
+          <div class="calc-radiogroup" id="idnTreatment">
+            <label class="opt"><input type="radio" name="idn" value="0.10" checked> 10% eindheffing op bruto (behandeld als zuivere grond-/gebouwverhuur)<span class="opt-detail">PP 34/2017, maar dit sluit hotel-/accommodatiediensten expliciet uit</span></label>
+            <label class="opt"><input type="radio" name="idn" value="0.22"> 22% standaard vennootschapsbelasting op netto winst<span class="opt-detail">Van toepassing als een resort-/verhuurpooleenheid telt als hospitalitydienst, niet als gewone verhuur</span></label>
+          </div>
+        </div>
+        <div>
+          <label>Welk box 3-regime voor de privé + Singaporese SPV-route?</label>
+          <div class="calc-radiogroup" id="box3Regime">
+            <label class="opt"><input type="radio" name="box3" value="current" checked> Huidig (2026): 36% over een fictief rendement van 6,00%, jaarlijks verschuldigd ongeacht uitkeringen<span class="opt-detail">De huidige regels, van kracht t/m 2027</span></label>
+            <label class="opt"><input type="radio" name="box3" value="future"> Toekomstig (vanaf 2028, indien aangenomen door de Eerste Kamer): 36% over de daadwerkelijke winst dat jaar, uitgekeerd of niet<span class="opt-detail">Aandelen krijgen niet de "alleen belast bij verkoop"-behandeling die direct vastgoed krijgt</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-panel">
+      <h3>3. Resultaat &mdash; vier manieren om dezelfde investering aan te houden</h3>
+      <table class="calc-table" id="resultsTable">
+        <thead>
+          <tr>
+            <th>Route</th>
+            <th>Netto contant bij uitkering dit jaar</th>
+            <th>Bedrag dat doorgroeit bij aanhouden</th>
+            <th>Nederlandse belasting verschuldigd, ook bij aanhouden</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+    </div>
+
+    <details class="calc-panel calc-assumptions">
+      <summary>Wat er op de achtergrond vaststaat (klik voor alle aannames)</summary>
+      <ul>
+        <li><strong>Indonesische dividendbelasting:</strong> 10% aangenomen bij uitkering vanuit de PT PMA (verdragsrange is 5-15% afhankelijk van eigendomspercentage en documentatie onder PMK 112/2025). Geen bronbelasting als de winst binnen de PT PMA blijft.</li>
+        <li><strong>BTW (PPN) van 11%</strong> is een echte laag op de onderliggende huurtransactie maar zit niet verrekend in deze cijfers, een transactiebelasting die meestal aan de gast/huurder wordt doorberekend.</li>
+        <li><strong>Singaporese belasting op het ontvangen dividend: aangenomen 0%</strong>, op basis dat Indonesië's inkomen daadwerkelijk belast was en Indonesië's koerstarief (22%) de Singaporese drempel van 15% haalt. <span class="calc-flag">Gemarkeerd</span>: als deze toets tegen het specifieke 10%-eindtarief wordt gelezen in plaats van het algemene tarief van 22%, kan dit falen.</li>
+        <li><strong>Singaporese bronbelasting op wat het weer uitkeert: 0%</strong> (Singapore kent geen dividendbelasting onder eigen recht, bevestigd).</li>
+        <li><strong>Nederlandse deelnemingsvrijstelling (BV-routes): aangenomen volledig van toepassing (0% Vpb)</strong>, op basis van 5%+ eigendom en een geslaagde onderworpenheidstoets. <span class="calc-flag">Gemarkeerd</span> voor de BV + Singapore-route specifiek: onduidelijk of de toets doorkijkt naar Indonesië's belasting of voldaan wordt door Singapore's eigen koerstarief van 17% op zichzelf.</li>
+        <li><strong>Box 2-tarief:</strong> vlak 24,5% gebruikt (werkelijke wet: 24,5% tot €68.843 aan box 2-inkomen, 31% daarboven).</li>
+        <li><strong>Box 3 (huidig):</strong> 36% belasting over een fictief rendement van 6,00% over het geïnvesteerde bedrag, jaarlijks toegepast ongeacht uitkeringen. Het heffingsvrij vermogen van €59.357 is hier niet toegepast (aangenomen elders gebruikt), pas dit handmatig aan indien niet van toepassing.</li>
+        <li><strong>Omvang van het eigendomsbelang wordt vast aangenomen per structuur:</strong> een eigen PT PMA = 5%+ privé (box 2-gebied), een gepoolde Singaporese SPV = onder 5% privé (box 3-gebied). Dit is het normale geval maar niet gegarandeerd voor elke deal.</li>
+      </ul>
+    </details>
+
+    <p style="font-size:0.78rem; color:var(--muted); text-align:center; margin-top:1rem;">Rekenlogica gebaseerd op openbare Indonesische, Singaporese en Nederlandse belastingbronnen, augustus 2026. Zie het eigendomsstructuur-tabblad voor de volledige bronnen en openstaande vragen.</p>
+
+    <script>
+    (function(){
+      function fmt(n){ return '€' + Math.round(n).toLocaleString('nl-NL'); }
+
+      function compute(){
+        const amount = parseFloat(document.getElementById('amount').value) || 0;
+        const yieldPct = (parseFloat(document.getElementById('yieldPct').value) || 0) / 100;
+        const maintenance = parseFloat(document.getElementById('maintenance').value) || 0;
+        const idnRate = parseFloat(document.querySelector('input[name=idn]:checked').value);
+        const box3Regime = document.querySelector('input[name=box3]:checked').value;
+
+        const WHT = 0.10;
+        const BOX2 = 0.245;
+        const BOX3_RATE = 0.36;
+        const BOX3_DEEMED = 0.06;
+
+        const grossProfit = amount * yieldPct;
+        const afterIDN = grossProfit * (1 - idnRate);
+
+        const rows = [];
+
+        {
+          const crossWHT = afterIDN * WHT;
+          const cashReceived = afterIDN - crossWHT;
+          const box2Tax = Math.max(0, afterIDN * BOX2 - crossWHT);
+          const withdrawNet = cashReceived - box2Tax - maintenance;
+          const retainAmt = afterIDN - maintenance;
+          rows.push({ name: 'Privé, eigen PT&nbsp;PMA', sub: 'Box 2 · 5%+ direct belang', withdraw: withdrawNet, retain: retainAmt, dueAnyway: 0 });
+        }
+        {
+          const crossWHT = afterIDN * WHT;
+          const cashToSPV = afterIDN - crossWHT;
+          let box3Tax;
+          if (box3Regime === 'current') { box3Tax = BOX3_RATE * BOX3_DEEMED * amount; }
+          else { box3Tax = BOX3_RATE * cashToSPV; }
+          const withdrawNet = cashToSPV - box3Tax;
+          const retainAmt = cashToSPV;
+          rows.push({ name: 'Privé, Singaporese SPV', sub: 'Box 3 · onder 5% gepoold belang', withdraw: withdrawNet, retain: retainAmt, dueAnyway: box3Tax });
+        }
+        {
+          const crossWHT = afterIDN * WHT;
+          const cashToBV = afterIDN - crossWHT;
+          const withdrawNet = cashToBV - maintenance;
+          const retainAmt = afterIDN - maintenance;
+          rows.push({ name: 'Nederlandse BV, eigen PT&nbsp;PMA', sub: 'Deelnemingsvrijstelling aangenomen · box 2 later bij privé-opname', withdraw: withdrawNet, retain: retainAmt, dueAnyway: 0 });
+        }
+        {
+          const crossWHT = afterIDN * WHT;
+          const cashToSPV = afterIDN - crossWHT;
+          rows.push({ name: 'Nederlandse BV, Singaporese SPV', sub: 'Deelnemingsvrijstelling aangenomen · box 2 later bij privé-opname', withdraw: cashToSPV, retain: cashToSPV, dueAnyway: 0 });
+        }
+
+        return rows;
+      }
+
+      function render(){
+        const rows = compute();
+        const tbody = document.getElementById('resultsBody');
+        if (!tbody) return;
+        tbody.innerHTML = '';
+
+        const bestWithdraw = Math.max(...rows.map(r => r.withdraw));
+        const bestRetain = Math.max(...rows.map(r => r.retain));
+
+        rows.forEach(r => {
+          const tr = document.createElement('tr');
+
+          const tdName = document.createElement('td');
+          tdName.className = 'calc-path-name';
+          tdName.innerHTML = r.name + '<small>' + r.sub + '</small>';
+          tr.appendChild(tdName);
+
+          const tdW = document.createElement('td');
+          tdW.className = 'calc-num' + (r.withdraw === bestWithdraw ? ' calc-best' : '');
+          tdW.textContent = fmt(r.withdraw);
+          tr.appendChild(tdW);
+
+          const tdR = document.createElement('td');
+          tdR.className = 'calc-num' + (r.retain === bestRetain ? ' calc-best' : '');
+          tdR.textContent = fmt(r.retain);
+          tr.appendChild(tdR);
+
+          const tdD = document.createElement('td');
+          tdD.className = 'calc-num';
+          if (r.dueAnyway > 0) { tdD.innerHTML = '<span class="calc-pill bad">' + fmt(r.dueAnyway) + '</span>'; }
+          else { tdD.innerHTML = '<span class="calc-pill good">€0</span>'; }
+          tr.appendChild(tdD);
+
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.querySelectorAll('#panel-rekentool input').forEach(el => el.addEventListener('input', render));
+      render();
+    })();
+    </script>
+  </template>
+
+</main>
+
+<footer>
+  <a href="https://andaluma.com" class="footer-brand">
+    <img class="mark" src="../logo.svg" alt="" />
+    <span class="fb-name">André's <em>Beleggings</em>gids</span>
+  </a>
+  <ul class="footer-links">
+    <li><a href="../index.html#guidance">Per land</a></li>
+    <li><a href="services.html">Diensten</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+    <li><a href="../privacy.html">Privacy</a></li>
+    <li><a href="#" onclick="return openCookieSettings()">Cookies</a></li>
+  </ul>
+  <div class="footer-contact">
+    André van Wijngaarden<br>
+    <a href="mailto:invest@andaluma.com">invest@andaluma.com</a>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookiemelding">
+  <div class="cookie-inner">
+    <p class="cookie-text">We gebruiken cookies van Meta en Google om te begrijpen hoe de site wordt gebruikt en om relevante inhoud te tonen. <a href="../privacy.html">Privacy- en cookiebeleid</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-accept" id="cookie-accept" type="button">Accepteren</button>
+      <button class="cookie-necessary" id="cookie-necessary" type="button">Alleen noodzakelijk</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var CONSENT_KEY = 'aig_cookie_consent';
+  var GA4_ID = 'G-9DJ4GRJQPY';
+  var PIXEL_ID = '1008248585135532';
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function loadGA4() {
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag; gtag('js', new Date()); gtag('config', GA4_ID);
+  }
+  function loadPixel() {
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID); fbq('track', 'PageView');
+  }
+  function loadTracking() { loadGA4(); loadPixel(); }
+  var cookieBanner = document.getElementById('cookie-banner');
+  var showCookie = function () { if (cookieBanner) cookieBanner.classList.add('show'); };
+  var hideCookie = function () { if (cookieBanner) cookieBanner.classList.remove('show'); };
+  window.openCookieSettings = function () { try { localStorage.removeItem(CONSENT_KEY); } catch (e) {} showCookie(); return false; };
+  if (cookieBanner) {
+    document.getElementById('cookie-accept').addEventListener('click', function () { store(CONSENT_KEY, 'all'); hideCookie(); loadTracking(); });
+    document.getElementById('cookie-necessary').addEventListener('click', function () { store(CONSENT_KEY, 'necessary'); hideCookie(); });
+    var consent = read(CONSENT_KEY);
+    if (consent === 'all') { loadTracking(); }
+    else if (consent !== 'necessary') {
+      var shown = false;
+      var reveal = function () { if (shown) return; shown = true; window.removeEventListener('scroll', reveal); showCookie(); };
+      setTimeout(reveal, 4000);
+      window.addEventListener('scroll', reveal, { passive: true });
+    }
+  }
+})();
+</script>
+
+<a class="wa-fab" href="https://wa.me/31616146007?text=Hoi%20Andr%C3%A9%2C%20ik%20heb%20een%20vraag%20over%20investeren%20vanuit%20Nederland." target="_blank" rel="noopener" aria-label="Stel een vraag via WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.81 9.81 0 0 0 12.03 2C6.5 2 2.01 6.49 2.01 12.02c0 1.76.46 3.48 1.34 4.99L2 22l5.13-1.34a9.97 9.97 0 0 0 4.9 1.25h.01c5.53 0 10.02-4.49 10.02-10.02 0-2.68-1.04-5.19-2.93-7.08l-1.08-.9zM12.03 20.13h-.01a8.13 8.13 0 0 1-4.15-1.14l-.3-.18-3.04.8.81-2.96-.19-.31a8.12 8.12 0 0 1-1.24-4.32c0-4.49 3.65-8.14 8.14-8.14 2.17 0 4.21.85 5.75 2.38a8.06 8.06 0 0 1 2.38 5.76c0 4.49-3.66 8.11-8.15 8.11zm4.46-6.09c-.25-.12-1.45-.71-1.67-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.96-.14.16-.29.18-.54.06a6.7 6.7 0 0 1-1.96-1.21 7.4 7.4 0 0 1-1.36-1.69c-.14-.24-.02-.37.1-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.46c-.16 0-.43.06-.65.31-.22.24-.85.83-.85 2.03 0 1.2.87 2.36.99 2.52.12.16 1.71 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.18 1.11.16 1.52.1.46-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
+
+<!-- ============================================================
+     PUBLISHING GATE
+     Flip a flag to true only after advisor sign-off on that
+     section's content. While false, the real content lives inert
+     inside a <template> tag and is never rendered or indexed,
+     the visitor sees the "pending review" banner instead.
+     Money logistics (section 1) has no gate, it ships as normal
+     HTML above and needs no JS to appear.
+     ============================================================ -->
+<script>
+(function(){
+  var PUBLISHED = {
+    structuur: false,
+    emigreren: false,
+    rekentool: false
+  };
+
+  var LABELS = {
+    structuur: 'Eigendomsstructuur',
+    emigreren: 'Emigratie-mechaniek',
+    rekentool: 'De rekentool'
+  };
+
+  Object.keys(PUBLISHED).forEach(function(key){
+    var panel = document.getElementById('panel-' + key);
+    var tpl = document.getElementById('tpl-' + key);
+    if (!panel || !tpl) return;
+
+    if (PUBLISHED[key]) {
+      panel.appendChild(tpl.content.cloneNode(true));
+      panel.removeAttribute('data-gated');
+      var scripts = panel.querySelectorAll('script');
+      scripts.forEach(function(old){
+        var s = document.createElement('script');
+        s.textContent = old.textContent;
+        old.parentNode.replaceChild(s, old);
+      });
+    } else {
+      var banner = document.createElement('div');
+      banner.className = 'pending-banner';
+      banner.innerHTML = '<span class="pb-tag">In afwachting van fiscaal advies</span>' +
+        '<h3>' + LABELS[key] + ' is nog niet openbaar</h3>' +
+        '<p>Deze sectie is volledig gebouwd en klaar, maar wacht op goedkeuring van een Nederlandse belastingadviseur voordat de inhoud gepubliceerd wordt. Neem contact op als je hier nu al meer over wilt weten.</p>';
+      panel.appendChild(banner);
+    }
+  });
+
+  var tabs = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.panel');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabs.forEach(function(b){ b.classList.remove('active'); });
+      panels.forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
