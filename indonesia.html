@@ -164,6 +164,24 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .project-teaser p { font-size:0.87rem; color:var(--muted); line-height:1.6; flex:1; }
 .project-teaser-who { font-size:0.75rem; color:var(--teal); font-weight:500; letter-spacing:0.02em; margin-bottom:0.35rem; }
 @media(max-width:640px){ .project-grid { grid-template-columns:1fr; } }
+
+.nav-right { display:flex; align-items:center; }
+.nav-lang { display:flex; gap:0.35rem; align-items:center; margin-left:0.5rem; padding-left:1rem; border-left:1px solid var(--border); }
+.nav-lang a { font-size:0.68rem; font-weight:500; color:var(--muted); text-decoration:none; letter-spacing:0.04em; }
+.nav-lang a.active { color:var(--teal); font-weight:600; }
+.nav-lang a:hover { color:var(--teal); }
+.nav-lang span { color:var(--border); font-size:0.68rem; }
+.has-dropdown { position:relative; }
+.has-dropdown > a { display:inline-flex; align-items:center; gap:0.3rem; }
+.nav-caret { font-size:0.55rem; transition:transform 0.15s; display:inline-block; }
+.has-dropdown:hover .nav-caret, .has-dropdown:focus-within .nav-caret { transform:rotate(180deg); }
+.dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%); margin-top:0.9rem; background:#fff; border:1.5px solid var(--border); border-radius:10px; box-shadow:0 20px 40px -20px rgba(26,18,8,0.35); padding:0.5rem; min-width:230px; display:none; flex-direction:column; gap:0.1rem; z-index:150; }
+.has-dropdown:hover .dropdown-menu, .has-dropdown:focus-within .dropdown-menu { display:flex; }
+.dropdown-menu a, .dropdown-menu .dropdown-soon { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; padding:0.55rem 0.75rem; border-radius:6px; font-size:0.8rem; font-weight:400; letter-spacing:0.01em; text-transform:none; color:var(--dark); text-decoration:none; white-space:nowrap; }
+.dropdown-menu a:hover { background:var(--sand); color:var(--teal); }
+.dropdown-menu .dropdown-soon { color:var(--muted); cursor:default; }
+.dropdown-menu .dropdown-soon em { font-style:normal; font-size:0.6rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--amber); background:rgba(201,138,16,0.12); padding:0.15rem 0.5rem; border-radius:20px; flex-shrink:0; }
+@media(max-width:960px){ .nav-lang{ border-left:none; padding-left:0; } }
 </style>
 </head>
 <body>
@@ -178,14 +196,40 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   </a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#guidance">By Country</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="index.html#frameworks">Frameworks</a></li>
-    <li><a href="index.html#guide">AI Guide</a></li>
-    <li><a href="https://andaluma.com">Andaluma ↗</a></li>
+    <li class="has-dropdown" tabindex="0">
+      <a href="index.html#guidance">By Country <span class="nav-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="indonesia.html">🇮🇩 Indonesia</a>
+        <span class="dropdown-soon">🇦🇪 United Arab Emirates <em>Soon</em></span>
+        <span class="dropdown-soon">🇬🇪 Georgia <em>Soon</em></span>
+        <span class="dropdown-soon">🇮🇹 Italy <em>Soon</em></span>
+        <span class="dropdown-soon">🇵🇪 Peru <em>Soon</em></span>
+        <span class="dropdown-soon">🇵🇾 Paraguay <em>Soon</em></span>
+      </div>
+    </li>
+    <li class="has-dropdown" tabindex="0">
+      <a href="services.html">Services <span class="nav-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="services.html#quick-question">Quick question</a>
+        <a href="services.html#investment-strategy">Investment strategy</a>
+        <a href="services.html#land-offplan-scouting">Land &amp; off-plan scouting</a>
+        <a href="services.html#country-structuring">Country structuring</a>
+      </div>
+    </li>
+    <li class="has-dropdown" tabindex="0">
+      <a href="index.html#frameworks">Frameworks <span class="nav-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <span class="dropdown-soon">Residency &amp; tax exposure <em>Soon</em></span>
+        <span class="dropdown-soon">Brokerage &amp; market access <em>Soon</em></span>
+        <span class="dropdown-soon">Structuring &amp; entities <em>Soon</em></span>
+        <span class="dropdown-soon">Banking &amp; currency <em>Soon</em></span>
+        <span class="dropdown-soon">Reporting &amp; compliance <em>Soon</em></span>
+        <span class="dropdown-soon">The technical stack <em>Soon</em></span>
+      </div>
+    </li>
     <li><a href="index.html#contact" class="nav-contact">Get in touch</a></li>
   </ul>
-</nav>
+  <div class="nav-lang"><a href="indonesia.html" class="active">EN</a><span>·</span><a href="es/indonesia.html">ES</a><span>·</span><a href="nl/indonesia.html">NL</a></div></nav>
 
 <header class="story-hero hub-hero">
   <img class="hub-hero-img" src="indonesia-banner.jpg" alt="Black sand beach near Are Guling, South Lombok" />
@@ -314,7 +358,6 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     <li><a href="index.html#guidance">By Country</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="index.html#frameworks">Frameworks</a></li>
-    <li><a href="index.html#guide">AI Guide</a></li>
     <li><a href="index.html#contact">Contact</a></li>
     <li><a href="privacy.html">Privacy</a></li>
     <li><a href="#" onclick="return openCookieSettings()">Cookies</a></li>

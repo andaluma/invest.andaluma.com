@@ -153,6 +153,24 @@ p.pullquote { font-family:'Playfair Display',serif; font-style:italic; font-size
 .pc-bridge { background:var(--teal-tint); border-top:1.5px solid var(--border); padding:1.1rem 2rem; margin:1.5rem -2rem -2rem; font-size:0.9rem; color:var(--dark); line-height:1.7; }
 .pc-bridge a { color:var(--teal); font-weight:600; text-decoration:none; }
 @media(max-width:760px){ .ng-hero { padding:7rem 1.5rem 2.5rem; } p.pullquote { font-size:1.28rem; } }
+
+.nav-right { display:flex; align-items:center; }
+.nav-lang { display:flex; gap:0.35rem; align-items:center; margin-left:0.5rem; padding-left:1rem; border-left:1px solid var(--border); }
+.nav-lang a { font-size:0.68rem; font-weight:500; color:var(--muted); text-decoration:none; letter-spacing:0.04em; }
+.nav-lang a.active { color:var(--teal); font-weight:600; }
+.nav-lang a:hover { color:var(--teal); }
+.nav-lang span { color:var(--border); font-size:0.68rem; }
+.has-dropdown { position:relative; }
+.has-dropdown > a { display:inline-flex; align-items:center; gap:0.3rem; }
+.nav-caret { font-size:0.55rem; transition:transform 0.15s; display:inline-block; }
+.has-dropdown:hover .nav-caret, .has-dropdown:focus-within .nav-caret { transform:rotate(180deg); }
+.dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%); margin-top:0.9rem; background:#fff; border:1.5px solid var(--border); border-radius:10px; box-shadow:0 20px 40px -20px rgba(26,18,8,0.35); padding:0.5rem; min-width:230px; display:none; flex-direction:column; gap:0.1rem; z-index:150; }
+.has-dropdown:hover .dropdown-menu, .has-dropdown:focus-within .dropdown-menu { display:flex; }
+.dropdown-menu a, .dropdown-menu .dropdown-soon { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; padding:0.55rem 0.75rem; border-radius:6px; font-size:0.8rem; font-weight:400; letter-spacing:0.01em; text-transform:none; color:var(--dark); text-decoration:none; white-space:nowrap; }
+.dropdown-menu a:hover { background:var(--sand); color:var(--teal); }
+.dropdown-menu .dropdown-soon { color:var(--muted); cursor:default; }
+.dropdown-menu .dropdown-soon em { font-style:normal; font-size:0.6rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--amber); background:rgba(201,138,16,0.12); padding:0.15rem 0.5rem; border-radius:20px; flex-shrink:0; }
+@media(max-width:960px){ .nav-lang{ border-left:none; padding-left:0; } }
 </style>
 </head>
 <body>
@@ -167,13 +185,40 @@ p.pullquote { font-family:'Playfair Display',serif; font-style:italic; font-size
   </a>
   <ul class="nav-links">
     <li><a href="../index.html#about">Over mij</a></li>
-    <li><a href="../index.html#guidance">Per land</a></li>
-    <li><a href="../services.html">Diensten</a></li>
-    <li><a href="../index.html#guide">AI-gids</a></li>
-    <li class="lang-switch"><a href="../../blog/one-month-on-lombok.html">EN</a><span>·</span><a href="../../es/blog/one-month-on-lombok.html">ES</a><span>·</span><a href="one-month-on-lombok.html" class="active">NL</a></li>
+    <li class="has-dropdown" tabindex="0">
+      <a href="../index.html#guidance">Per land <span class="nav-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="../indonesia.html">🇮🇩 Indonesië</a>
+        <span class="dropdown-soon">🇦🇪 Verenigde Arabische Emiraten <em>Binnenkort</em></span>
+        <span class="dropdown-soon">🇬🇪 Georgië <em>Binnenkort</em></span>
+        <span class="dropdown-soon">🇮🇹 Italië <em>Binnenkort</em></span>
+        <span class="dropdown-soon">🇵🇪 Peru <em>Binnenkort</em></span>
+        <span class="dropdown-soon">🇵🇾 Paraguay <em>Binnenkort</em></span>
+      </div>
+    </li>
+    <li class="has-dropdown" tabindex="0">
+      <a href="../services.html">Diensten <span class="nav-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="../services.html#quick-question">Korte Vraag</a>
+        <a href="../services.html#investment-strategy">Beleggingsstrategie-sessie</a>
+        <a href="../services.html#land-offplan-scouting">Grond- &amp; Off-Plan Scouting</a>
+        <a href="../services.html#country-structuring">Land- &amp; Structuurvergelijking</a>
+      </div>
+    </li>
+    <li class="has-dropdown" tabindex="0">
+      <a href="../index.html#frameworks">Kaders <span class="nav-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <span class="dropdown-soon">Inwonerschap en fiscale blootstelling <em>Binnenkort</em></span>
+        <span class="dropdown-soon">Brokers en markttoegang <em>Binnenkort</em></span>
+        <span class="dropdown-soon">Structuur en entiteiten <em>Binnenkort</em></span>
+        <span class="dropdown-soon">Bankieren en valuta <em>Binnenkort</em></span>
+        <span class="dropdown-soon">Rapportage en compliance <em>Binnenkort</em></span>
+        <span class="dropdown-soon">De technische stack <em>Binnenkort</em></span>
+      </div>
+    </li>
     <li><a href="../index.html#contact" class="nav-contact">Contact</a></li>
   </ul>
-  <div class="nav-lang-mobile"><a href="../../blog/one-month-on-lombok.html">EN</a><span>·</span><a href="../../es/blog/one-month-on-lombok.html">ES</a><span>·</span><a href="one-month-on-lombok.html" class="active">NL</a></div>
+  <div class="nav-lang"><a href="../../blog/one-month-on-lombok.html">EN</a><span>·</span><a href="../../es/blog/one-month-on-lombok.html">ES</a><span>·</span><a href="one-month-on-lombok.html" class="active">NL</a></div>
 </nav>
 
 <header class="ng-hero">

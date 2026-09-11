@@ -164,6 +164,24 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .wa-fab:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.22); }
 .wa-fab:focus-visible { outline:3px solid var(--teal); outline-offset:3px; }
 @media(min-width:480px){ .wa-fab { bottom:1.5rem; left:1.5rem; } }
+
+.nav-right { display:flex; align-items:center; }
+.nav-lang { display:flex; gap:0.35rem; align-items:center; margin-left:0.5rem; padding-left:1rem; border-left:1px solid var(--border); }
+.nav-lang a { font-size:0.68rem; font-weight:500; color:var(--muted); text-decoration:none; letter-spacing:0.04em; }
+.nav-lang a.active { color:var(--teal); font-weight:600; }
+.nav-lang a:hover { color:var(--teal); }
+.nav-lang span { color:var(--border); font-size:0.68rem; }
+.has-dropdown { position:relative; }
+.has-dropdown > a { display:inline-flex; align-items:center; gap:0.3rem; }
+.nav-caret { font-size:0.55rem; transition:transform 0.15s; display:inline-block; }
+.has-dropdown:hover .nav-caret, .has-dropdown:focus-within .nav-caret { transform:rotate(180deg); }
+.dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%); margin-top:0.9rem; background:#fff; border:1.5px solid var(--border); border-radius:10px; box-shadow:0 20px 40px -20px rgba(26,18,8,0.35); padding:0.5rem; min-width:230px; display:none; flex-direction:column; gap:0.1rem; z-index:150; }
+.has-dropdown:hover .dropdown-menu, .has-dropdown:focus-within .dropdown-menu { display:flex; }
+.dropdown-menu a, .dropdown-menu .dropdown-soon { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; padding:0.55rem 0.75rem; border-radius:6px; font-size:0.8rem; font-weight:400; letter-spacing:0.01em; text-transform:none; color:var(--dark); text-decoration:none; white-space:nowrap; }
+.dropdown-menu a:hover { background:var(--sand); color:var(--teal); }
+.dropdown-menu .dropdown-soon { color:var(--muted); cursor:default; }
+.dropdown-menu .dropdown-soon em { font-style:normal; font-size:0.6rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--amber); background:rgba(201,138,16,0.12); padding:0.15rem 0.5rem; border-radius:20px; flex-shrink:0; }
+@media(max-width:960px){ .nav-lang{ border-left:none; padding-left:0; } }
 </style>
 </head>
 <body>
@@ -178,13 +196,40 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
   </a>
   <ul class="nav-links">
     <li><a href="../index.html#about">Sobre mí</a></li>
-    <li><a href="../index.html#guidance">Por país</a></li>
-    <li><a href="../services.html">Servicios</a></li>
-    <li><a href="../index.html#guide">Guía IA</a></li>
-    <li class="lang-switch"><a href="../../blog/three-ways-to-own-property-indonesia.html">EN</a><span>·</span><a href="three-ways-to-own-property-indonesia.html" class="active">ES</a><span>·</span><a href="../../nl/blog/three-ways-to-own-property-indonesia.html">NL</a></li>
-    <li><a href="../index.html#contact" class="nav-contact">Contacto</a></li>
+    <li class="has-dropdown" tabindex="0">
+      <a href="../index.html#guidance">Por país <span class="nav-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="../indonesia.html">🇮🇩 Indonesia</a>
+        <span class="dropdown-soon">🇦🇪 Emiratos Árabes Unidos <em>Pronto</em></span>
+        <span class="dropdown-soon">🇬🇪 Georgia <em>Pronto</em></span>
+        <span class="dropdown-soon">🇮🇹 Italia <em>Pronto</em></span>
+        <span class="dropdown-soon">🇵🇪 Perú <em>Pronto</em></span>
+        <span class="dropdown-soon">🇵🇾 Paraguay <em>Pronto</em></span>
+      </div>
+    </li>
+    <li class="has-dropdown" tabindex="0">
+      <a href="../services.html">Servicios <span class="nav-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <a href="../services.html#quick-question">Pregunta Rápida</a>
+        <a href="../services.html#investment-strategy">Sesión de Estrategia de Inversión</a>
+        <a href="../services.html#land-offplan-scouting">Scouting de Terreno y Sobre Plano</a>
+        <a href="../services.html#country-structuring">Comparación de País y Estructura</a>
+      </div>
+    </li>
+    <li class="has-dropdown" tabindex="0">
+      <a href="../index.html#frameworks">Marcos <span class="nav-caret">▾</span></a>
+      <div class="dropdown-menu">
+        <span class="dropdown-soon">Residencia y exposición fiscal <em>Pronto</em></span>
+        <span class="dropdown-soon">Brókers y acceso a mercados <em>Pronto</em></span>
+        <span class="dropdown-soon">Estructura y entidades <em>Pronto</em></span>
+        <span class="dropdown-soon">Banca y divisas <em>Pronto</em></span>
+        <span class="dropdown-soon">Reporte y cumplimiento <em>Pronto</em></span>
+        <span class="dropdown-soon">El stack técnico <em>Pronto</em></span>
+      </div>
+    </li>
+    <li><a href="../index.html#contact" class="nav-contact">Contactar</a></li>
   </ul>
-  <div class="nav-lang-mobile"><a href="../../blog/three-ways-to-own-property-indonesia.html">EN</a><span>·</span><a href="three-ways-to-own-property-indonesia.html" class="active">ES</a><span>·</span><a href="../../nl/blog/three-ways-to-own-property-indonesia.html">NL</a></div>
+  <div class="nav-lang"><a href="../../blog/three-ways-to-own-property-indonesia.html">EN</a><span>·</span><a href="three-ways-to-own-property-indonesia.html" class="active">ES</a><span>·</span><a href="../../nl/blog/three-ways-to-own-property-indonesia.html">NL</a></div>
 </nav>
 
 <article class="post">
