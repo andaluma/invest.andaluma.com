@@ -120,6 +120,20 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
 .hub-item h3 { font-family:'Playfair Display',serif; font-size:1.22rem; font-weight:700; color:var(--dark); line-height:1.3; margin-bottom:0.4rem; }
 .hub-item p { font-size:0.9rem; color:var(--muted); line-height:1.65; max-width:64ch; }
 @media(max-width:760px){ .hub-story { flex-direction:column; align-items:flex-start; } .hub-story .hs-arrow { display:none; } }
+
+/* ---- Project teasers ---- */
+.project-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.5rem; }
+.project-teaser { background:#fff; border:1.5px solid var(--border); border-radius:12px; overflow:hidden; text-decoration:none; color:var(--dark); display:flex; flex-direction:column; transition:transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+.project-teaser:hover { transform:translateY(-2px); box-shadow:0 16px 32px -24px rgba(26,18,8,0.4); border-color:rgba(10,122,136,0.35); }
+.project-teaser-img { aspect-ratio:4/3; overflow:hidden; position:relative; }
+.project-teaser-img img { display:block; width:100%; height:100%; object-fit:cover; }
+.project-teaser-badge { position:absolute; top:0.75rem; right:0.75rem; background:var(--coral); color:#fff; font-family:'DM Sans',sans-serif; font-size:0.66rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:0.3rem 0.65rem; border-radius:3px; }
+.project-teaser-badge.amber { background:var(--amber); }
+.project-teaser-body { padding:1.25rem 1.4rem 1.5rem; flex:1; display:flex; flex-direction:column; }
+.project-teaser h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem; }
+.project-teaser p { font-size:0.87rem; color:var(--muted); line-height:1.6; flex:1; }
+.project-teaser-who { font-size:0.75rem; color:var(--teal); font-weight:500; letter-spacing:0.02em; margin-bottom:0.35rem; }
+@media(max-width:640px){ .project-grid { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -192,6 +206,64 @@ footer { background:var(--dark); color:rgba(255,255,255,0.7); padding:3rem 4rem;
     </li>
 
   </ol>
+
+  <h2 class="hub-h2">Los proyectos</h2>
+  <p class="hub-note">Los que pasaron mi primera prueba sobre el terreno. Las cifras completas, mínimos y estructuración están en la guía — esto es solo qué es cada uno.</p>
+
+  <div class="project-grid">
+
+    <a class="project-teaser" href="blog/one-month-on-lombok.html#green-hub">
+      <div class="project-teaser-img"><img src="../downloads/guide-greenhub.jpg" alt="Render de The Green Hub" /></div>
+      <div class="project-teaser-body">
+        <p class="project-teaser-who">Lionel y Javi · Kuta</p>
+        <h3>The Green Hub</h3>
+        <p>Coworking combinado con co-living, más una cafetería y espacio de eventos, en el primer espacio de este tipo en Kuta.</p>
+      </div>
+    </a>
+
+    <a class="project-teaser" href="blog/one-month-on-lombok.html#canvas">
+      <div class="project-teaser-img"><img src="../downloads/guide-canvas.jpg" alt="Render de Canvas" /></div>
+      <div class="project-teaser-body">
+        <p class="project-teaser-who">Shaun y Brandon · Are Guling</p>
+        <h3>Canvas</h3>
+        <p>Un hotel boutique sobre la playa de Areguling, pensado tanto para retiros de empresa como para huéspedes.</p>
+      </div>
+    </a>
+
+    <a class="project-teaser" href="blog/one-month-on-lombok.html#tampah-beach-villas">
+      <div class="project-teaser-img">
+        <img src="../downloads/guide-tampah.jpg" alt="Render de Tampah Beach Villas" />
+        <span class="project-teaser-badge">Agotado</span>
+      </div>
+      <div class="project-teaser-body">
+        <p class="project-teaser-who">Baraca Development · Playa de Tampah</p>
+        <h3>Tampah Beach Villas</h3>
+        <p>Villas justo en la playa de Tampah, la mayoría con piscina privada o laguna compartida. Agotado, se mantiene aquí como referencia.</p>
+      </div>
+    </a>
+
+    <a class="project-teaser" href="blog/one-month-on-lombok.html#terrana">
+      <div class="project-teaser-img"><img src="../downloads/guide-sereno.jpg" alt="Sereno Resort, el resort de bienestar ya operativo junto a Terrana" /></div>
+      <div class="project-teaser-body">
+        <p class="project-teaser-who">Andrik Sugiarto · Kuta, Lombok Tengah</p>
+        <h3>Terrana <span style="font-weight:400; color:var(--muted);">(Sereno)</span></h3>
+        <p>Apartamentos de bienestar en una colina cerca de Kuta, junto al Sereno Resort, ya operativo y con 96% de ocupación en temporada alta.</p>
+      </div>
+    </a>
+
+    <a class="project-teaser" href="blog/one-month-on-lombok.html#shanti-mantra-villas">
+      <div class="project-teaser-img">
+        <img src="../downloads/guide-shanti.jpg" alt="Render de Shanti Mantra Villas, colina con beach club" />
+        <span class="project-teaser-badge amber">Fase 1 casi agotada</span>
+      </div>
+      <div class="project-teaser-body">
+        <p class="project-teaser-who">Iván Torrecillas García &amp; Agustín Bellafont Deltoro</p>
+        <h3>Shanti Mantra Villas</h3>
+        <p>Un resort de villas en una colina con vistas al mar y beach club propio, entre Kuta y Areguling.</p>
+      </div>
+    </a>
+
+  </div>
 </main>
 
 <section class="story-next">
