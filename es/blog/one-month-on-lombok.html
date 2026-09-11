@@ -456,7 +456,7 @@ p.pullquote { font-family:'Playfair Display',serif; font-style:italic; font-size
           body: JSON.stringify({ email: email, source: 'one-month-lombok-es' })
         });
         if (res.ok) {
-          status.textContent = 'Ya casi está — revisa tu correo para confirmar.'; status.className = 'form-status ok';
+          status.textContent = 'Ya casi está, revisa tu correo para confirmar.'; status.className = 'form-status ok';
           if (window.investTrack) window.investTrack('Lead', { content_name: 'one-month-lombok-guide-es' });
           form.reset();
         } else {

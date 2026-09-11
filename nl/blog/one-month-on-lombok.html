@@ -456,7 +456,7 @@ p.pullquote { font-family:'Playfair Display',serif; font-style:italic; font-size
           body: JSON.stringify({ email: email, source: 'one-month-lombok-nl' })
         });
         if (res.ok) {
-          status.textContent = 'Bijna klaar — check je e-mail om te bevestigen.'; status.className = 'form-status ok';
+          status.textContent = 'Bijna klaar, check je e-mail om te bevestigen.'; status.className = 'form-status ok';
           if (window.investTrack) window.investTrack('Lead', { content_name: 'one-month-lombok-guide-nl' });
           form.reset();
         } else {
